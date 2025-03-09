@@ -6,6 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
 <header>
 	<div class="scroll-area">
@@ -52,7 +53,7 @@
 			<div class="row align-items-center">
 				<div class="col-lg-2">
 					<div class="logo-container d-flex align-items-center justify-content-between">
-						<a class="logo_img" href="/" title="techno">
+						<a class="logo_img" href="/" title="techno"style="--bs-gutter-x: 4.5rem;">
 							<img src="store/logo.svg" alt="">
 						</a>
 						<button type="button" class="color-w lang-s d-none d-lg-block" data-current-lang="{{ session('locale') }}" id="langToggle" style="color: #fcfcfc;color: #fcfcfc;
@@ -106,13 +107,13 @@
 								<ul class="sub-menu">
 									<li><a href="{{ route('department.structure') }}">{{ session('locale') === 'en' ? 'Structure' : 'الهيكلية' }}</a></li>
 									<li><a
-											href="">{{ session('locale') === 'en' ? 'Vision & Goals' : 'رؤية و اهداف المركز' }}</a>
+											href="{{ route('department_vision') }}">{{ session('locale') === 'en' ? 'Vision & Goals' : 'رؤية و اهداف المركز' }}</a>
 									</li>
 									<li><a
-											href="">{{ session('locale') === 'en' ? 'Head’s Message' : 'كلمة رئيس القسم' }}</a>
+											href="{{ route('department_mission') }}">{{ session('locale') === 'en' ? 'Head’s Message' : 'كلمة رئيس القسم' }}</a>
 									</li>
 									<li><a
-											href="">{{ session('locale') === 'en' ? 'About the Center' : 'عن المركز' }}</a>
+											href="{{ route('department_goals') }}">{{ session('locale') === 'en' ? 'About the Center' : 'عن المركز' }}</a>
 									</li>
 
 								</ul>
@@ -130,13 +131,13 @@
 										</i></span></a>
 								<ul class="sub-menu">
 									<li><a
-											href="/">{{ session('locale') === 'en' ? 'Annual Plan' : 'الخطة السنوية' }}</a>
+											href="{{ route('clc_annual_plan.index') }}">{{ session('locale') === 'en' ? 'Annual Plan' : 'الخطة السنوية' }}</a>
 									</li>
 									<li><a
-											href="">{{ session('locale') === 'en' ? 'Training Programs' : 'برامج المركز التدريبية' }}</a>
+											href="{{ route('program') }}">{{ session('locale') === 'en' ? 'Training Programs' : 'برامج المركز التدريبية' }}</a>
 									</li>
 									<li><a
-											href="">{{ session('locale') === 'en' ? 'Course Registration' : 'تسجيل دورة' }}</a>
+											href="{{ route('create') }}">{{ session('locale') === 'en' ? 'Course Registration' : 'تسجيل دورة' }}</a>
 									</li>
 
 								</ul>
@@ -182,13 +183,13 @@
 										</i></span></a>
 								<ul class="sub-menu">
 									<li><a
-											href="/">{{ session('locale') === 'en' ? 'Plagiarism Detection' : 'الاستلال الإلكتروني' }}</a>
+											href="{{ route('plagiarism.index') }}">{{ session('locale') === 'en' ? 'Plagiarism Detection' : 'الاستلال الإلكتروني' }}</a>
 									</li>
-									<li><a href="">{{ session('locale') === 'en' ? 'Certificates' : 'الشهادات' }}</a>
+									<li><a href="{{ route('certificates.index') }}">{{ session('locale') === 'en' ? 'Certificates' : 'الشهادات' }}</a>
 									</li>
 								</ul>
 							</li>
-							<li><a href="/">{{ session('locale') === 'en' ? 'Contact Us' : 'اتصل بنا' }}</a></li>
+							<li><a href="{{ route('contact.index') }}">{{ session('locale') === 'en' ? 'Contact Us' : 'اتصل بنا' }}</a></li>
 						</ul>
 
 					</nav>

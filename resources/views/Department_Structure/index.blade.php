@@ -1,91 +1,176 @@
+<style>
+    .techno_nav_manu {
+        background: #2c3e50 !important;
+        z-index: 444;
+        position: relative;
+        margin-bottom: -91px;
+        border-bottom: 1px solid #807e94;
+    }
+</style>
 @extends('layouts.main')
 
 @section('content')
-<style>
-    body {
-        /* font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #eef2f3;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh; */
-    }
-    .container {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    .circle {
-        width: 180px;
-        height: 180px;
-        background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
-        color: white;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 22px;
-        font-weight: bold;
-        text-align: center;
-        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-        position: relative;
-        z-index: 2;
-    }
-    .content {
-        position: relative;
-        width: 100%;
-        /* max-width: 1000px; */
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        padding: 20px;
-    }
-    .content .item {
-        width: 40%;
-        background: linear-gradient(135deg, #ff758c, #ff7eb3);
-        color: white;
-        margin: 10px;
-        padding: 20px;
-        border-radius: 8px;
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-        transition: transform 0.3s, box-shadow 0.3s;
-        position: relative;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    .content .item:nth-child(even) {
-        background: linear-gradient(135deg, #17ead9, #6078ea);
-    }
-    .content .item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
-    }
-    .connector {
-        width: 2px;
-        height: 50px;
-        background: #444;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-</style>
-<div class="container">
-    <div class="content">
-        <div class="item">{{ session('locale') === 'en' ? 'Administrative and Financial Division' : 'الشعبة الإدارية والمالية' }}</div>
-        <div class="connector"></div>
-        <div class="item">{{ session('locale') === 'en' ? 'Training and Qualification Division' : 'شعبة التدريب والتأهيل' }}</div>
-    </div>
-    <div class="circle">{{ session('locale') === 'en' ? 'Department Structure' : 'هيكلية القسم' }}</div>
-    <div class="content">
-        <div class="item">{{ session('locale') === 'en' ? 'Development and Community Service Division' : 'شعبة التطوير وخدمة المجتمع' }}</div>
-        <div class="connector"></div>
-        <div class="item">{{ session('locale') === 'en' ? 'Ibn Sina E-Learning Division' : 'شعبة ابن سينا للتعليم الإلكتروني' }}</div>
-    </div>
-</div>
+    <style>
+        .structure-box {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            margin: 40px auto;
+            max-width: 800px;
+        }
+
+        .structure-header {
+            background: #2c3e50;
+            color: white;
+            padding: 25px;
+            border-radius: 15px 15px 0 0;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            border-bottom: 5px solid #34495e;
+        }
+
+        .structure-content {
+            padding: 30px 50px;
+            background: #f8f9fa;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .divisions-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .division-item {
+            background: #3498db;
+            color: white;
+            margin: 15px 0;
+            padding: 15px 25px;
+            border-radius: 10px;
+            position: relative;
+            padding-right: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 3px 10px rgba(52, 152, 219, 0.2);
+        }
+
+        .division-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .division-item::before {
+            content: '★';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        [dir="ltr"] .division-item {
+            padding-left: 40px;
+            padding-right: 25px;
+        }
+
+        [dir="ltr"] .division-item::before {
+            right: auto;
+            left: 15px;
+        }
+    </style>
+
+    @if(!empty($departments['data'][0]))
+        @php
+            $dept = $departments['data'][0];
+            $content = html_entity_decode(strip_tags($dept['content']));
+            $divisions = array_values(array_filter(array_map(function ($line) {
+                return trim($line, " \t\n\r\0\x0B\xC2\xA0");
+            }, explode("\n", $content)), function ($line) {
+                return !empty($line) && $line !== "\xC2\xA0" && $line !== "\u{A0}";
+            }));
+        @endphp
+
+        <div class="structure-box" style="margin-top: 8%;">
+            <div class="structure-header">
+                {{ $dept['arttitle'] }}
+            </div>
+            <div class="structure-content">
+                <ul class="divisions-list">
+                    @foreach($divisions as $division)
+                        <li class="division-item">{{ $division }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    @else
+        <div class="alert alert-info text-center">
+            {{ session('locale') === 'en' ? 'No department structure available' : 'لا يوجد هيكل تنظيمي متاح' }}
+        </div>
+    @endif
+    @include('partials.footer')
 @endsection
+
+@push('scripts')
+    <!-- <script>
+                var swiper = new Swiper(".mySwiper_new", {
+                    autoplay: { delay: 7000 }
+                });
+            </script> -->
+
+    <script src="store/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper_new", {
+            autoplay: {
+                delay: 7000
+            }
+        });
+    </script>
+    <script src=""></script>
+
+    <script src="{{ asset('s/jquery-3.2.1.min.js.download') }}"></script>
+    <script src="{{ asset('s/jquery.meanmenu.js.download') }}"></script>
+    <script src="{{ asset('s/theme.js.download') }}"></script>
+
+    <script>
+        $(window).on('scroll', function () {
+            var scrolled = $(window).scrollTop();
+            if (scrolled > 300) $('.go-top').addClass('active');
+            if (scrolled < 300) $('.go-top').removeClass('active');
+        });
+
+        $('.go-top').on('click', function () {
+            $("html, body").animate({
+                scrollTop: "0"
+            }, 1200);
+        });
+    </script>
+
+
+    <!-- <script>
+                    document.querySelectorAll('.lang-btn').forEach(btn => {
+                        btn.addEventListener('click', function () {
+                            const lang = this.dataset.lang;
+
+                            fetch('switch_language.php', {
+                                method: 'POST',
+                                body: JSON.stringify({ lang: lang }),
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                }
+                            })
+                                .then(response => response.json())
+                                .then(data => {
+                                    if (data.success) {
+                                        document.documentElement.lang = data.lang;
+                                        document.documentElement.dir = data.dir;
+                                        location.reload();
+                                    }
+                                });
+                        });
+                    });
+                </script> -->
+
+
+@endpush

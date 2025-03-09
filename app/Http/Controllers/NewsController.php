@@ -10,9 +10,16 @@ class NewsController extends Controller
 {
     protected function getApiUrl()
     {
-        $lang = session('locale');
+        $lang = session('locale') ?? 'ar';
         $path = $lang === 'ar' ? 'arabic' : 'english';
         return "https://uowa.edu.iq/{$path}/api/unidep-news";
+    }
+
+    protected function getPageUrl()
+    {
+        $lang = session("locale");
+        $path = $lang === 'ar' ? 'arabic' : 'english';
+        return "https://uowa.edu.iq/{$path}/api/news-get";
     }
 
     protected function getApiUrl_unidep_slider()
@@ -56,23 +63,28 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        $newsData = Session::get('newsdata');
-        $newsItem = null;
+        // return dd($id);
+        try {
+            // Make API request to get news details
+            $response = Http::withHeaders([
+                'Authorization' => 'Bearer ' . $this->token
+            ])->asForm()->post($this->getPageUrl(), [
+                'id' => $id
+            ]);
 
-        if ($newsData && isset($newsData['data'])) {
-            foreach ($newsData['data'] as $item) {
-                if ($item['id'] == $id) {
-                    $newsItem = $item;
-                    break;
-                }
+            if (!$response->successful()) {
+                // return response()->json($response->json());
+                return back()->with('error', 'حدث خطأ أثناء جلب تفاصيل الخبر');
             }
-        }
 
-        if (!$newsItem) {
-            return redirect()->route('news.index');
-        }
+            $newsItem = $response->json();
+            // return response()->json($newsItem) ;
+            return view('news.show', compact('newsItem'));
 
-        return view('front.detail', compact('newsItem'));
+        } catch (\Exception $e) {
+            // return response()->json($e);
+            return back()->with('error', 'حدث خطأ في النظام: ' . $e->getMessage());
+        }
     }
 
     /**

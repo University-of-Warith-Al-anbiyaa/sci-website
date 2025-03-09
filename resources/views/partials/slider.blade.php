@@ -4,11 +4,11 @@
 $newsDataslider = !empty($slider) ? $slider : [];
         ?>
 			<?php if (!empty($newsDataslider)): ?>
-			<?php foreach (array_slice($newsDataslider, 0, 8) as $newsItem): ?>
+			<?php foreach (array_slice($newsDataslider, 0, 10) as $newsItem): ?>
 			<div class="swiper-slide slider-area align-items-center d-flex">
 				<div class="container">
 					<div class="row d-flex align-items-center slider position-relative">
-						<div class="col-lg-7 col-md-6 col-sm-12">
+						<div class="col-lg-6 col-md-6 col-sm-12">
 							<div class="slider-content text-right mb-4">
 								<h4>{{ session('locale') === 'en' ? 'Continuing Education Center' : 'مركز التعليم المستمر' }}
 								</h4>

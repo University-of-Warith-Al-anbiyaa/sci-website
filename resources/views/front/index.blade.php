@@ -249,7 +249,7 @@ if (!empty($news)) {
 	</div>
 </div>
 
-<div class="container-fluid p-0">
+<!-- <div class="container-fluid p-0">
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-12 p-0" style="z-index: 1;">
 			<div class="w-100 size-img-dean" style="background-image:url(./store/dean2.jpeg);
@@ -281,7 +281,7 @@ if (!empty($news)) {
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 @include('partials.footer')
 @endsection
 
@@ -307,12 +307,7 @@ if (!empty($news)) {
 	<script src="{{ asset('s/jquery-3.2.1.min.js.download') }}"></script>
 	<script src="{{ asset('s/jquery.meanmenu.js.download') }}"></script>
 	<script src="{{ asset('s/theme.js.download') }}"></script>
-	<!-- <script src="/clc/request.js"></script> -->
-
-
-	<!-- <script src="s/jquery.meanmenu.js.download"></script>
-			<script src="s/theme.js.download"></script>
-			<script src="/clc/request.js"></script> -->
+	
 	<script>
 		$(window).on('scroll', function () {
 			var scrolled = $(window).scrollTop();

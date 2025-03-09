@@ -19,7 +19,7 @@ class DepartmentStructureController extends Controller
 
     public function index()
     {
-        $departments = $this->fetchNewsData();
+        $departments = $this->dep_structureData();
 
         return view('department_structure.index', compact('departments'));
     }
@@ -27,12 +27,87 @@ class DepartmentStructureController extends Controller
     /**
      * Fetch news data from external API.
      */
-    private function fetchNewsData()
+    private function dep_structureData()
     {
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $this->token
         ])->get($this->getApiUrl(), [  // Changed this line to use getApiUrl()
             'category' => 'dep-structure',
+            'dep_id' => 5
+        ]);
+
+        if (!$response->successful()) {
+            throw new \Exception('API request failed with status: ' . $response->status());
+        }
+
+        $data = $response->json();
+        
+        return $data;
+    }
+
+    public function department_vision()
+    {
+        $department_vision = $this->department_visionData();
+
+        return view('department_structure.department_vision', compact('department_vision'));
+    }
+
+    private function department_visionData()
+    {
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $this->token
+        ])->get($this->getApiUrl(), [  // Changed this line to use getApiUrl()
+            'category' => 'department-vision',
+            'dep_id' => 5
+        ]);
+
+        if (!$response->successful()) {
+            throw new \Exception('API request failed with status: ' . $response->status());
+        }
+
+        $data = $response->json();
+        
+        return $data;
+    }
+
+    public function vision_section()
+    {
+        $vision_section = $this->vision_sectionData();
+
+        return view('department_structure.vision_section', compact('vision_section'));
+    }
+
+    private function vision_sectionData()
+    {
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $this->token
+        ])->get($this->getApiUrl(), [  // Changed this line to use getApiUrl()
+            'category' => 'vision-section',
+            'dep_id' => 5
+        ]);
+
+        if (!$response->successful()) {
+            throw new \Exception('API request failed with status: ' . $response->status());
+        }
+
+        $data = $response->json();
+        
+        return $data;
+    }
+
+    public function about_department()
+    {
+        $about_department = $this->about_departmentData();
+
+        return view('department_structure.about_department1', compact('about_department'));
+    }
+
+    private function about_departmentData()
+    {
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $this->token
+        ])->get($this->getApiUrl(), [  // Changed this line to use getApiUrl()
+            'category' => 'about-department',
             'dep_id' => 5
         ]);
 

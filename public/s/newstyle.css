@@ -102,7 +102,8 @@ ul.nav_scroll li i {
     width: 100%;
     -webkit-box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.1);
     box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.1);
-    background: #000000;
+    /* background: #000000; */
+    background: #121b2c;
     transition: .5s;
     z-index: 4;
     border: 0;
@@ -383,7 +384,8 @@ a.meanmenu-reveal {
     background: #262626;
   }
 .slider-area {
-    background: url(../store/bg.jpg);
+    /* background: url(../store/bg.jpg); */
+    background: url(../store/background1.jpg.jpg);
     height: 875px !important;
     background-position: center center;
     background-attachment: scroll;
@@ -1214,7 +1216,10 @@ p.text-color {
 .company_icon a i:hover {
     color: #fff;
 }
-.widget.widget-nav-menu {
+html[dir="ltr"] .widget.widget-nav-menu {
+    padding-right: 15px;
+}
+html[dir="rtl"] .widget.widget-nav-menu {
     padding-left: 15px;
 }
 h4.widget-title {
@@ -1234,13 +1239,24 @@ h4.widget-title span {
     z-index: 1;
     padding-right: 8px;
 }
-.menu-quick-link-content ul li:before ,.footer-recent-post ul li:before{
+html[dir="rtl"] .menu-quick-link-content ul li:before ,.footer-recent-post ul li:before{
     position: absolute;
     z-index: 1;
     content: "";
     top: 23px;
     right: -10px;
     width: 10px;
+    height: 1px;
+    border-radius: 50%;
+    background: #fff;
+}
+html[dir="ltr"]  .menu-quick-link-content ul li:before ,.footer-recent-post ul li:before{
+    position: absolute;
+    z-index: 1;
+    content: "";
+    top: 23px;
+    left: -20px;
+    width: 13px;
     height: 1px;
     border-radius: 50%;
     background: #fff;
@@ -1267,10 +1283,16 @@ h4.widget-title span {
     margin-bottom: 24px;
 }
 
-.footer-socail-icon {
+html[dir="rtl"] .footer-socail-icon {
     float: right;
     margin-left: 20px;
 }
+
+html[dir="ltr"] .footer-socail-icon {
+    float: left;
+    margin-right: 20px;
+}
+
 .footer-socail-icon i {
     display: inline-block;
     font-size: 26px;
@@ -1300,8 +1322,8 @@ h4.widget-title span {
     padding: 20px 0 0;
 }
 /* responsive */
-
-@media (min-width: 1200px) and (max-width: 1499px) {
+    
+@media (min-width: 1300px) and (max-width: 1499px) {
     .dreamit-slider-thumb-1 img {
         width: 100%;
     }
@@ -1309,12 +1331,29 @@ h4.widget-title span {
         margin-left: -150px;
     }
     }
+    @media (min-width: 1200px) and (max-width: 1299px) {
+        .techno_menu > ul > li > a {
+            /* margin: 24px 7px; */
+            font-size: 14px;
+        }
+    }
     @media (min-width: 992px) and (max-width: 1199px) {
     .logo2 img {
         width: 75%;
     }
+    @media (min-width: 992px ) and (max-width: 1000px) {
+        .col-lg-5 {
+            flex: 0 0 auto;
+            width: 41.66666667%;
+            margin-top: auto;
+        }
+        .container {
+            max-width: 900px;
+        }
+    }
     .techno_menu > ul > li > a {
         margin: 24px 7px;
+        font-size: 10px;
     }
     .sticky .techno_menu > ul > li > a {
         margin: 30px 8px;
@@ -1328,9 +1367,11 @@ h4.widget-title span {
     .slider-socail-icon {
         left: 5px;
     }
+    
     .dreamit-slider-thumb-1 {
-        right: -148px;
+        /* right: -148px; */
         top: -126px;
+        margin-top: 175px;
     }
     .dreamit-slider-thumb-1 img {
         width: 82%;
@@ -1344,7 +1385,9 @@ h4.widget-title span {
     .footer-socail-info2 {
         overflow: hidden;
     }
+    
     }
+    
     @media (min-width: 768px) and (max-width: 991px) {
     .comment-dean{
         padding: 25px 20px 25px !important;
@@ -1393,6 +1436,7 @@ h4.widget-title span {
         margin-top: 5px;
     }
     }
+   
     @media only screen and (min-width: 600px) and (max-width: 767px) {
         .comment-dean{
             padding: 25px 20px 25px !important;
