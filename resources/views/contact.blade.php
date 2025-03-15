@@ -1,6 +1,6 @@
 <style>
     .techno_nav_manu {
-        background: #2c3e50 !important;
+        background: #0C244E !important;
         z-index: 444;
         position: relative;
         margin-bottom: -91px;
@@ -19,7 +19,7 @@
     }
 
     .contact-header {
-        background: #2c3e50 !important;
+        background: #10316B !important;
         color: white;
         padding: 40px;
         border-radius: 15px;
@@ -53,7 +53,7 @@
     .form-label {
         font-weight: 500;
         margin-bottom: 8px;
-        color: #2c3e50;
+        color: #10316B;
     }
 
     .form-control {
@@ -64,12 +64,12 @@
     }
 
     .form-control:focus {
-        border-color: #3498db;
-        box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+        border-color: #164392;
+        box-shadow: 0 0 0 0.2rem rgba(22, 67, 146, 0.25);
     }
 
     .btn-submit {
-        background: #2c3e50 !important;
+        background: #10316B !important;
         color: white;
         border: none;
         border-radius: 8px;
@@ -82,7 +82,7 @@
 
     .btn-submit:hover {
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(44, 62, 80, 0.3);
+        box-shadow: 0 5px 15px rgba(16, 49, 107, 0.3);
     }
 
     .contact-info {
@@ -95,7 +95,7 @@
     .contact-info h3 {
         font-size: 1.8rem;
         margin-bottom: 20px;
-        color: #2c3e50;
+        color: #10316B;
     }
 
     .contact-info p {
@@ -110,16 +110,23 @@
         margin-bottom: 15px;
     }
 
-    .contact-info .info-item i {
+    html[dir="ltr"] .contact-info .info-item i {
         font-size: 24px;
-        color: #3498db;
+        color: #164392;
         margin-right: 15px;
+    }
+    html[dir="rtl"] .contact-info .info-item i {
+        font-size: 24px;
+        color: #164392;
+        margin-left: 15px;
     }
 
     .contact-info .info-item span {
         font-size: 1.1rem;
-        color: #2c3e50;
+        color: #10316B;
+        margin-left: 10px; /* Added margin to create space between icon and text */
     }
+
 </style>
 
 <div class="contact-container">
@@ -158,19 +165,19 @@
                 <h3>{{ session('locale') === 'ar' ? 'معلومات الاتصال' : 'Contact Information' }}</h3>
                 <div class="info-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>{{ session('locale') === 'ar' ? 'كربلاء طريق بغداد - عمود 11' : 'Karbala, Baghdad Road - Column 11' }}</span>
+                    <span>{{ session('locale') === 'ar' ? 'كربلاء طريق بغداد - عمود 119' : 'Karbala, Baghdad Road - Column 11' }}</span>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-phone"></i>
-                    <span>0772647382</span>
+                    <span>07734896226 - 07801003060 </span>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-envelope"></i>
-                    <span>uowa@gmail.com</span>
+                    <span>clc@uowa.edu.iq</span>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-clock"></i>
-                    <span>{{ session('locale') === 'ar' ? 'ساعات العمل: الأحد - الخميس: 9 صباحًا - 5 مساءً' : 'Working Hours: Sunday - Thursday: 9 AM - 5 PM' }}</span>
+                    <span>{{ session('locale') === 'ar' ? 'ساعات العمل: السبت - الأربعاء: 8 صباحًا - 2 مساءً' : 'Working Hours: Saturday - Wednesday: 8 AM - 2 PM' }}</span>
                 </div>
             </div>
         </div>

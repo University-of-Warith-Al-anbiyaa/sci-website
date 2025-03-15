@@ -171,7 +171,7 @@
 											href="https://uowa.edu.iq/arabic/exam/final">{{ session('locale') === 'en' ? 'Final Exam Schedule' : 'جدول الامتحانات النهائي' }}</a>
 									</li>
 									<li><a
-											href="https://uowa.edu.iq/arabic/clc/guide">{{ session('locale') === 'en' ? 'Student E-Learning Guide' : 'دليل الطالب للتعلم الإلكتروني' }}</a>
+											href="https://uowa.edu.iq/arabic/guide">{{ session('locale') === 'en' ? 'Student E-Learning Guide' : 'دليل الطالب للتعلم الإلكتروني' }}</a>
 									</li>
 									<li><a
 											href="https://elearning.uowa.edu.iq/">{{ session('locale') === 'en' ? 'E-Learning Platform' : 'منصة التعليم الإلكتروني' }}</a>
