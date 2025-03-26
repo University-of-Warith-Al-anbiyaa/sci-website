@@ -19,7 +19,7 @@
         }
         .page-header {
             position: relative;
-            background: linear-gradient(135deg, #0C244E, #2a628f);
+            background: linear-gradient(135deg, #1e3c57, #2a628f);
             color: white;
             padding: 80px 0;
             text-align: center;

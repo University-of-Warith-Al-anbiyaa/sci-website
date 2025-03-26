@@ -136,7 +136,6 @@
 								<h3 class="fp100">
 									{{ session('locale') === 'en' ? 'E-Learning Platform' : 'منصة التعليم الالكتروني' }}
 								</h3>
-								
 								<p class="fp70">
 									{{ session('locale') === 'en' ?
 	'An online platform that supports and enhances the efficiency of e-learning at the university.'
@@ -181,10 +180,9 @@
 		<div class="row">
 			<div class="col-lg-12 col-sm-12">
 				<div class="dreamit-section-title text-center style-two position-relative">
-					<h5>{{ session('locale') === 'en' ? 'Latest News' : 'اخر الاخبار' }}</h5>
-						
+					<h5><?php echo session('locale') === 'ar' ? 'اخر الاخبار' : 'Latest News'; ?></h5>
 					<h1 class="py-3">
-						{{ session('locale') === 'en' ? 'News & Activities' : 'الاخبار والنشاطات'  }}
+						<?php echo session('locale') === 'ar' ? 'الاخبار والنشاطات' : 'News & Activities'; ?>
 					</h1>
 				</div>
 			</div>
@@ -227,7 +225,7 @@ if (!empty($news)) {
 						<div class="blog_button">
 							<a href="detail.php?id=<?= urlencode($newsItem['id']) ?>" class="read-more"
 								onclick='showNewsDetails(<?= json_encode($newsItem, JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_UNICODE) ?>)'>
-								<i class="fas fa-arrow-left"></i> {{ session('locale') === 'en' ? 'Read More' : 'اقرأ المزيد' }}
+								<i class="fas fa-arrow-left"></i> اقرأ المزيد
 							</a>
 						</div>
 
@@ -237,16 +235,14 @@ if (!empty($news)) {
 			<?php endforeach; ?>
 			@if(count($news['data']) > 3)
 				<div class="col-12 text-center mt-4">
-					<a href="{{ route('news.index') }}" class="view-all-news">
-						{{ session('locale') === 'en' ? 'View All News' : 'عرض جميع الأخبار' }}
-						<i class="fas fa-arrow-right mr-2"></i>
+					<a href="{{ route('news.index') }}" class="btn btn-primary view-all-news">
+						عرض جميع الأخبار
+						<i class="fas fa-arrow-left mr-2"></i>
 					</a>
 				</div>
 			@endif
 			<?php else: ?>
-			<div class="col-12 text-center">
-				{{ session('locale') === 'en' ? 'No news available' : 'لا توجد أخبار متاحة' }}
-			</div></div>
+			<div class="col-12 text-center">لا توجد أخبار متاحة</div>
 			<?php endif; ?>
 		</div>
 
