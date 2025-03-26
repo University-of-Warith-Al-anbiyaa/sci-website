@@ -11,7 +11,6 @@ class NewsController extends Controller
     protected function getApiUrl()
     {
         $lang = session('locale') ?? 'ar';
-        // return dd($lang);
         $path = $lang === 'ar' ? 'arabic' : 'english';
         return "https://uowa.edu.iq/{$path}/api/unidep-news";
     }
@@ -37,18 +36,13 @@ class NewsController extends Controller
      */
     public function index()
     {
+        // $lang = session('locale');
         // return response()->json([
         //     'success' => true,
         //     'message' => 'News data fetched successfully',
         //     'data' => $this->getApiUrl()
         // ]);
         try {
-            if (session('locale') == null) {
-                session()->put('locale', 'ar');
-            }
-            
-            // return dd(session('locale'));
-            
             $news = $this->fetchNewsData();
             $slider = $this->fetch_unidep_sliderData();
             // return response()->json([

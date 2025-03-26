@@ -11,7 +11,7 @@ class LanguageController extends Controller
     {
         // Validate locale
         $locale = in_array($request->locale, ['en', 'ar']) ? $request->locale : 'ar';
-        
+        //  return dd($locale);
         // Store in session
         session()->put('locale', $locale);
         
