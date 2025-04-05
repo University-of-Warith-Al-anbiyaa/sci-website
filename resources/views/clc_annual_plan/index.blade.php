@@ -47,7 +47,7 @@
         }
 
         .courses-table td {
-            padding: 12px 15px;
+            padding: 12px 5px;
             border-bottom: 1px solid #eee;
             text-align: center;
         }
@@ -79,6 +79,7 @@
             font-size: 0.85rem;
             background: #3498db;
             color: white;
+            display: inline-table;
         }
 
         .beneficiary-list {
@@ -295,7 +296,7 @@
                         <tr data-category="{{ $course['category'] }}">
                             <td style="text-align: right;">{{ $course['title'] }}</td>
                             <td>{{ $course['department'] }}</td>
-                            <td><span class="category-badge">{{ $course['category'] }}</span></td>
+                            <td ><span class="category-badge">{{ $course['category'] }}</span></td>
                             <td>
                                 <div class="beneficiary-list">
                                     @foreach($course['beneficiary'] as $beneficiary)
