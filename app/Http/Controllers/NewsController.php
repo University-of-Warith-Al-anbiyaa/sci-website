@@ -51,10 +51,11 @@ class NewsController extends Controller
             // ]);
             return view('front.index', compact('news', 'slider'));
         } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Failed to fetch news: ' . $e->getMessage()
-            ], 500);
+            // return response()->json([
+            //     'success' => false,
+            //     'message' => 'Failed to fetch news: ' . $e->getMessage()
+            // ], 500);
+            return response()->view('errors.custom-error', [], 500);
         }
     }
 
@@ -83,7 +84,9 @@ class NewsController extends Controller
 
         } catch (\Exception $e) {
             // return response()->json($e);
-            return back()->with('error', 'حدث خطأ في النظام: ' . $e->getMessage());
+            // return back()->with('error', 'حدث خطأ في النظام: ' . $e->getMessage());
+            return response()->view('errors.custom-error', [], 500);
+
         }
     }
 
@@ -101,10 +104,12 @@ class NewsController extends Controller
                 'message' => 'News data stored successfully'
             ]);
         } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Failed to store news data: ' . $e->getMessage()
-            ], 500);
+            // return response()->json([
+            //     'success' => false,
+            //     'message' => 'Failed to store news data: ' . $e->getMessage()
+            // ], 500);
+            return response()->view('errors.custom-error', [], 500);
+
         }
     }
 
@@ -179,10 +184,12 @@ class NewsController extends Controller
                 ]
             ]);
         } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Failed to fetch news: ' . $e->getMessage()
-            ], 500);
+            // return response()->json([
+            //     'success' => false,
+            //     'message' => 'Failed to fetch news: ' . $e->getMessage()
+            // ], 500);
+            return response()->view('errors.custom-error', [], 500);
+
         }
     }
 
@@ -199,10 +206,12 @@ class NewsController extends Controller
                 'data' => $newsData
             ]);
         } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Failed to refresh news data: ' . $e->getMessage()
-            ], 500);
+            // return response()->json([
+            //     'success' => false,
+            //     'message' => 'Failed to refresh news data: ' . $e->getMessage()
+            // ], 500);
+            return response()->view('errors.custom-error', [], 500);
+
         }
     }
 }

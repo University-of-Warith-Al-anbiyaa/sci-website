@@ -17,7 +17,7 @@ $newsDataslider = !empty($slider) ? $slider : [];
 									<?= strip_tags($newsItem['content'], '<b><i><p>') ?>
 								</p>
 								<div class="slider-button">
-									<a href="/#"> قسم الأخبار <i>
+									<a href="{{ route('news.index') }}"> قسم الأخبار <i>
 											<svg width="800px" height="800px" class="mx-1 s-20 slider-link-hover"
 												viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 												<g id="SVGRepo_iconCarrier">
@@ -26,7 +26,8 @@ $newsDataslider = !empty($slider) ? $slider : [];
 												</g>
 											</svg>
 										</i></a>
-									<a class="slider-button3" href="/<?= urlencode($newsItem['id']) ?>"> المزيد <i>
+									<a class="slider-button3" href="{{ route('news.show', $newsItem['id']) }}"> 
+									{{ session('locale') === 'ar' ? ' عرض الخبر' : 'view New' }} <i>
 											<svg width="800px" style="transform: rotate(180deg);" height="800px"
 												class="mx-1 s-20" viewBox="0 0 24 24" fill="none"
 												xmlns="http://www.w3.org/2000/svg">

@@ -235,14 +235,14 @@ if (!empty($news)) {
 			<?php endforeach; ?>
 			@if(count($news['data']) > 3)
 				<div class="col-12 text-center mt-4">
-					<a href="{{ route('news.index') }}" class="btn btn-primary view-all-news">
-						عرض جميع الأخبار
-						<i class="fas fa-arrow-left mr-2"></i>
+					<a href="{{ route('news.index') }}" class="btn btn-primary view-all-news d-inline-flex align-items-center justify-content-center px-4 py-2">
+						<span class="mr-2">{{ session('locale') === 'en' ?  'View All News' :  'عرض جميع الأخبار' }}</span>
+						  <i class="fas fa-arrow-left"></i>
 					</a>
 				</div>
 			@endif
 			<?php else: ?>
-			<div class="col-12 text-center">لا توجد أخبار متاحة</div>
+			<div class="col-12 text-center">{{ session('locale') === 'en' ?  'Not Found' : 'لا توجد أخبار متاحة'}} </div>
 			<?php endif; ?>
 		</div>
 
