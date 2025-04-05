@@ -36,11 +36,16 @@ class NewsController extends Controller
      */
     public function index()
     {
-        // $lang = session('locale');
+        if(!session('locale'))
+        {
+            session()->put('locale', 'ar');
+        }
+        $lang = session('locale');
         // return response()->json([
         //     'success' => true,
         //     'message' => 'News data fetched successfully',
-        //     'data' => $this->getApiUrl()
+        //     'data' => $this->getApiUrl(),
+        //     'f'=> $lang
         // ]);
         try {
             $news = $this->fetchNewsData();

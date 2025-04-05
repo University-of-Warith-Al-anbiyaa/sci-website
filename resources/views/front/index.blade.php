@@ -180,9 +180,9 @@
 		<div class="row">
 			<div class="col-lg-12 col-sm-12">
 				<div class="dreamit-section-title text-center style-two position-relative">
-					<h5><?php echo session('locale') === 'ar' ? 'اخر الاخبار' : 'Latest News'; ?></h5>
+					<h5><?php echo session('locale') === 'en' ? 'Latest News' : 'اخر الاخبار'  ; ?></h5>
 					<h1 class="py-3">
-						<?php echo session('locale') === 'ar' ? 'الاخبار والنشاطات' : 'News & Activities'; ?>
+						<?php echo session('locale') === 'en' ?'News & Activities' : 'الاخبار والنشاطات'  ; ?>
 					</h1>
 				</div>
 			</div>

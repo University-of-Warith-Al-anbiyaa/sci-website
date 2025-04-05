@@ -1,6 +1,6 @@
 <style>
     .techno_nav_manu {
-        background: #2c3e50  !important;
+        background: #2c3e50 !important;
         z-index: 444;
         position: relative;
         margin-bottom: -91px;
@@ -35,7 +35,7 @@
             position: sticky;
             top: 100px;
             height: fit-content;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
         .admin-image {
@@ -44,7 +44,7 @@
             border-radius: 20px;
             margin: -80px auto 20px;
             border: 8px solid #fff;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             object-fit: cover;
             background: #fff;
             transition: transform 0.3s ease;
@@ -75,7 +75,7 @@
             background: white;
             border-radius: 20px;
             padding: 40px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
         .message-header {
@@ -151,12 +151,15 @@
 
             <div class="message-content">
                 <div class="message-header">
-                    <h1 class="message-title">{{ app()->getLocale() === 'ar' ? 'كلمة المسؤول' : "Administrator's Message" }}</h1>
-                    <div class="message-subtitle">{{ app()->getLocale() === 'ar' ? 'مركز التعليم المستمر' : 'Continuing Education Center' }}</div>
+                    <h1 class="message-title">{{ app()->getLocale() === 'ar' ? 'كلمة المسؤول' : "Administrator's Message" }}
+                    </h1>
+                    <div class="message-subtitle">
+                        {{ app()->getLocale() === 'ar' ? 'مركز التعليم المستمر' : 'Continuing Education Center' }}</div>
                 </div>
 
                 <div class="message-body">
                     <i class="fas fa-quote-right quote-icon"></i>
+                    </br>
                     {!! $message ?? 'يسعى مركز التعليم المستمر في جامعة وارث الأنبياء إلى تقديم أفضل الخدمات التعليمية والتدريبية لتلبية احتياجات المجتمع وتطوير المهارات المهنية والعلمية.' !!}
                 </div>
             </div>
@@ -166,66 +169,66 @@
 @endsection
 
 @push('scripts')
-	<!-- <script>
-			var swiper = new Swiper(".mySwiper_new", {
-				autoplay: { delay: 7000 }
-			});
-		</script> -->
+    <!-- <script>
+                var swiper = new Swiper(".mySwiper_new", {
+                    autoplay: { delay: 7000 }
+                });
+            </script> -->
 
-	<script src="store/swiper-bundle.min.js"></script>
+    <script src="store/swiper-bundle.min.js"></script>
 
-	<!-- Initialize Swiper -->
-	<script>
-		var swiper = new Swiper(".mySwiper_new", {
-			autoplay: {
-				delay: 7000
-			}
-		});
-	</script>
-	<script src=""></script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper_new", {
+            autoplay: {
+                delay: 7000
+            }
+        });
+    </script>
+    <script src=""></script>
 
-	<script src="{{ asset('s/jquery-3.2.1.min.js.download') }}"></script>
-	<script src="{{ asset('s/jquery.meanmenu.js.download') }}"></script>
-	<script src="{{ asset('s/theme.js.download') }}"></script>
-	
-	<script>
-		$(window).on('scroll', function () {
-			var scrolled = $(window).scrollTop();
-			if (scrolled > 300) $('.go-top').addClass('active');
-			if (scrolled < 300) $('.go-top').removeClass('active');
-		});
+    <script src="{{ asset('s/jquery-3.2.1.min.js.download') }}"></script>
+    <script src="{{ asset('s/jquery.meanmenu.js.download') }}"></script>
+    <script src="{{ asset('s/theme.js.download') }}"></script>
 
-		$('.go-top').on('click', function () {
-			$("html, body").animate({
-				scrollTop: "0"
-			}, 1200);
-		});
-	</script>
+    <script>
+        $(window).on('scroll', function () {
+            var scrolled = $(window).scrollTop();
+            if (scrolled > 300) $('.go-top').addClass('active');
+            if (scrolled < 300) $('.go-top').removeClass('active');
+        });
+
+        $('.go-top').on('click', function () {
+            $("html, body").animate({
+                scrollTop: "0"
+            }, 1200);
+        });
+    </script>
 
 
-	<!-- <script>
-				document.querySelectorAll('.lang-btn').forEach(btn => {
-					btn.addEventListener('click', function () {
-						const lang = this.dataset.lang;
+    <!-- <script>
+                    document.querySelectorAll('.lang-btn').forEach(btn => {
+                        btn.addEventListener('click', function () {
+                            const lang = this.dataset.lang;
 
-						fetch('switch_language.php', {
-							method: 'POST',
-							body: JSON.stringify({ lang: lang }),
-							headers: {
-								'Content-Type': 'application/json'
-							}
-						})
-							.then(response => response.json())
-							.then(data => {
-								if (data.success) {
-									document.documentElement.lang = data.lang;
-									document.documentElement.dir = data.dir;
-									location.reload();
-								}
-							});
-					});
-				});
-			</script> -->
+                            fetch('switch_language.php', {
+                                method: 'POST',
+                                body: JSON.stringify({ lang: lang }),
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                }
+                            })
+                                .then(response => response.json())
+                                .then(data => {
+                                    if (data.success) {
+                                        document.documentElement.lang = data.lang;
+                                        document.documentElement.dir = data.dir;
+                                        location.reload();
+                                    }
+                                });
+                        });
+                    });
+                </script> -->
 
 
 @endpush

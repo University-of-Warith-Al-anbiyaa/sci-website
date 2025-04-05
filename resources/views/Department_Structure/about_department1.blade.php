@@ -232,7 +232,7 @@
             </div>
         </div>
 
-        <div class="stats-container">
+        <!-- <div class="stats-container">
             <div class="stat-item">
                 <div class="stat-number">1000+</div>
                 <div class="stat-label">{{ app()->getLocale() === 'ar' ? 'طالب' : 'Students' }}</div>
@@ -250,7 +250,7 @@
                     <div class="stat-label">{{ app()->getLocale() === 'ar' ? 'سنة خبرة' : 'Years' }}</div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 @endsection
 

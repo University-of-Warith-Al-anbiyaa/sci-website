@@ -127,7 +127,7 @@
                 </div>
                 <div class="vision-content">
                     <div class="content-block">
-                        <i class="fas fa-scroll"></i>
+                        <!-- <i class="fas fa-scroll"></i> -->
                         <div style="text-align: justify; line-height: 1.6;">{!! $content !!}</div>
                     </div>
                 </div>

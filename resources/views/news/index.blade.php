@@ -225,6 +225,137 @@ use Illuminate\Support\Str;
                     background: #3498db;
                     border-radius: 2px;
                 }
+                /* Add these new pagination styles */
+        .pagination-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-top: 30px;
+        }
+
+        ul.pagination li {
+            display: contents;
+            text-align: center;
+            background-color: rgb(6, 24, 42)
+        }
+
+        ul.pagination li a {
+            color: #2c3e50;
+            display: flex;
+            min-width: 32px;
+            border-radius: 50px !important;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .page-items {
+            list-style: none;
+        }
+
+        .page-links {
+            min-width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 15px;
+            border-radius: 50px;
+            border: 2px solid #e0e6ed;
+            color: #2c3e50;
+            font-weight: 500;
+            background: white;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .page-items.active .page-links {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: #2c3e50;
+            border-color: transparent;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .page-links:hover:not(.active) {
+            /* background: #f8f9fa; */
+            background: var(--main-color);
+            border-color: #3498db;
+            transform: translateY(-2px);
+        }
+
+        .page-items.disabled .page-links {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .pagination-info {
+            text-align: center;
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.9rem;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 30px;
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Navigation arrows styling */
+        .page-nav-arrow {
+            font-size: 1.2rem;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+        }
+
+        .page-nav-arrow i {
+            margin: 0;
+            line-height: 1;
+        }
+
+        .page-nav-arrow:hover {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+
+        .header-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .archive-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #34495e 0%, #95a5a6 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .archive-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 73, 94, 0.3);
+            color: white;
+        }
+
+        .archive-btn i {
+            font-size: 1.2em;
+        }
             </style>
 
             <div class="row justify-content-center">
@@ -259,43 +390,71 @@ use Illuminate\Support\Str;
                             @endforeach
                         @else
                             <div class="col-12 text-center">
-                                {{ session('locale') === 'ar' ? 'لا توجد أخبار متاحة' : 'No news available' }}</div>
+                                {{ session('locale') === 'ar' ? 'لا توجد أخبار متاحة' : 'No news available' }}
+                            </div>
                         @endif
                     </div>
 
                     @if($pagination['last_page'] > 1)
-                        <nav aria-label="Page navigation" class="mt-4">
-                            <ul class="pagination justify-content-center">
-                                {{-- Previous Page Link --}}
-                                @if($pagination['current_page'] > 1)
-                                    <li class="page-item">
-                                        <a class="page-link"
-                                            href="{{ route('news.index', ['page' => $pagination['current_page'] - 1]) }}"
-                                            aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
+                        <div class="pagination-container">
+                            <nav aria-label="Page navigation" class="mt-4">
+                                <ul class="pagination">
+                                    {{-- First Page Link --}}
+                                    <li class="page-items {{ $pagination['current_page'] == 1 ? 'disabled' : '' }}">
+                                        <a class="page-links page-nav-arrow" href="{{ route('news.index', ['page' => 1]) }}" title="First Page">
+                                            <i class="fas fa-angle-double-left"></i>
                                         </a>
                                     </li>
-                                @endif
 
-                                {{-- Pagination Elements --}}
-                                @for($i = 1; $i <= $pagination['last_page']; $i++)
-                                    <li class="page-item {{ $pagination['current_page'] == $i ? 'active' : '' }}">
-                                        <a class="page-link" href="{{ route('news.index', ['page' => $i]) }}">{{ $i }}</a>
-                                    </li>
-                                @endfor
+                                    {{-- Previous Page Link --}}
+                                    @if($pagination['current_page'] > 1)
+                                        <li class="page-items">
+                                            <a class="page-links page-nav-arrow" href="{{ route('news.index', ['page' => $pagination['current_page'] - 1]) }}" title="Previous">
+                                                <i class="fas fa-angle-left"></i>
+                                            </a>
+                                        </li>
+                                    @endif
 
-                                {{-- Next Page Link --}}
-                                @if($pagination['current_page'] < $pagination['last_page'])
-                                    <li class="page-item">
-                                        <a class="page-link"
-                                            href="{{ route('news.index', ['page' => $pagination['current_page'] + 1]) }}"
-                                            aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
+                                    {{-- Pagination Elements --}}
+                                    @php
+                                        $start = max($pagination['current_page'] - 2, 1);
+                                        $end = min($start + 4, $pagination['last_page']);
+                                        $start = max(min($start, $end - 4), 1);
+                                    @endphp
+
+                                    @for($i = $start; $i <= $end; $i++)
+                                        <li class="page-items {{ $pagination['current_page'] == $i ? 'active' : '' }}">
+                                            <a class="page-links" href="{{ route('news.index', ['page' => $i]) }}">{{ $i }}</a>
+                                        </li>
+                                    @endfor
+
+                                    {{-- Next Page Link --}}
+                                    @if($pagination['current_page'] < $pagination['last_page'])
+                                        <li class="page-items">
+                                            <a class="page-links page-nav-arrow" href="{{ route('news.index', ['page' => $pagination['current_page'] + 1]) }}" title="Next">
+                                                <i class="fas fa-angle-right"></i>
+                                            </a>
+                                        </li>
+                                    @endif
+
+                                    {{-- Last Page Link --}}
+                                    <li class="page-items {{ $pagination['current_page'] == $pagination['last_page'] ? 'disabled' : '' }}">
+                                        <a class="page-links page-nav-arrow" href="{{ route('news.index', ['page' => $pagination['last_page']]) }}" title="Last Page">
+                                            <i class="fas fa-angle-double-right"></i>
                                         </a>
                                     </li>
-                                @endif
-                            </ul>
-                        </nav>
+                                </ul>
+                            </nav>
+                            <div class="pagination-info">
+                                {{ session('locale') === 'ar' ? 'عرض ' : 'Showing ' }}
+                                <strong>{{ ($pagination['current_page'] - 1) * $pagination['per_page'] + 1 }}</strong>
+                                {{ session('locale') === 'ar' ? ' إلى ' : ' to ' }}
+                                <strong>{{ min($pagination['current_page'] * $pagination['per_page'], $pagination['total']) }}</strong>
+                                {{ session('locale') === 'ar' ? ' من ' : ' of ' }}
+                                <strong>{{ $pagination['total'] }}</strong>
+                                {{ session('locale') === 'ar' ? ' سجل ' : ' records ' }}
+                            </div>
+                        </div>
                     @endif
                 </div>
 

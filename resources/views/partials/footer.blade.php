@@ -10,7 +10,7 @@
 						</div>
 						<div class="company-info-desc">
 							<p>
-								{{ session('locale') === 'ar' ? 'والتعليم العالي والبحث العلمي والتطوير التكنولوجي والتعليم المستمر والتعليم الالكتروني والتعليم الجامعي' : 'Higher education, scientific research, technological development, continuing education, e-learning, and university education' }}
+								{{ session('locale') === 'en' ?  'Higher education, scientific research, technological development, continuing education, e-learning, and university education' : 'والتعليم العالي والبحث العلمي والتطوير التكنولوجي والتعليم المستمر والتعليم الالكتروني والتعليم الجامعي'  }}
 							</p>
 						</div>
 						<div class="company_icon text-center">
@@ -32,14 +32,14 @@
 
 				<div class="col-lg-2 col-md-6 col-6">
                 <div class="widget widget-nav-menu">
-                    <h4 class="widget-title pt-4 pt-sm-0"><span>{{ session('locale') === 'ar' ? 'عناوين' : 'Site Titles' }}</span></h4>
+                    <h4 class="widget-title pt-4 pt-sm-0"><span>{{ session('locale') === 'en' ?  'Site Titles'  : 'عناوين'}}</span></h4>
                     <div class="menu-quick-link-content">
                         <ul class="menu">
-                            <li><a href="#">{{ session('locale') === 'ar' ? 'الرئيسية' : 'Home' }}</a></li>
-                            <li><a href="#">{{ session('locale') === 'ar' ? 'اخبار الجامعة' : 'University News' }}</a></li>
-                            <li><a href="#">{{ session('locale') === 'ar' ? 'تسجيل الدخول' : 'Login' }}</a></li>
-                            <li><a href="#">{{ session('locale') === 'ar' ? 'التعليم المستمر' : 'Continuous Education' }}</a></li>
-                            <li><a href="#">{{ session('locale') === 'ar' ? 'معرض الصور' : 'Photo Gallery' }}</a></li>
+                            <li><a href="#">{{ session('locale') === 'en' ?  'Home' : 'الرئيسية'}}</a></li>
+                            <li><a href="#">{{ session('locale') === 'en' ?   'University News' : 'اخبار الجامعة' }}</a></li>
+                            <li><a href="#">{{ session('locale') === 'en' ?  'Login' : 'تسجيل الدخول' }}</a></li>
+                            <li><a href="#">{{ session('locale') === 'en' ?  'Continuous Education': 'التعليم المستمر' }}</a></li>
+                            <li><a href="#">{{ session('locale') === 'en' ?  'Photo Gallery' : 'معرض الصور' }}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
             </div>
 				<div class="col-lg-3 col-md-6 col-8">
 					<div id="footer-widget-address" class="d-flex flex-column">
-					<h4 class="widget-title"><span>{{ session('locale') === 'ar' ? 'اتصل' : 'Contact' }}</span> {{ session('locale') == 'ar' ? 'بنا' : 'Us' }}</h4>
+					<h4 class="widget-title"><span>{{ session('locale') === 'en' ? 'Contact' :  'اتصل'}}</span> {{ session('locale') == 'en' ?   'Us' : 'بنا' }}</h4>
 
 						<div class="footer-inner">
 							<div class="footer-socail-icon">
@@ -91,7 +91,7 @@
 								</i>
 							</div>
 							<div class="footer-socail-info2">
-							<p class="fp60" style="font-size:15px">{{ session('locale') === 'ar' ? 'كربلاء طريق بغداد - عمود 11' : 'Karbala, Baghdad Road - Column 11' }}
+							<p class="fp60" style="font-size:15px">{{ session('locale') === 'en' ?  'Karbala, Baghdad Road - Column 11' :  'كربلاء طريق بغداد - عمود 11' }}
 
 							</p>
 
@@ -105,9 +105,9 @@
 				<div class="col-lg-2 col-md-2 d-lg-block d-md-block d-none">
 					<div class="footer-bottom-menu">
 						<p class="fp80 m-0">
-						<a class="text-white" href="#">{{ session('locale') === 'ar' ? 'الرئيسية' : 'Home' }}</a>
+						<a class="text-white" href="#">{{ session('locale') === 'en' ? 'Home' :  'الرئيسية' }}</a>
                         <span class="separator"> - </span>
-                        <a class="text-white" href="#">{{ session('locale') === 'ar' ? 'الاخبار' : 'News' }}</a>
+                        <a class="text-white" href="#">{{ session('locale') === 'en' ?  'News' : 'الاخبار'}}</a>
 						</p>
 					</div>
 				</div>
@@ -115,7 +115,7 @@
 					<div class="footer-bottom-content">
 						<div class="footer-bottom-content-copy">
 							<p class="fp80 m-0">
-							{{ session('locale') === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy' }} / @ <span> al warith website </span> - cmsmasters © 2024 / {{ session('locale') == 'ar' ? 'جميع الحقوق محفوظة' : 'All Rights Reserved' }}
+							{{ session('locale') === 'en' ?  'Privacy Policy' : 'سياسة الخصوصية' }} / @ <span> al warith website </span> - cmsmasters © 2024 / {{ session('locale') == 'ar' ? 'جميع الحقوق محفوظة' : 'All Rights Reserved' }}
 							</p>
 						</div>
 					</div>

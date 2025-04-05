@@ -27,7 +27,7 @@ $newsDataslider = !empty($slider) ? $slider : [];
 											</svg>
 										</i></a>
 									<a class="slider-button3" href="{{ route('news.show', $newsItem['id']) }}"> 
-									{{ session('locale') === 'ar' ? ' عرض الخبر' : 'view New' }} <i>
+									{{ session('locale') === 'en' ?  'view New' : ' عرض الخبر'  }} <i>
 											<svg width="800px" style="transform: rotate(180deg);" height="800px"
 												class="mx-1 s-20" viewBox="0 0 24 24" fill="none"
 												xmlns="http://www.w3.org/2000/svg">
