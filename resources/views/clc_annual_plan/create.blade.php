@@ -910,8 +910,8 @@
     <div class="form-wrapper">
         <div class="form-section">
             <div class="section-header">
-                <i class="fas fa-info-circle"></i>
-                <h2>{{ $form_data['name_page'] ?? 'تسجيل دورة جديدة' }}</h2>
+                
+                <h2><i class="fas fa-info-circle"></i>  {{ $form_data['name_page'] ?? 'تسجيل دورة جديدة' }}</h2>
             </div>
             <div class="section-content">
                 @if(!empty($form_data['notification']))
@@ -961,8 +961,11 @@
 
             <div class="form-section">
                 <div class="section-header">
-                    <i class="fas fa-file-alt"></i>
-                    <h3>المعلومات الأساسية</h3>
+                    
+                    <h3><i class="fas fa-file-alt"></i>
+                        المعلومات الأساسية
+
+                    </h3>
                 </div>
                 <div class="section-content">
                     <div class="form-row">
@@ -1009,8 +1012,11 @@
 
             <div class="form-section">
                 <div class="section-header">
-                    <i class="fas fa-book"></i>
-                    <h3>تفاصيل الدورة</h3>
+                    
+                    <h3><i class="fas fa-book"></i>
+                        تفاصيل الدورة
+
+                    </h3>
                 </div>
                 <div class="section-content">
                     <div class="form-row">
