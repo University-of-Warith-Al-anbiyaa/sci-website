@@ -17,6 +17,12 @@
             padding: 0 20px;
         }
 
+        @media (max-width: 768px) {
+            .courses-wrapper {
+                font-size: 14px !important;
+            }
+        }
+
         .courses-header {
             background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
             padding: 30px;
@@ -47,7 +53,7 @@
         }
 
         .courses-table td {
-            padding: 12px 5px;
+            padding: 12px 15px;
             border-bottom: 1px solid #eee;
             text-align: center;
         }
@@ -79,7 +85,6 @@
             font-size: 0.85rem;
             background: #3498db;
             color: white;
-            display: inline-table;
         }
 
         .beneficiary-list {
@@ -296,7 +301,7 @@
                         <tr data-category="{{ $course['category'] }}">
                             <td style="text-align: right;">{{ $course['title'] }}</td>
                             <td>{{ $course['department'] }}</td>
-                            <td ><span class="category-badge">{{ $course['category'] }}</span></td>
+                            <td><span class="category-badge">{{ $course['category'] }}</span></td>
                             <td>
                                 <div class="beneficiary-list">
                                     @foreach($course['beneficiary'] as $beneficiary)

@@ -20,13 +20,9 @@ if (!$newsItem) {
     exit;
 }
 ?>
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title><?php echo htmlspecialchars($newsItem['arttitle']); ?></title>
-    <link href="s/style.css" rel="stylesheet">
-</head>
+@extends('layouts.main')
+
+@section('content')
 <body>
     <div class="container">
         <article class="news-detail">
@@ -44,8 +40,11 @@ if (!$newsItem) {
             <div class="content">
                 <?php echo $newsItem['content']; ?>
             </div>
-            <a href="index.php" class="back-button">العودة للرئيسية</a>
+            <a href="index.php" class="back-button"> <?php echo session('locale') === 'en' ? 'Back to Home' : 'العودة للرئيسية'; ?></a>
         </article>
     </div>
+     <script src="{{ asset('s/jquery-3.2.1.min.js.download') }}"></script>
+    <script src="{{ asset('s/jquery.meanmenu.js.download') }}"></script>
+    <script src="{{ asset('s/theme.js.download') }}"></script>
 </body>
 </html>

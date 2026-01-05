@@ -15,7 +15,7 @@
             /* background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%); */
             background: linear-gradient(135deg, #0c244e 0%, #0c244e 100%);
             min-height: 60vh;
-            display: flex;
+            /* display: flex; */
             align-items: center;
             position: relative;
             overflow: hidden;
@@ -37,7 +37,7 @@
             z-index: 1;
             text-align: center;
             color: white;
-            padding: 40px 20px;
+            padding: 80px 20px;
         }
 
         .hero-title {
@@ -84,7 +84,8 @@
         .feature-icon {
             width: 90px;
             height: 90px;
-            background: linear-gradient(45deg, #3498db, #2ecc71);
+            /* background: linear-gradient(45deg, #3498db, #2ecc71); */
+            background: linear-gradient(45deg, #c4bc7d, #ffc451);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -115,6 +116,7 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             position: relative;
             overflow: hidden;
+            text-align: justify;
         }
 
         .info-card::before {
@@ -124,7 +126,8 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, #3498db, #2ecc71);
+            /* background: linear-gradient(90deg, #3498db, #2ecc71); */
+            background: linear-gradient(45deg, #c4bc7d, #ffc451);
         }
 
         .stats-container {
@@ -153,7 +156,8 @@
         .stat-number {
             font-size: 3rem;
             font-weight: bold;
-            background: linear-gradient(45deg, #3498db, #2ecc71);
+            /* background: linear-gradient(45deg, #3498db, #2ecc71); */
+            background: linear-gradient(45deg, #c4bc7d, #ffc451);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
@@ -180,12 +184,13 @@
         <div class="hero-pattern"></div>
         <div class="hero-content">
             <h1 class="hero-title">
-                {{ app()->getLocale() === 'ar' ? 'مركز التعليم المستمر' : 'Continuing Education Center' }}</h1>
+                {{ $about_content->arttitle ?? session('locale') === 'ar' ? 'مركز التعليم المستمر' : 'Continuing Education Center' }}
+            </h1>
             <p class="hero-subtitle">
-                {{ app()->getLocale() === 'ar' ? 'نحو مستقبل تعليمي أفضل' : 'Towards a Better Educational Future' }}</p>
+                {{ session('locale') === 'ar' ? 'نحو مستقبل تعليمي أفضل' : 'Towards a Better Educational Future' }}
+            </p>
         </div>
     </div>
-
     <!-- Features Section -->
     <section class="features-section">
         <div class="features-container">
@@ -193,8 +198,8 @@
                 <div class="feature-icon">
                     <i class="fas fa-graduation-cap"></i>
                 </div>
-                <h3>{{ app()->getLocale() === 'ar' ? 'تعليم متميز' : 'Excellence in Education' }}</h3>
-                <p>{{ app()->getLocale() === 'ar' ? 'برامج تعليمية عالية الجودة' : 'High-quality educational programs' }}
+                <h3>{{ session('locale') === 'ar' ? 'تعليم متميز' : 'Excellence in Education' }}</h3>
+                <p>{{ session('locale') === 'ar' ? 'برامج تعليمية عالية الجودة' : 'High-quality educational programs' }}
                 </p>
             </div>
 
@@ -202,16 +207,16 @@
                 <div class="feature-icon">
                     <i class="fas fa-users"></i>
                 </div>
-                <h3>{{ app()->getLocale() === 'ar' ? 'كادر متخصص' : 'Expert Staff' }}</h3>
-                <p>{{ app()->getLocale() === 'ar' ? 'خبراء ومتخصصون في مجالاتهم' : 'Experts in their fields' }}</p>
+                <h3>{{ session('locale') === 'ar' ? 'كادر متخصص' : 'Expert Staff' }}</h3>
+                <p>{{ session('locale') === 'ar' ? 'خبراء ومتخصصون في مجالاتهم' : 'Experts in their fields' }}</p>
             </div>
 
             <div class="feature-box">
                 <div class="feature-icon">
                     <i class="fas fa-certificate"></i>
                 </div>
-                <h3>{{ app()->getLocale() === 'ar' ? 'شهادات معتمدة' : 'Certified Programs' }}</h3>
-                <p>{{ app()->getLocale() === 'ar' ? 'شهادات معترف بها دولياً' : 'Internationally recognized certificates' }}
+                <h3>{{ session('locale') === 'ar' ? 'شهادات معتمدة' : 'Certified Programs' }}</h3>
+                <p>{{ session('locale') === 'ar' ? 'شهادات معترف بها دولياً' : 'Internationally recognized certificates' }}
                 </p>
             </div>
         </div>
@@ -221,45 +226,84 @@
     <div class="main-content">
         <div class="info-grid">
             <div class="info-card">
-                <h2>{{ app()->getLocale() === 'ar' ? 'من نحن' : 'Who We Are' }}</h2>
-                <p>{!! $about_content ?? 'محتوى عن المركز...' !!}</p>
+                <h2>{{ session('locale') === 'ar' ? 'من نحن' : 'Who We Are' }}</h2>
+                <p>{!! $about_content ?? session('locale') === 'ar' ? 'محتوى عن المركز...' : 'About content...' !!}</p>
             </div>
 
             <div class="info-card">
-                <h2>{{ app()->getLocale() === 'ar' ? 'رؤيتنا' : 'Our Vision' }}</h2>
-                <p>{{ app()->getLocale() === 'ar' ? 'نسعى لتحقيق التميز في التعليم المستمر وتطوير المهارات المهنية' : 'We strive for excellence in continuing education and professional development' }}
+                <h2>{{ session('locale') === 'ar' ? 'رؤيتنا' : 'Our Vision' }}</h2>
+                <p>{{ session('locale') === 'ar' ? 'نسعى لتحقيق التميز في التعليم المستمر وتطوير المهارات المهنية' : 'We strive for excellence in continuing education and professional development' }}
                 </p>
             </div>
         </div>
 
+        <div class="main-content">
+            <div class="info-grid">
+                <div class="info-card">
+                    <h2>{{ $about_department['arttitle'] }}</h2>
+                    <p>{!! $about_department['content']  !!}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="info-grid" style="margin-top: 40px;">
+                <div class="info-card">
+                <h2>{{ session('locale') === 'ar' ? 'رسالتنا' : 'Our Mission' }}</h2>
+                <p>{{ session('locale') === 'ar' ? 'تقديم برامج تعليمية مبتكرة تلبي احتياجات المجتمع وتساهم في تطوير الأفراد' : 'To provide innovative educational programs that meet community needs and contribute to individual development' }}
+                </p>
+                </div>
+
+                <div class="info-card">
+                <h2>{{ session('locale') === 'ar' ? 'قيمنا' : 'Our Values' }}</h2>
+                <p>{{ session('locale') === 'ar' ? 'التميز، الابتكار، الشمولية، والتعاون' : 'Excellence, Innovation, Inclusivity, and Collaboration' }}
+                </p>
+                </div>
+            </div> -->
+
+        <!-- Strategic Plan Section -->
+        <div class="info-grid" style="margin-top: 40px;">
+            <div class="info-card" style="grid-column: 1 / -1;">
+                <h2>{{ session('locale') === 'ar' ? 'الخطة الاستراتيجية' : 'Strategic Plan' }}</h2>
+                <p>{{ session('locale') === 'ar' ? 'اطلع على الخطة الاستراتيجية لمركز التعليم المستمر' : 'View the Strategic Plan for the Continuing Education Center' }}
+                </p>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="{{ asset('pdf/الخطة الاستراتيجية.pdf') }}" target="_blank" class="btn btn-yellow"
+                        style="display: inline-block; padding: 12px 30px; background: linear-gradient(45deg, #ffc451, #ffc451); color: white; text-decoration: none; border-radius: 25px; font-weight: bold; transition: transform 0.3s ease;">
+                        <i class="fas fa-file-pdf"></i>
+                        {{ session('locale') === 'ar' ? 'تحميل الخطة الاستراتيجية' : 'Download Strategic Plan' }}
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <!-- <div class="stats-container">
-            <div class="stat-item">
-                <div class="stat-number">1000+</div>
-                <div class="stat-label">{{ app()->getLocale() === 'ar' ? 'طالب' : 'Students' }}</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">50+</div>
-                <div class="stat-label">{{ app()->getLocale() === 'ar' ? 'برنامج' : 'Programs' }}</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">25+</< /div>
-                    <div class="stat-label">{{ app()->getLocale() === 'ar' ? 'مدرب' : 'Trainers' }}</div>
+                <div class="stat-item">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">{{ session('locale') === 'ar' ? 'طالب' : 'Students' }}</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">{{ app()->getLocale() === 'ar' ? 'سنة خبرة' : 'Years' }}</div>
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">{{ session('locale') === 'ar' ? 'برنامج' : 'Programs' }}</div>
                 </div>
-            </div>
-        </div> -->
+                <div class="stat-item">
+                    <div class="stat-number">25+</< /div>
+                        <div class="stat-label">{{ session('locale') === 'ar' ? 'مدرب' : 'Trainers' }}</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">{{ session('locale') === 'ar' ? 'سنة خبرة' : 'Years' }}</div>
+                    </div>
+                </div> -->
+    </div>
     </div>
 @endsection
 
 @push('scripts')
     <!-- <script>
-                var swiper = new Swiper(".mySwiper_new", {
-                    autoplay: { delay: 7000 }
-                });
-            </script> -->
+                    var swiper = new Swiper(".mySwiper_new", {
+                        autoplay: { delay: 7000 }
+                    });
+                </script> -->
 
     <script src="store/swiper-bundle.min.js"></script>
 
@@ -293,28 +337,28 @@
 
 
     <!-- <script>
-                    document.querySelectorAll('.lang-btn').forEach(btn => {
-                        btn.addEventListener('click', function () {
-                            const lang = this.dataset.lang;
+                        document.querySelectorAll('.lang-btn').forEach(btn => {
+                            btn.addEventListener('click', function () {
+                                const lang = this.dataset.lang;
 
-                            fetch('switch_language.php', {
-                                method: 'POST',
-                                body: JSON.stringify({ lang: lang }),
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                }
-                            })
-                                .then(response => response.json())
-                                .then(data => {
-                                    if (data.success) {
-                                        document.documentElement.lang = data.lang;
-                                        document.documentElement.dir = data.dir;
-                                        location.reload();
+                                fetch('switch_language.php', {
+                                    method: 'POST',
+                                    body: JSON.stringify({ lang: lang }),
+                                    headers: {
+                                        'Content-Type': 'application/json'
                                     }
-                                });
+                                })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        if (data.success) {
+                                            document.documentElement.lang = data.lang;
+                                            document.documentElement.dir = data.dir;
+                                            location.reload();
+                                        }
+                                    });
+                            });
                         });
-                    });
-                </script> -->
+                    </script> -->
 
 
 @endpush

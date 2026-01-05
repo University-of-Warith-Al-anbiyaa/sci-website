@@ -35,7 +35,7 @@
     <!-- <script src="/clc/request.js"></script> -->
 </head>
 
-<body></body>
+<body>
     @include('partials.header')
 
 

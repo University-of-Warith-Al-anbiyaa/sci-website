@@ -36,23 +36,20 @@ class NewsController extends Controller
      */
     public function index()
     {
-        if(!session('locale'))
-        {
-            session()->put('locale', 'ar');
-        }
-        $lang = session('locale');
+        // $lang = session('locale');
         // return response()->json([
         //     'success' => true,
         //     'message' => 'News data fetched successfully',
-        //     'data' => $this->getApiUrl(),
-        //     'f'=> $lang
+        //     'data' => $this->getApiUrl()
         // ]);
         try {
             $news = $this->fetchNewsData();
             $slider = $this->fetch_unidep_sliderData();
+            // $newscollege = $this->fetchNewscollegeData();
             // return response()->json([
             //     'success' => true,
-            //     'data' => $slider
+            //     'data' => $news,
+            //     'slider' => $slider,
             // ]);
             return view('front.index', compact('news', 'slider'));
         } catch (\Exception $e) {
@@ -60,7 +57,7 @@ class NewsController extends Controller
             //     'success' => false,
             //     'message' => 'Failed to fetch news: ' . $e->getMessage()
             // ], 500);
-            return response()->view('errors.custom-error', [], 500);
+            return abort(500,'server error');
         }
     }
 
@@ -75,8 +72,8 @@ class NewsController extends Controller
             $response = Http::withHeaders([
                 'Authorization' => 'Bearer ' . $this->token
             ])->asForm()->post($this->getPageUrl(), [
-                'id' => $id
-            ]);
+                        'id' => $id
+                    ]);
 
             if (!$response->successful()) {
                 // return response()->json($response->json());
@@ -89,9 +86,7 @@ class NewsController extends Controller
 
         } catch (\Exception $e) {
             // return response()->json($e);
-            // return back()->with('error', 'حدث خطأ في النظام: ' . $e->getMessage());
-            return response()->view('errors.custom-error', [], 500);
-
+            return back()->with('error', 'حدث خطأ في النظام: ' . $e->getMessage());
         }
     }
 
@@ -103,7 +98,7 @@ class NewsController extends Controller
         try {
             $newsData = $request->all();
             Session::put('newsdata', $newsData);
-            
+
             return response()->json([
                 'success' => true,
                 'message' => 'News data stored successfully'
@@ -113,8 +108,7 @@ class NewsController extends Controller
             //     'success' => false,
             //     'message' => 'Failed to store news data: ' . $e->getMessage()
             // ], 500);
-            return response()->view('errors.custom-error', [], 500);
-
+            return abort(500, $e->getMessage());
         }
     }
 
@@ -126,9 +120,9 @@ class NewsController extends Controller
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $this->token
         ])->get($this->getApiUrl(), [  // Changed this line to use getApiUrl()
-            'category' => 'news',
-            'dep_id' => 5
-        ]);
+                    'category' => 'news',
+                    'dep_id' => 5
+                ]);
 
         if (!$response->successful()) {
             throw new \Exception('API request failed with status: ' . $response->status());
@@ -136,17 +130,36 @@ class NewsController extends Controller
 
         $data = $response->json();
         Session::put('newsdata', $data);
-        
+
         return $data;
     }
+
+    // private function fetchNewscollegeData()
+    // {
+    //     $response = Http::withHeaders([
+    //         'Authorization' => 'Bearer ' . $this->token
+    //     ])->get($this->getApiUrl(), [  // Changed this line to use getApiUrl()
+    //         'category' => 'news',
+    //         // 'dep_id' => 5
+    //     ]);
+
+    //     if (!$response->successful()) {
+    //         throw new \Exception('API request failed with status: ' . $response->status());
+    //     }
+
+    //     $data = $response->json();
+    //     Session::put('newsdata', $data);
+
+    //     return $data;
+    // }
 
     private function fetch_unidep_sliderData()
     {
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $this->token
         ])->get($this->getApiUrl_unidep_slider(), [  // Changed this line to use getApiUrl()
-            'dep_id' => 5
-        ]);
+                    'dep_id' => 5,
+                ]);
 
         if (!$response->successful()) {
             throw new \Exception('API request failed with status: ' . $response->status());
@@ -154,33 +167,48 @@ class NewsController extends Controller
 
         $data = $response->json();
         // Session::put('newsdata', $data);
-        
+
         return $data;
     }
 
 
-     public function news(Request $request)
+    public function news(Request $request)
     {
         try {
             $page = $request->get('page', 1);
             $slider = $this->fetch_unidep_sliderData();
+            // $newsCollege = $this->fetchNewscollegeData();
             $response = Http::withHeaders([
                 'Authorization' => 'Bearer ' . $this->token
             ])->get($this->getApiUrl(), [
-                'category' => 'news',
-                'dep_id' => 5,
-                'page' => $page,
-                'per_page' => 9  // Number of items per page
-            ]);
+                        'category' => 'news',
+                        'dep_id' => 5,
+                        'page' => $page,
+                        'per_page' => 9  // Number of items per page
+                    ]);
 
             if (!$response->successful()) {
                 throw new \Exception('API request failed with status: ' . $response->status());
             }
-        //    return response()->json($response->json());
+            //    return response()->json($response->json());
             $news = $response->json();
+            // return response()->json([
+            //     'success' => true,
+            //     'data' => $news,
+            //     'slider' => $slider,
+            //     'lastnewcollege' => $newsCollege,
+            //     'pagination' => [
+            //         'current_page' => $news['current_page'] ?? $page,
+            //         'last_page' => $news['last_page'] ?? 1,
+            //         'per_page' => $news['per_page'] ?? 9,
+            //         'total' => $news['total'] ?? count($news['data']),
+            //     ]
+            // ]);
+
             return view('news.index', [
                 'news' => $news,
                 'slider' => $slider,
+                // 'newsCollege' => $newsCollege,
                 'pagination' => [
                     'current_page' => $news['current_page'] ?? $page,
                     'last_page' => $news['last_page'] ?? 1,
@@ -193,8 +221,7 @@ class NewsController extends Controller
             //     'success' => false,
             //     'message' => 'Failed to fetch news: ' . $e->getMessage()
             // ], 500);
-            return response()->view('errors.custom-error', [], 500);
-
+            return abort(500, $e->getMessage());
         }
     }
 
@@ -215,8 +242,7 @@ class NewsController extends Controller
             //     'success' => false,
             //     'message' => 'Failed to refresh news data: ' . $e->getMessage()
             // ], 500);
-            return response()->view('errors.custom-error', [], 500);
-
+            return abort(500, $e->getMessage());
         }
     }
 }

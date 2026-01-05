@@ -910,8 +910,8 @@
     <div class="form-wrapper">
         <div class="form-section">
             <div class="section-header">
-                
-                <h2><i class="fas fa-info-circle"></i>  {{ $form_data['name_page'] ?? 'تسجيل دورة جديدة' }}</h2>
+                <i class="fas fa-info-circle"></i>
+                <h2>{{ $form_data['name_page'] ?? 'تسجيل دورة جديدة' }}</h2>
             </div>
             <div class="section-content">
                 @if(!empty($form_data['notification']))
@@ -921,7 +921,7 @@
 
                 @if(!empty($form_data['condition']))
                     <div class="conditions-box">
-                        <h3>شروط التقديم:</h3>
+                        <h3> {{ session('locale') === 'ar' ? 'شروط التقديم' : 'Application Conditions' }}:</h3>
                         <ul class="conditions-list">
                             @foreach($form_data['condition'] as $condition)
                                 <li>{{ $condition }}</li>
@@ -961,27 +961,24 @@
 
             <div class="form-section">
                 <div class="section-header">
-                    
-                    <h3><i class="fas fa-file-alt"></i>
-                        المعلومات الأساسية
-
-                    </h3>
+                    <i class="fas fa-file-alt"></i>
+                    <h3> {{ session('locale') === 'ar' ? 'المعلومات الأساسية' : 'Basic Information' }}</h3>
                 </div>
                 <div class="section-content">
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label required">عنوان الدورة</label>
+                            <label class="form-label required">{{ session('locale') === 'ar' ? 'عنوان الدورة' : 'Course Title' }}</label>
                             <input type="text" name="title" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label required">الانتماء</label>
+                            <label class="form-label required">{{ session('locale') === 'ar' ? 'الانتماء' : 'Affiliate' }}</label>
                             <select name="affiliate" class="form-select" id="affiliateSelect" required>
-                                <option value="" selected disabled>-- اختر نوع الانتماء --</option>
-                                <option value="uowa">جامعة وارث الأنبياء</option>
-                                <option value="other">خارج الجامعة</option>
+                                <option value="" selected disabled>--   {{ session('locale') === 'ar' ? 'اختر نوع الانتماء' : 'Select Affiliate Type' }} --</option>
+                                <option value="uowa">  {{ session('locale') === 'ar' ? 'جامعة وارث الأنبياء' : 'UOWA University' }}</option>
+                                <option value="other">{{ session('locale') === 'ar' ? 'خارج الجامعة' : 'Outside University' }}</option>
                             </select>
                         </div>
                     </div>
@@ -989,19 +986,27 @@
                     <div id="externalFields" style="display: none;">
                         <div class="form-row">
                             <div class="form-group">
-                                <label class="form-label required">الجامعة</label>
-                                <select name="university" class="form-control select2-university" id="universitySelect">
-                                    <option value="" selected disabled>-- اختر الجامعة --</option>
+                                <label class="form-label required">{{ session('locale') === 'ar' ? 'الجامعة' : 'University' }}</label>
+                                <input list="universityOptions" name="university" id="universityInput" class="form-control"
+                                    placeholder="{{ session('locale') === 'ar' ? 'اختر أو اكتب الجامعة' : 'Select or type university' }}" required>
+
+                                <datalist id="universityOptions">
                                     @foreach($form_data['universities'] as $university)
-                                        <option value="{{ $university['code'] }}">{{ $university['name'] }}</option>
+                                        <option value="{{ $university['name'] }}"></option>
                                     @endforeach
-                                    <option value="other">أخرى</option>
-                                </select>
-                            </div>
-                            <div class="form-group" id="otherUniversityField" style="display: none;">
-                                <label class="form-label required">اسم الجامعة</label>
-                                <input type="text" name="other_university" class="form-control"
-                                    placeholder="ادخل اسم الجامعة">
+                                    <option value="other">{{ session('locale') === 'ar' ? 'أخرى' : 'Other' }}</option>
+                                </datalist>
+
+                                <div class="form-group">
+                                    <input type="checkbox" id="universitySelect" name="other_university_checkbox" value="1">
+                                    <label for="universitySelect">{{ session('locale') === 'ar' ? 'اسم جامعة أخرى' : 'Other University Name' }}</label>
+                                </div>
+
+                                <div class="form-group" id="otherUniversityField" style="display: none;">
+                                    <label class="form-label required">{{ session('locale') === 'ar' ? 'اسم الجامعة' : 'University Name' }}</label>
+                                    <input type="text" name="other_university" class="form-control"
+                                        placeholder="{{ session('locale') === 'ar' ? 'ادخل اسم الجامعة' : 'Enter University Name' }}">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1012,47 +1017,44 @@
 
             <div class="form-section">
                 <div class="section-header">
-                    
-                    <h3><i class="fas fa-book"></i>
-                        تفاصيل الدورة
-
-                    </h3>
+                    <i class="fas fa-book"></i>
+                    <h3>{{ session('locale') === 'ar' ? 'تفاصيل الدورة' : 'Course Details' }}</h3>
                 </div>
                 <div class="section-content">
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label required">التصنيف</label>
+                            <label class="form-label required">{{ session('locale') === 'ar' ? 'التصنيف' : 'Category' }}</label>
                             <select name="category" class="form-control" id="categorySelect" required>
                                 @foreach($form_data['category'] as $category)
                                     <option value="{{ $category }}">{{ $category }}</option>
                                 @endforeach
-                                <option value="other">أخرى</option>
+                                <option value="other">{{ session('locale') === 'ar' ? 'أخرى' : 'Other' }}</option>
                             </select>
                         </div>
 
                         <div class="form-group category-other" id="newCategoryDiv" style="display: none;">
-                            <label class="form-label required">تصنيف جديد</label>
+                            <label class="form-label required">{{ session('locale') === 'ar' ? 'تصنيف جديد' : 'New Category' }}</label>
                             <input type="text" name="newcate" class="form-control">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label required">نوع الدورة</label>
+                            <label class="form-label required"> {{ session('locale') === 'ar' ? 'نوع الدورة' : 'Course Type' }}</label>
                             <div class="radio-group">
                                 <label class="radio-label">
-                                    <input type="radio" name="type" value="free" checked> مجانية
+                                    <input type="radio" name="type" value="free" checked> {{ session('locale') === 'ar' ? 'مجانية' : 'Free' }}
                                 </label>
                                 <label class="radio-label">
-                                    <input type="radio" name="type" value="notfree"> مدفوعة
+                                    <input type="radio" name="type" value="notfree"> {{ session('locale') === 'ar' ? 'مدفوعة' : 'Paid' }}
                                 </label>
                             </div>
                         </div>
 
                         <div class="form-group price-input" id="priceDiv" style="display: none;">
-                            <label class="form-label required">مبلغ الاشتراك</label>
+                            <label class="form-label required">{{ session('locale') === 'ar' ? 'مبلغ الاشتراك' : 'Subscription Amount' }}</label>
                             <div class="price-wrapper">
-                                <input type="number" name="price" class="form-control" placeholder="أدخل المبلغ">
+                                <input type="number" name="price" class="form-control" placeholder="{{ session('locale') === 'ar' ? 'أدخل المبلغ' : 'Enter Amount' }}">
                                 <span class="currency-label">د.ع</span>
                             </div>
                         </div>
@@ -1060,21 +1062,21 @@
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label required">المدة (أيام)</label>
+                            <label class="form-label required">{{ session('locale') === 'ar' ? 'المدة (أيام)' : 'Duration (Days)' }}</label>
                             <input type="number" name="duration" class="form-control" required min="3" value="3">
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label required">حالة الخدمة</label>
+                            <label class="form-label required">{{ session('locale') === 'ar' ? 'حالة الخدمة' : 'Service Status' }}</label>
                             <select name="service" class="form-control" required>
-                                <option value="yes">نعم</option>
-                                <option value="no">لا</option>
+                                <option value="yes">{{ session('locale') === 'ar' ? 'نعم' : 'Yes' }}</option>
+                                <option value="no">{{ session('locale') === 'ar' ? 'لا' : 'No' }}</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label required">الفئات المستفيدة</label>
+                        <label class="form-label required">{{ session('locale') === 'ar' ? 'الفئات المستفيدة' : 'Beneficiary Categories' }}</label>
                         <div class="beneficiary-section">
                             <div class="beneficiary-grid">
                                 @php
@@ -1107,10 +1109,10 @@
                             <div class="beneficiary-controls">
                                 <span class="selected-count">
                                     <i class="fas fa-check-circle"></i>
-                                    <span id="selectedCount">0</span> فئات محددة
+                                    <span id="selectedCount">0</span> {{ session('locale') === 'ar' ? 'فئات محددة' : 'Selected Categories' }}
                                 </span>
                                 <button type="button" class="clear-selections" id="clearSelections">
-                                    <i class="fas fa-times"></i> مسح التحديد
+                                    <i class="fas fa-times"></i> {{ session('locale') === 'ar' ? 'مسح التحديد' : 'Clear Selections' }}
                                 </button>
                             </div>
                         </div>
@@ -1118,13 +1120,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label required">نوع الشهادة</label>
+                        <label class="form-label required">{{ session('locale') === 'ar' ? 'نوع الشهادة' : 'Certificate Type' }}</label>
                         <div class="certificate-types">
                             <label class="certificate-type">
                                 <input type="radio" name="certificate_type" value="مشاركة" required>
                                 <div class="certificate-label">
                                     <i class="fas fa-certificate certificate-icon"></i>
-                                    <span class="certificate-name">مشاركة</span>
+                                    <span class="certificate-name">{{ session('locale') === 'ar' ? 'مشاركة' : 'Participation' }}</span>
                                 </div>
                             </label>
 
@@ -1132,7 +1134,7 @@
                                 <input type="radio" name="certificate_type" value="اجتياز" required>
                                 <div class="certificate-label">
                                     <i class="fas fa-award certificate-icon"></i>
-                                    <span class="certificate-name">اجتياز</span>
+                                    <span class="certificate-name">{{ session('locale') === 'ar' ? 'اجتياز' : 'Passing' }}</span>
                                 </div>
                             </label>
 
@@ -1140,7 +1142,7 @@
                                 <input type="radio" name="certificate_type" value="تقديرية" required>
                                 <div class="certificate-label">
                                     <i class="fas fa-medal certificate-icon"></i>
-                                    <span class="certificate-name">تقديرية</span>
+                                    <span class="certificate-name">{{ session('locale') === 'ar' ? 'تقديرية' : 'Appreciation' }}</span>
                                 </div>
                             </label>
                         </div>
@@ -1153,7 +1155,7 @@
                     <div id="recaptcha-result"></div>
                 </div>
                 <button type="submit" class="btn-submit">
-                    <i class="fas fa-save"></i> حفظ
+                    <i class="fas fa-save"></i> {{ session('locale') === 'ar' ? 'حفظ' : 'Save' }}
                 </button>
             </div>
 
@@ -1190,7 +1192,7 @@
             @if(session('error'))
                 toastr.error("{{ session('error') }}");
             @endif
-        });
+            });
     </script>
 
     <script>
@@ -1209,6 +1211,7 @@
             const selectedInput = $('#selectedBeneficiaries');
             const selectedCountEl = $('#selectedCount');
             const clearBtn = $('#clearSelections');
+            
 
             // Form validation configuration
             const validationRules = {
@@ -1235,43 +1238,43 @@
                     universitySelect.prop('required', false);
 
                     fieldsContainer.html(`
-                                <div class="form-group">
-                                    <label class="form-label required">الرمز التعريفي</label>
-                                    <input type="text" name="name" class="form-control" required 
-                                           pattern="[0-9]+" title="الرجاء إدخال الرمز التعريفي بشكل صحيح">
-                                </div>
-                            `);
+                                    <div class="form-group">
+                                        <label class="form-label required">{{ session('locale') === 'ar' ? 'الرمز التعريفي' : 'User Code' }}</label>
+                                        <input type="text" name="name" class="form-control" required 
+                                               pattern="[0-9]+" title="{{ session('locale') === 'ar' ? 'الرجاء إدخال الرمز التعريفي بشكل صحيح' : 'Please enter a valid user code' }}">
+                                    </div>
+                                `);
                 } else {
                     externalFields.show();
                     universitySelect.prop('required', true);
 
                     fieldsContainer.html(`
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label class="form-label required">الاسم الكامل</label>
-                                        <input type="text" name="name" class="form-control" required>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label required">{{ session('locale') === 'ar' ? 'الاسم الكامل' : 'Full Name' }}</label>
+                                            <input type="text" name="name" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label required">{{ session('locale') === 'ar' ? 'البريد الإلكتروني' : 'Email' }}</label>
+                                            <input type="email" name="email" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label required">{{ session('locale') === 'ar' ? 'رقم الهاتف' : 'Phone Number' }}</label>
+                                            <input type="tel" name="phone" class="form-control" required 
+                                                   pattern="[0-9]{10,}" title="{{ session('locale') === 'ar' ? 'الرجاء إدخال رقم هاتف صحيح' : 'Please enter a valid phone number' }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label required">{{ session('locale') === 'ar' ? 'المهنة' : 'Profession' }}</label>
+                                            <input type="text" name="prof" class="form-control" required>
+                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label required">البريد الإلكتروني</label>
-                                        <input type="email" name="email" class="form-control" required>
+                                        <label class="form-label required">{{ session('locale') === 'ar' ? 'مكان العمل' : 'Workplace' }}</label>
+                                        <input type="text" name="work" class="form-control" required>
                                     </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label class="form-label required">رقم الهاتف</label>
-                                        <input type="tel" name="phone" class="form-control" required 
-                                               pattern="[0-9]{10,}" title="الرجاء إدخال رقم هاتف صحيح">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label required">المهنة</label>
-                                        <input type="text" name="prof" class="form-control" required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label required">مكان العمل</label>
-                                    <input type="text" name="work" class="form-control" required>
-                                </div>
-                            `);
+                                `);
                 }
             });
 
@@ -1289,7 +1292,8 @@
 
             // Handle category change
             categorySelect.on('change', function () {
-                const isOther = $(this).val() === 'other';
+                const isOther = $(this).val() === 'other'; // Ensure the value matches exactly
+                alert(isOther);
                 if (isOther) {
                     newCategoryField.show().find('input').prop('required', true);
                 } else {
@@ -1337,7 +1341,7 @@
                 function validateField(name, value, label) {
                     if (!value || value.length === 0) {
                         isValid = false;
-                        errorMessage = `الرجاء إدخال ${label}`;
+                        errorMessage = ` {{ session('locale') === 'ar' ? 'الرجاء إدخال' : 'Please enter'}} ${label}`;
                         return false;
                     }
                     return true;
@@ -1356,7 +1360,7 @@
                     const userCode = $('input[name="name"]').val();
                     if (!validationRules.patterns.userCode.test(userCode)) {
                         isValid = false;
-                        errorMessage = 'الرجاء إدخال رمز تعريفي صحيح';
+                        errorMessage = `{{ session('locale') === 'ar' ? 'الرجاء إدخال رمز تعريفي صحيح' : 'Please enter a valid user code' }}`;
                     } else {
                         isValid = true;
                         errorMessage = '';
@@ -1372,10 +1376,10 @@
                         // Additional pattern validation
                         if (field === 'email' && !validationRules.patterns.email.test(value)) {
                             isValid = false;
-                            errorMessage = 'الرجاء إدخال بريد إلكتروني صحيح';
+                            errorMessage = `{{ session('locale') === 'ar' ? 'الرجاء إدخال بريد إلكتروني صحيح' : 'Please enter a valid email address' }}`;
                         } else if (field === 'phone' && !validationRules.patterns.phone.test(value)) {
                             isValid = false;
-                            errorMessage = 'الرجاء إدخال رقم هاتف صحيح';
+                            errorMessage = `{{ session('locale') === 'ar' ? 'الرجاء إدخال رقم هاتف صحيح' : 'Please enter a valid phone number' }}`;
                         } else {
                             isValid = true;
                             errorMessage = '';
@@ -1386,7 +1390,7 @@
                 // Category validation
                 if (categorySelect.val() === 'other' && !$('input[name="newcate"]').val().trim()) {
                     isValid = false;
-                    errorMessage = 'الرجاء إدخال التصنيف الجديد';
+                    errorMessage = `{{ session('locale') === 'ar' ? 'الرجاء إدخال التصنيف الجديد' : 'Please enter a new category' }}`;
                 }
 
                 // Type and price validation
@@ -1394,20 +1398,20 @@
                     const price = $('input[name="price"]').val();
                     if (!price || price <= 0) {
                         isValid = false;
-                        errorMessage = 'الرجاء إدخال مبلغ صحيح';
+                        errorMessage = `{{ session('locale') === 'ar' ? 'الرجاء إدخال مبلغ صحيح' : 'Please enter a valid amount' }}`;
                     }
                 }
 
                 // Beneficiary validation
                 if (selectedBeneficiaries.size === 0) {
                     isValid = false;
-                    errorMessage = 'الرجاء اختيار الفئات المستفيدة';
+                    errorMessage = `{{ session('locale') === 'ar' ? 'الرجاء اختيار الفئات المستفيدة' : 'Please select the beneficiary categories' }}`;
                 }
 
                 // reCAPTCHA validation
                 if (document.getElementById('g-recaptcha-response').value === '') {
                     isValid = false;
-                    errorMessage = 'الرجاء التحقق من أنك لست روبوت';
+                    errorMessage = `{{ session('locale') === 'ar' ? 'الرجاء التحقق من أنك لست روبوت' : 'Please verify that you are not a robot' }}`;
                 }
 
                 if (!isValid) {
@@ -1440,19 +1444,19 @@
             closeBtn.onclick = () => toast.remove();
 
             let content = `
-                            <div class="toast-content">
-                                <div class="toast-header" style="color: ${type === 'success' ? '#28a745' : '#dc3545'}">
-                                    ${title}
-                                </div>
-                                ${message ? `<div class="toast-body">${message}</div>` : ''}
-                        `;
+                                <div class="toast-content">
+                                    <div class="toast-header" style="color: ${type === 'success' ? '#28a745' : '#dc3545'}">
+                                        ${title}
+                                    </div>
+                                    ${message ? `<div class="toast-body">${message}</div>` : ''}
+                            `;
 
             if (details) {
                 content += `
-                                <div class="toast-details">
-                                    <pre>${typeof details === 'object' ? JSON.stringify(details, null, 2) : details}</pre>
-                                </div>
-                            `;
+                                    <div class="toast-details">
+                                        <pre>${typeof details === 'object' ? JSON.stringify(details, null, 2) : details}</pre>
+                                    </div>
+                                `;
             }
 
             content += '</div>';
@@ -1476,8 +1480,8 @@
                     'success',
                     '{{ session('success') }}',
                     '@if(session('api_message')){{ session('api_message') }}@endif',
-                    @if(session('response'))@json(session('response'))@else null @endif
-                );
+                    @if(session('response'))@json(session('response'))@elsenull @endif
+                        );
             @endif
 
             @if(session('error'))
@@ -1485,144 +1489,59 @@
                     'error',
                     '{{ session('error') }}',
                     '@if(session('api_message')){{ session('api_message') }}@endif',
-                    @if(session('debug'))@json(session('debug'))@else null @endif
-                );
+                    @if(session('debug'))@json(session('debug'))@elsenull @endif
+                        );
             @endif
-        });
+            });
     </script>
 
 
     <script>
-        // $(document).ready(function () {
-        //     const affiliateSelect = $('#affiliateSelect');
-        //     const fieldsContainer = $('#affiliateFields');
-        //     const externalFields = $('#externalFields');
+        $(document).ready(function () {
+            const universityInput = $('#universityInput');
+            const otherUniversityField = $('#otherUniversityField');
 
-        //     // Ensure title is required and validated regardless of affiliation
-        //     $('#courseForm').on('submit', function (e) {
-        //         e.preventDefault();
-        //         let isValid = true;
-        //         let errorMessage = '';
-
-        //         // Validate title first
-        //         const title = $('input[name="title"]').val();
-        //         if (!title || title.trim() === '') {
-        //             isValid = false;
-        //             errorMessage = 'الرجاء إدخال عنوان الدورة';
-        //             $('input[name="title"]').focus();
-        //             alert(errorMessage);
-        //             return false;
-        //         }
-
-        //         // Rest of validation logic
-        //         // Validate required fields based on context
-        //         function validateField(name, value, label) {
-        //             if (!value || value.length === 0) {
-        //                 isValid = false;
-        //                 errorMessage = `الرجاء إدخال ${label}`;
-        //                 return false;
-        //             }
-        //             return true;
-        //         }
-
-        //         // Validate basic required fields
-        //         validationRules.requiredFields.all.forEach(field => {
-        //             const value = $(`[name="${field}"]`).val();
-        //             validateField(field, value, $(`label[for="${field}"]`).text());
-        //         });
-
-        //         // Additional validation based on affiliate type
-        //         const isUOWA = affiliateSelect.val() === 'uowa';
-        //         if (isUOWA) {
-        //             // Validate user code
-        //             const userCode = $('input[name="name"]').val();
-        //             if (!validationRules.patterns.userCode.test(userCode)) {
-        //                 isValid = false;
-        //                 errorMessage = 'الرجاء إدخال رمز تعريفي صحيح';
-        //             }
-        //         } else {
-        //             // Validate external user fields
-        //             validationRules.requiredFields.external.forEach(field => {
-        //                 const value = $(`input[name="${field}"]`).val();
-        //                 if (!validateField(field, value, $(`label[for="${field}"]`).text())) {
-        //                     return;
-        //                 }
-
-        //                 // Additional pattern validation
-        //                 if (field === 'email' && !validationRules.patterns.email.test(value)) {
-        //                     isValid = false;
-        //                     errorMessage = 'الرجاء إدخال بريد إلكتروني صحيح';
-        //                 } else if (field === 'phone' && !validationRules.patterns.phone.test(value)) {
-        //                     isValid = false;
-        //                     errorMessage = 'الرجاء إدخال رقم هاتف صحيح';
-        //                 }
-        //             });
-        //         }
-
-        //         // Category validation
-        //         if (categorySelect.val() === 'other' && !$('input[name="newcate"]').val().trim()) {
-        //             isValid = false;
-        //             errorMessage = 'الرجاء إدخال التصنيف الجديد';
-        //         }
-
-        //         // Type and price validation
-        //         if ($('input[name="type"]:checked').val() === 'notfree') {
-        //             const price = $('input[name="price"]').val();
-        //             if (!price || price <= 0) {
-        //                 isValid = false;
-        //                 errorMessage = 'الرجاء إدخال مبلغ صحيح';
-        //             }
-        //         }
-
-        //         // Beneficiary validation
-        //         const selectedBeneficiaries = $('#selectedBeneficiaries').val();
-        //         if (!selectedBeneficiaries || selectedBeneficiaries.length === 0) {
-        //             isValid = false;
-        //             errorMessage = 'الرجاء اختيار الفئات المستفيدة';
-        //         }
-
-        //         if (!isValid) {
-        //             alert(errorMessage);
-        //             return false;
-        //         }
-
-        //         // Add hidden field for form action
-        //         if (!$('input[name="action"]').length) {
-        //             $(this).append('<input type="hidden" name="action" value="save-course">');
-        //         }
-
-        //         this.submit();
-        //     });
-        // });
+            // Handle university selection change
+            universityInput.on('input', function () {        //     // Ensure title is required and validated regardless of affiliation
+                const selectedValue = $(this).val().trim().toLowerCase();
+                if (selectedValue === 'other') {
+                    otherUniversityField.show();
+                    otherUniversityField.find('input').prop('required', true);'';
+                } else {
+                    otherUniversityField.hide();        //         // Validate title first
+                    otherUniversityField.find('input').prop('required', false);name="title"]').val();
+                }
+            });
+        });الرجاء إدخال عنوان الدورة';
     </script>
 @endsection
 
 @push('scripts')
     <script src="store/swiper-bundle.min.js"></script>
-
-    <!-- Initialize Swiper -->
+        //         // Rest of validation logic
+    <!-- Initialize Swiper --> based on context
     <script>
         var swiper = new Swiper(".mySwiper_new", {
             autoplay: {
-                delay: 7000
+                delay: 7000الرجاء إدخال ${label}`;
             }
         });
-    </script>
+    </script>eturn true;
     <script src="{{ asset('s/jquery-3.2.1.min.js.download') }}"></script>
     <script src="{{ asset('s/jquery.meanmenu.js.download') }}"></script>
-    <script src="{{ asset('s/theme.js.download') }}"></script>
-
+    <script src="{{ asset('s/theme.js.download') }}"></script>        //         // Validate basic required fields
+l.forEach(field => {
     <script>
-        $(window).on('scroll', function () {
+        $(window).on('scroll', function () {{field}"]`).text());
             var scrolled = $(window).scrollTop();
             if (scrolled > 300) $('.go-top').addClass('active');
-            if (scrolled < 300) $('.go-top').removeClass('active');
+            if (scrolled < 300) $('.go-top').removeClass('active');        //         // Additional validation based on affiliate type
         });
 
-        $('.go-top').on('click', function () {
-            $("html, body").animate({
-                scrollTop: "0"
+        $('.go-top').on('click', function () {te user code
+            $("html, body").animate({nput[name="name"]').val();
+                scrollTop: "0"rCode)) {
             }, 1200);
-        });
+        });الرجاء إدخال رمز تعريفي صحيح';
     </script>
 @endpush

@@ -24,6 +24,7 @@
 			<div class="col-lg-3 col-md-6 col-sm-12 padding-left">
 				<div class="techno-sinlge-service-box">
 					<div class="techno-service-box-inner">
+						<a href="{{ route('clc_annual_plan.index') }}" style="color: black;">
 						<div class="techno-service-content">
 							<div class="techno-service-icon">
 								<i class="service-icon">
@@ -41,6 +42,7 @@
 								</p>
 							</div>
 						</div>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -49,6 +51,7 @@
 			<div class="col-lg-3 col-md-6 col-sm-12 padding-left">
 				<div class="techno-sinlge-service-box-1">
 					<div class="techno-service-box-inner">
+						<a href="{{ route('program') }}" style="color: black;">
 						<div class="techno-service-content">
 							<div class="techno-service-icon">
 								<i class="service-icon">
@@ -67,6 +70,7 @@
 								</p>
 							</div>
 						</div>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -75,6 +79,7 @@
 			<div class="col-lg-3 col-md-6 col-sm-12 padding-left">
 				<div class="techno-sinlge-service-box active">
 					<div class="techno-service-box-inner">
+						<a href="{{ route('plagiarism.index') }}" style="color: black;">
 						<div class="techno-service-content">
 							<div class="techno-service-icon">
 								<i class="service-icon">
@@ -92,6 +97,7 @@
 								</p>
 							</div>
 						</div>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -100,6 +106,7 @@
 			<div class="col-lg-3 col-md-6 col-sm-12 padding-left">
 				<div class="techno-sinlge-service-box">
 					<div class="techno-service-box-inner">
+						<a href="https://uowa.edu.iq/arabic/dars" style="color: black;">
 						<div class="techno-service-content">
 							<div class="techno-service-icon">
 								<i class="service-icon">
@@ -112,12 +119,13 @@
 								</h3>
 								<p class="fp70">
 									{{ session('locale') === 'en' ?
-	'Includes weekly class schedules, monthly exams, and final exams for all university colleges.'
+	'Includes weekly class schedules for all university colleges.'
 	:
-	'يتضمن جدول الدروس الأسبوعية، الامتحانات الشهرية، الامتحانات النهائية لجميع كليات الجامعة.' }}
+	'يتضمن جدول الدروس الأسبوعية لجميع كليات الجامعة.' }}
 								</p>
 							</div>
 						</div>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -126,6 +134,7 @@
 			<div class="col-lg-3 col-md-6 col-sm-12 padding-left">
 				<div class="techno-sinlge-service-box-1">
 					<div class="techno-service-box-inner">
+						<a href="https://elearning.uowa.edu.iq/" style="color: black;">
 						<div class="techno-service-content">
 							<div class="techno-service-icon">
 								<i class="service-icon">
@@ -144,6 +153,7 @@
 								</p>
 							</div>
 						</div>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -153,7 +163,7 @@
 				<div class="techno-sinlge-service-box2">
 					<div class="techno-service-box-inner">
 						<div class="service-button">
-							<a href="/#">
+							<a href="{{ route('archive') }}">
 								{{ session('locale') === 'en' ? 'Course Archive' : 'ارشيف الدورات' }}
 								<i>
 									<svg style="transform: rotate(180deg);" width="800px" height="800px"
@@ -180,9 +190,9 @@
 		<div class="row">
 			<div class="col-lg-12 col-sm-12">
 				<div class="dreamit-section-title text-center style-two position-relative">
-					<h5><?php echo session('locale') === 'en' ? 'Latest News' : 'اخر الاخبار'  ; ?></h5>
+					<h5><?php echo session('locale') === 'en' ? 'Latest News' :'اخر الاخبار' ; ?></h5>
 					<h1 class="py-3">
-						<?php echo session('locale') === 'en' ?'News & Activities' : 'الاخبار والنشاطات'  ; ?>
+						<?php echo session('locale') === 'en' ? 'News & Activities' : 'الاخبار والنشاطات'; ?>
 					</h1>
 				</div>
 			</div>
@@ -225,7 +235,7 @@ if (!empty($news)) {
 						<div class="blog_button">
 							<a href="detail.php?id=<?= urlencode($newsItem['id']) ?>" class="read-more"
 								onclick='showNewsDetails(<?= json_encode($newsItem, JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_UNICODE) ?>)'>
-								<i class="fas fa-arrow-left"></i> اقرأ المزيد
+								<i class="fas fa-arrow-left"></i> <?php echo session('locale') === 'en' ? 'Read More' : 'اقرأ المزيد'; ?>
 							</a>
 						</div>
 
@@ -235,14 +245,14 @@ if (!empty($news)) {
 			<?php endforeach; ?>
 			@if(count($news['data']) > 3)
 				<div class="col-12 text-center mt-4">
-					<a href="{{ route('news.index') }}" class="btn btn-primary view-all-news d-inline-flex align-items-center justify-content-center px-4 py-2">
-						<span class="mr-2">{{ session('locale') === 'en' ?  'View All News' :  'عرض جميع الأخبار' }}</span>
-						  <i class="fas fa-arrow-left"></i>
+					<a href="{{ route('news.index') }}" class="btn btn-primary view-all-news">
+						<?php echo session('locale') === 'en' ? 'View All News' : 'عرض جميع الأخبار'; ?>
+						<i class="fas fa-arrow-left mr-2"></i>
 					</a>
 				</div>
 			@endif
 			<?php else: ?>
-			<div class="col-12 text-center">{{ session('locale') === 'en' ?  'Not Found' : 'لا توجد أخبار متاحة'}} </div>
+			<div class="col-12 text-center"> <?php echo session('locale') === 'en' ? 'No news available' : 'لا توجد أخبار متاحة'; ?></div>
 			<?php endif; ?>
 		</div>
 

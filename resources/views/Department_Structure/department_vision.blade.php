@@ -114,20 +114,20 @@
 
         <div class="vision-container">
             <!-- Title Card -->
-            <div class="vision-card">
+            <!-- <div class="vision-card">
                 <div class="vision-header">
                     <h1 class="vision-title">{{ $vision['arttitle'] }}</h1>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Mission Card -->
             <div class="vision-card">
                 <div class="vision-header">
-                    <h2 class="vision-title"> {{ $vision['ctitle'] }} </h2>
+                    <h2 class="vision-title"> {{ $vision['arttitle'] ?? $vision['ctitle'] }} </h2>
                 </div>
                 <div class="vision-content">
                     <div class="content-block">
-                        <!-- <i class="fas fa-scroll"></i> -->
+                        <i class="fas fa-scroll"></i>
                         <div style="text-align: justify; line-height: 1.6;">{!! $content !!}</div>
                     </div>
                 </div>

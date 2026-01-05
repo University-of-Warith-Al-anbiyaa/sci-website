@@ -127,6 +127,22 @@ class clc_planController extends Controller
     {
         $form_data = $this->getcreateData();
 
+        // تعديل البيانات بناءً على اللغة
+        $locale = session('locale');
+
+        // return response()->json([
+        //     'success' => true,
+        //     // 'form_data' => $form_data,
+        //     'locale' => $locale
+        // ]);
+
+        $form_data['name_page'] = $locale === 'ar' ? $form_data['name_page'] ?? 'تسجيل دورة جديدة' : $form_data['name_page'] ?? 'Register New Course';
+        $form_data['notification_home'] = $locale === 'ar' ? $form_data['notification_home'] ?? 'اهلاً وسهلاً بكم' : $form_data['welcome_en'] ?? 'Welcome!';
+        $form_data['condition'] = $locale === 'ar' ? $form_data['condition'] ?? [] : $form_data['condition_en'] ?? [];
+        $form_data['category'] = $locale === 'ar' ? $form_data['category'] ?? [] : $form_data['category_en'] ?? [];
+        $form_data['beneficiary'] = $locale === 'ar' ? $form_data['beneficiary'] ?? [] : $form_data['beneficiary_en'] ?? [];
+
+        // تمرير البيانات إلى العرض
         return view('clc_annual_plan.create', compact('form_data'));
     }
 
@@ -134,6 +150,17 @@ class clc_planController extends Controller
     {
         // Build base form data - same for all cases
         // return response()->json($request->all());
+
+        if (!filter_var($request->input('email'), FILTER_VALIDATE_EMAIL)) {
+            session()->flash('error', 'البريد الإلكتروني غير صالح');
+            return redirect()->back()->withInput();
+        }
+
+        if (!preg_match('/^\+?[0-9]{10,15}$/', $request->input('phone'))) {
+            session()->flash('error', 'رقم الهاتف غير صالح');
+            return redirect()->back()->withInput();
+        }
+        
         $formData = [
             'action' => 'save-course',
             'title' => $request->input('title'),

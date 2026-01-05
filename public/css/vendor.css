@@ -1,4 +1,4 @@
-@charset "UTF-8";
+
 
 /*!
  * Bootstrap v5.0.2 (https://getbootstrap.com/)
@@ -6,6 +6,18 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+ /* @charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Somer);
+
+@font-face {
+    font-family: 'Somar Sans';
+    src: url('../fonts/SomarSans-Regular.woff2') format('woff2'),
+         url('../fonts/SomarSans-Regular.woff') format('woff'),
+         url('../fonts/SomarSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+} */
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -28,8 +40,8 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-family-sans-serif: "Somar", sans-serif;
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0))
 }
 
@@ -47,7 +59,7 @@
 
 body {
   margin: 0;
-  font-family: var(--bs-font-sans-serif);
+  /* font-family: var(--font-family-sans-serif); */
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -15948,14 +15960,18 @@ screen and (max-height: 300px) {
 
 
 /* Icons */
-@font-face {
-  font-family: 'slick';
-  font-weight: normal;
-  font-style: normal;
 
-  src: url('../fonts/slick.eot');
-  src: url('../fonts/slick.eot?#iefix') format('embedded-opentype'), url('../fonts/slick.svg#slick') format('svg');
+@font-face {
+    font-family: 'Somar Sans';
+    src: url('../fronts/SomarSans-Regular.woff2') format('woff2'),
+         url('../fronts/SomarSans-Regular.woff') format('woff'),
+         url('../fronts/SomarSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
+
+
 
 /* Arrows */
 .slick-prev,
@@ -16006,7 +16022,7 @@ screen and (max-height: 300px) {
 
 .slick-prev:before,
 .slick-next:before {
-  font-family: 'slick';
+  font-family: 'Somar';
   font-size: 24px;
   line-height: 1;
 
@@ -16113,7 +16129,7 @@ screen and (max-height: 300px) {
 }
 
 .slick-dots li button:before {
-  font-family: 'slick';
+  font-family: 'Somar';
   font-size: 6px;
   line-height: 20px;
 

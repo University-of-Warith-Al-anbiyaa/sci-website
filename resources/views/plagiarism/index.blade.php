@@ -113,6 +113,10 @@
             }
         }
 
+        
+
+        
+
         /* توحيد تصميم التوست */
         .toast-container {
             position: fixed;
@@ -230,11 +234,8 @@
         <!-- Instructions Section -->
         <div id="instructions" class="form-section">
             <div class="section-header">
-                
-                <h3><i class="fas fa-info-circle"></i>
-                    شروط وتعليمات استمارة استلال بحث
-
-                </h3>
+                <i class="fas fa-info-circle"></i>
+                <h3>شروط وتعليمات استمارة استلال بحث</h3>
             </div>
             <div class="section-content">
                 <p class="intro-text">
@@ -282,14 +283,11 @@
         <!-- Application Form -->
         <div id="submitForm" class="form-section" style="display:none">
             <div class="section-header">
-                
-                <h3><i class="fas fa-file-alt"></i>
-                    استمارة طلب فحص الاستلال
-
-                </h3>
+                <i class="fas fa-file-alt"></i>
+                <h3>استمارة طلب فحص الاستلال</h3>
             </div>
             <div class="section-content">
-                <button class="btn-submit btn-secondary mb-3" onclick="showInstructions()" style="background: #6c757d; color: white; border: none; border-radius: 8px; padding: 10px 20px; font-weight: 500; transition: all 0.3s ease;">
+                <button class="btn btn-link mb-3" onclick="showInstructions()">
                     <i class="fas fa-arrow-right"></i> عرض التعليمات
                 </button>
 
@@ -405,6 +403,10 @@
             </div>
         </div>
     </div>
+
+    <script src="{{ asset('s/jquery-3.2.1.min.js.download') }}"></script>
+	<script src="{{ asset('s/jquery.meanmenu.js.download') }}"></script>
+	<script src="{{ asset('s/theme.js.download') }}"></script>
     <!-- Toastr JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>

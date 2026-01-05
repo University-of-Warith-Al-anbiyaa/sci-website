@@ -1304,6 +1304,8 @@ html[dir="ltr"] .aside-news .aside-title-1::after {
     height: 80px;
 }
 
+
+
 .aside-news-card .text-date {
     /* position: absolute;
     bottom: 0; */
@@ -1769,6 +1771,25 @@ html[dir="ltr"] .tabs {
     direction: ltr;
 }
 
+@media only screen and (max-width: 768px) {
+     .main-image {
+        height: 20rem;
+    }
+    .Banner_threeSlider .swiper-pagination-bullet {
+        display: none;
+    }
+
+    /* News Card */
+    .news-card .text-date,
+    .aside-news-card .text-date {
+        position: relative;
+    }
+    .aside-news-card .image {
+    width: 100% ;
+    height: auto ;
+    margin-bottom: 18px ;
+}
+}
 /*Responsive*/
 @media only screen and (max-width: 520px) {
     .main-image {

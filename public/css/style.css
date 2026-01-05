@@ -1,11 +1,26 @@
 
-@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&family=Yantramanav:wght@300;400;500;700;900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&family=somer:wght@300;400;500;700;900&display=swap"); */
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Somer);
+
+@font-face {
+    font-family: 'Somar Sans';
+    src: url('../fronts/SomarSans-Regular.woff2') format('woff2'),
+         url('../fronts/SomarSans-Regular.woff') format('woff'),
+         url('../fronts/SomarSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 :root {
   --main-color: #FFC451;
   --heading-color: #080C24;
   --paragraph-color: #565969;
-  --body-font: "Public Sans", sans-serif;
-  --heading-font: "Yantramanav", sans-serif;
+  --font-family: "Somar Sans", sans-serif;
+  --body-font: "Somar Sans", sans-serif;
+  /* --heading-font: "Yantramanav", sans-serif; */
   --body-font-size: 16px;
   --line-height30: 1.7;
 }
@@ -14,7 +29,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   overflow-x: hidden;
-  font-family: var(--body-font);
+  /* font-family: var(--body-font), 'Somar Sans', sans-serif !important; */
 }
 
 * {
@@ -31,7 +46,7 @@ body {
   margin: 0;
   color: var(--paragraph-color);
   overflow-x: hidden;
-  font-family: var(--body-font);
+  /* font-family: var(--body-font); */
   line-height: var(--line-height30);
   font-size: var(--body-font-size);
 }
@@ -74,7 +89,7 @@ h5,
 h6 {
   color: var(--heading-color);
   font-weight: 700;
-  font-family: var(--heading-font);
+  /* font-family: var(--heading-font); */
 }
 
 p {
@@ -201,7 +216,7 @@ code {
   position: absolute;
   left: 0;
   top: 0;
-  font-family: "fontawesome";
+  /* font-family: "fontawesome"; */
   content: "\f105";
   color: var(--main-color);
 }
@@ -516,7 +531,7 @@ ul {
   position: relative;
   border: 0;
   font-size: 18px;
-  font-family: var(--heading-font);
+  /* font-family: var(--heading-font); */
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   font-weight: 500;
@@ -1435,7 +1450,7 @@ ul {
   color: #fff;
   padding: 12.5px 135px 9.5px 115px;
   left: -70px;
-  font-family: var(--heading-font);
+  /* font-family: var(--heading-font); */
   font-size: 14px;
 }
 .navbar-top .nav-phone-wrap i, .navbar-top .nav-phone-wrap svg {
@@ -2217,7 +2232,7 @@ ul {
   }
 
   .widget ul {
-    text-align: left;
+    /* text-align: auto !important; */
   }
 
   .navbar-collapse {
@@ -3845,7 +3860,7 @@ ul {
   font-size: 18px;
   line-height: 28px;
   color: var(--heading-color);
-  font-family: var(--heading-font);
+  /* font-family: var(--heading-font); */
 }
 
 .progress-item {
@@ -3860,7 +3875,7 @@ ul {
   font-weight: 600;
   font-size: 16px;
   color: var(--heading-color);
-  font-family: var(--heading-font);
+  /* font-family: var(--heading-font); */
 }
 
 .progress-item.add-progress-start .progress-count-wrap {
@@ -4153,7 +4168,7 @@ ul {
   font-size: 36px;
   line-height: 47px;
   color: var(--main-color);
-  font-family: var(--heading-font);
+  /* font-family: var(--heading-font); */
 }
 .single-pricing-inner .header .price span {
   font-weight: 600;
@@ -5274,7 +5289,7 @@ ul {
   display: block;
   font-weight: 500;
   font-size: 16px;
-  font-family: var(--heading-font);
+  /* font-family: var(--heading-font); */
 }
 .pagination li a:active, .pagination li a:focus, .pagination li a:hover {
   background: var(--main-color);
@@ -5323,7 +5338,7 @@ blockquote span {
   font-weight: 500;
   font-size: 20px;
   line-height: 26px;
-  font-family: var(--heading-font);
+  /* font-family: var(--heading-font); */
   color: var(--heading-color);
   position: relative;
   padding-left: 69px;
@@ -5380,7 +5395,7 @@ blockquote .icon {
 .tag-and-share strong {
   margin-bottom: 0px;
   color: var(--heading-color);
-  font-family: var(--heading-font);
+  /* font-family: var(--heading-font); */
   font-weight: 700;
   font-size: 20px;
   line-height: 26px;

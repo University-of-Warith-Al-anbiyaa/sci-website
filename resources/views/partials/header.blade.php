@@ -54,20 +54,28 @@
 				<div class="col-lg-2">
 					<div class="logo-container d-flex align-items-center justify-content-between">
 						<a class="logo_img" href="/" title="techno" style="--bs-gutter-x: 4.5rem;">
-							<img src="store/logo.svg" alt="">
+							<img src="{{ asset('store/logo.svg') }}" alt="">
 						</a>
 						<button type="button" class="color-w lang-s d-none d-lg-block"
-							data-current-lang="{{ session('locale') }}" id="langToggle" style="color: #fcfcfc;color: #fcfcfc;
-    font-size: 12px;
-    padding: 0px 16px;
-    border-radius: 7px;
-    transition: 0.3s;
-    border: 2px solid #ffc451;
-    line-height: 30px; background-color: transparent;">{{ session()->has('locale') ? (session('locale') === 'ar' ? 'EN' : 'AR') : 'EN' }}</button>
+							data-current-lang="{{ session('locale') }}" id="langToggle"
+							style="color: #fcfcfc;color: #fcfcfc;
+			                            font-size: 12px;
+			                            padding: 0px 16px;
+			                            border-radius: 7px;
+			                            transition: 0.3s;
+			                            border: 2px solid #ffc451;
+			                            line-height: 30px; background-color: transparent;">{{ session()->has('locale') ? (session('locale') === 'ar' ? 'EN' : 'AR') : 'EN' }}
+						                </button>
+						<!-- Mobile language toggle placed beside logo (visible on small screens) -->
+						<!-- <button type="button" class="color-w lang-s-mobile d-block d-lg-none ms-2"
+							data-current-lang="{{ session('locale') }}" id="langToggleMobile"
+							onclick="document.getElementById('langToggle').click()">
+							{{ session()->has('locale') ? (session('locale') === 'ar' ? 'EN' : 'AR') : 'EN' }}
+						</button> -->
 						<!-- <button type="button" class="lang-switch" id="langToggle" data-current-lang="{{ session('locale') }}">
                             <i class="fas fa-globe"></i>
                             <span>{{ session('locale') === 'ar' ? 'EN' : 'AR' }}</span>
-                        </button> --> 
+                        </button> -->
 					</div>
 				</div>
 				<div class="col-lg-10">
@@ -102,7 +110,7 @@
 								</a>
 
 							</li>
-							<li><a href=""> {{ session('locale') === 'en' ? 'About the Center' : 'حول المركز' }} <span>
+							<li><a href="#"> {{ session('locale') === 'en' ? 'About the Center' : 'حول المركز' }} <span>
 										<i>
 											<svg width="800px" height="800px" viewBox="0 0 24 24" class="mx-1 s-20"
 												fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -128,7 +136,7 @@
 								</ul>
 							</li>
 
-							<li><a href=""> {{ session('locale') === 'en' ? 'Training Courses' : 'الدورات التدريبية' }}
+							<li><a href="#"> {{ session('locale') === 'en' ? 'Training Courses' : 'الدورات التدريبية' }}
 									<span>
 										<i>
 											<svg width="800px" height="800px" viewBox="0 0 24 24" class="mx-1 s-20"
@@ -151,7 +159,7 @@
 
 								</ul>
 							</li>
-							<li><a href=""> {{ session('locale') === 'en' ? 'E-Learning' : 'التعليم الإلكتروني' }}
+							<li><a href="#"> {{ session('locale') === 'en' ? 'E-Learning' : 'التعليم الإلكتروني' }}
 									<span>
 										<i>
 											<svg width="800px" height="800px" viewBox="0 0 24 24" class="mx-1 s-20"
@@ -180,7 +188,7 @@
 
 								</ul>
 							</li>
-							<li><a href=""> {{ session('locale') === 'en' ? 'E-Services' : 'الخدمات الإلكترونية' }}
+							<li><a href="#"> {{ session('locale') === 'en' ? 'E-Services' : 'الخدمات الإلكترونية' }}
 									<span>
 										<i>
 											<svg width="800px" height="800px" viewBox="0 0 24 24" class="mx-1 s-20"
@@ -203,7 +211,6 @@
 									href="{{ route('contact.index') }}">{{ session('locale') === 'en' ? 'Contact Us' : 'اتصل بنا' }}</a>
 							</li>
 						</ul>
-
 					</nav>
 				</div>
 			</div>
@@ -213,53 +220,78 @@
 		<div class="mobile-menu">
 			<nav class="techno_menu" style="display: block;">
 				<ul class="nav_scroll">
-					<li><a href="/#home">{{session('locale') === 'en' ? 'Home' : 'الرئيسية'}} <span><i
+					<li><a href="/">{{session('locale') === 'en' ? 'Home' : 'الرئيسية'}} <span><i
 									class=""></i></span></a>
 					</li>
-					<li><a href="/#Company">
+					<li><a href="/news">
 							{{ session('locale') === 'en' ? 'News & Activities' : 'الاخبار والنشاطات' }}<span>
 								<span><i class=""></i></span></a>
 					</li>
-					<li><a href=""> {{ session('locale') === 'en' ? 'Training Courses' : 'الدورات التدريبية' }} <span><i
-									class=""></i></span></a>
-						<ul class="sub-menu">
-							<li><a href="/">{{ session('locale') === 'en' ? 'Annual Plan' : 'الخطة السنوية' }}</a>
-							</li>
-							<li><a
-									href="">{{ session('locale') === 'en' ? 'Training Programs' : 'برامج المركز التدريبية' }}</a>
-							</li>
-							<li><a href="">{{ session('locale') === 'en' ? 'Course Registration' : 'تسجيل دورة' }}</a>
-							</li>
-						</ul>
-					</li>
-					<li><a href=""> {{ session('locale') === 'en' ? 'About the Center' : 'حول المركز' }} </a>
+					<li><a href="#"> {{ session('locale') === 'en' ? 'About the Center' : 'حول المركز' }} </a>
 						<ul class="sub-menu">
 							<li><a
 									href="{{ route('department.structure') }}">{{ session('locale') === 'en' ? 'Structure' : 'الهيكلية' }}</a>
 							</li>
 							<li><a
-									href="">{{ session('locale') === 'en' ? 'Vision & Goals' : 'رؤية و اهداف المركز' }}</a>
+									href="{{ route('department_vision') }}">{{ session('locale') === 'en' ? 'Vision & Goals' : 'رؤية و اهداف المركز' }}</a>
 							</li>
-							<li><a href="">{{ session('locale') === 'en' ? 'Head’s Message' : 'كلمة رئيس القسم' }}</a>
+							<li><a href="{{ route('department_mission') }}">{{ session('locale') === 'en' ? 'Head’s Message' : 'كلمة رئيس القسم' }}</a>
 							</li>
-							<li><a href="">{{ session('locale') === 'en' ? 'About the Center' : 'عن المركز' }}</a>
+							<li><a href="{{ route('department_goals') }}">{{ session('locale') === 'en' ? 'About the Center' : 'عن المركز' }}</a>
 							</li>
 						</ul>
 					</li>
+					<li><a href="#"> {{ session('locale') === 'en' ? 'Training Courses' : 'الدورات التدريبية' }} 
+						<span><i
+									class=""></i></span></a>
+						<ul class="sub-menu">
+							<li><a href="{{ route('clc_annual_plan.index') }}">{{ session('locale') === 'en' ? 'Annual Plan' : 'الخطة السنوية' }}</a>
+							</li>
+							<li><a
+									href="{{ route('program') }}">{{ session('locale') === 'en' ? 'Training Programs' : 'برامج المركز التدريبية' }}</a>
+							</li>
+							<li><a href="{{ route('create') }}">{{ session('locale') === 'en' ? 'Course Registration' : 'تسجيل دورة' }}</a>
+							</li>
+						</ul>
+					</li>
+					
+					<li><a href="#"> {{ session('locale') === 'en' ? 'E-Learning' : 'التعليم الإلكتروني' }}
 
-					<li><a href="/#blog"> {{ session('locale') === 'en' ? 'E-Services' : 'الخدمات الإلكترونية' }}
 							<span><i class=""></i></span></a>
 						<ul class="sub-menu">
 							<li><a
-									href="/">{{ session('locale') === 'en' ? 'Plagiarism Detection' : 'الاستلال الإلكتروني' }}</a>
+									href="https://uowa.edu.iq/arabic/dars">{{ session('locale') === 'en' ? 'Weekly Schedule' : 'الجدول الأسبوعي' }}</a>
 							</li>
-							<li><a href="">{{ session('locale') === 'en' ? 'Certificates' : 'الشهادات' }}</a></li>
+							<li><a
+									href="https://uowa.edu.iq/arabic/exam/monthly">{{ session('locale') === 'en' ? 'Monthly Exam Schedule' : 'جدول الامتحانات الشهري' }}</a>
+							</li>
+							<li><a
+									href="https://uowa.edu.iq/arabic/exam/final">{{ session('locale') === 'en' ? 'Final Exam Schedule' : 'جدول الامتحانات النهائي' }}</a>
+							</li>
+							<li><a
+									href="https://uowa.edu.iq/arabic/clc/guide">{{ session('locale') === 'en' ? 'Student E-Learning Guide' : 'دليل الطالب للتعلم الإلكتروني' }}</a>
+							</li>
+							<li><a
+									href="https://elearning.uowa.edu.iq/">{{ session('locale') === 'en' ? 'E-Learning Platform' : 'منصة التعليم الإلكتروني' }}</a>
+							</li>
+						</ul>
+					</li>
+
+					<li><a href="#"> {{ session('locale') === 'en' ? 'E-Services' : 'الخدمات الإلكترونية' }}
+							<span><i class=""></i></span></a>
+						<ul class="sub-menu">
+							<li><a
+									href="{{ route('plagiarism.index') }}">{{ session('locale') === 'en' ? 'Plagiarism Detection' : 'الاستلال الإلكتروني' }}</a>
+							</li>
+							<li><a href="{{ route('certificates.index') }}">{{ session('locale') === 'en' ? 'Certificates' : 'الشهادات' }}</a></li>
 
 						</ul>
 					</li>
-					<li><a href="">{{ session('locale') === 'en' ? 'Contact Us' : 'اتصل بنا' }} </a></li>
+					<li><a href="{{ route('contact.index') }}">{{ session('locale') === 'en' ? 'Contact Us' : 'اتصل بنا' }} </a></li>
 				</ul>
 			</nav>
+			<!-- Mobile language toggle button -->
+			
 		</div>
 	</div>
 </header>

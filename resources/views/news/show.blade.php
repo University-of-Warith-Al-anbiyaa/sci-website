@@ -7,12 +7,48 @@
         border-bottom: 1px solid #807e94;
     }
 
+    /* قاعدة للأجهزة التي عرضها أقل من 990px */
+    @media screen and (max-width: 990px) {
+        .category-news-header {
+            top: 0px !important;
+        }
+    }
+
+    @media only screen and (min-width: 320px) and (max-width: 599px) {
+        .techno_nav_manu {
+            display: none !important;
+        }
+        .sticky {
+            display: none !important;
+        }
+    }
+
+    @media screen and (max-width: 990px) {
+        .techno_nav_manu {
+            display: none !important;
+        }
+        .sticky {
+            display: none !important;
+        }
+    }
+
+    /* قاعدة للأجهزة التي عرضها أقل من 768px */
+    @media screen and (max-width: 768px) {
+        .category-news-header {
+            top: 0px !important;
+        }
+    }
 </style>
+
 @extends('layouts.main')
 
 @section('content')
+<!-- <link rel="stylesheet" href="{{ asset('css/vendor.css') }}">
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('css/responsive.css') }}"> -->
+
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+    /* @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap'); */
 
     .single-news-area {
         padding: 60px 0;
@@ -29,9 +65,10 @@
         transition: all 0.3s ease;
     }
 
-    .news-header {
+    .news-header-image {
         position: relative;
         height: 500px;
+        overflow: hidden;
     }
 
     .news-image {
@@ -41,7 +78,7 @@
         transition: transform 0.5s ease;
     }
 
-    .news-header:after {
+    .news-header-image:after {
         content: '';
         position: absolute;
         bottom: 0;
@@ -129,11 +166,11 @@
     }
 
     .back-btn:hover i {
-        transform: translateX(app()->getLocale() === 'ar' ? 5px : -5px);
+        transform: translateX({{ app()->getLocale() === 'ar' ? '5px' : '-5px' }});
     }
 
     @media (max-width: 768px) {
-        .news-header {
+        .news-header-image {
             height: 300px;
         }
         
@@ -150,14 +187,42 @@
             font-size: 1.1rem;
         }
     }
+
+    @media (max-width: 992px) {
+        .news-header-image { 
+            height: 400px; 
+        }
+        .news-content { 
+            margin-top: 0; 
+            padding: 24px; 
+        }
+    }
 </style>
+
+<header class="category-news-header d-flex justify-content-center align-items-end"
+    style="background:linear-gradient(180deg, rgba(0, 11, 31, .3), rgba(0, 11, 31, .3)), url('{{ asset('store/slider.jpg') }}'); top: 90; position: relative; z-index: 1;">
+</header>
 
 <div class="single-news-area">
     <div class="container">
+        <div class="border-bottom px-2 mb-4">
+            <div class="d-flex align-items-start">
+                <div class="ms-2"><a class="text-c-dark" href="/">{{ app()->getLocale() === 'ar' ? 'الرئيسية' : 'Home' }}</a></div>
+                <div class="ms-2">
+                    <i class="uowa-chevron-left"></i>
+                </div>
+                <div class="ms-2"><a class="text-c-dark" href="{{ route('news.index') }}">{{ app()->getLocale() === 'ar' ? 'أخبار الجامعة' : 'University News' }}</a></div>
+                <div class="ms-2">
+                    <i class="uowa-chevron-left"></i>
+                </div>
+                <div class="ms-2 text-c-yellow2">{{ app()->getLocale() === 'ar' ? 'تفاصيل الخبر' : 'News Details' }}</div>
+            </div>
+        </div>
+
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="news-detail-card">
-                    <div class="news-header">
+                    <div class="news-header-image">
                         @if(!empty($newsItem['photos'][0]))
                             <img src="https://uowa.edu.iq/store/filestorage/file_{{ $newsItem['photos'][0] }}" 
                                  class="news-image" 
@@ -187,4 +252,27 @@
         </div>
     </div>
 </div>
+
+@include('partials.footer')
+
 @endsection
+
+<!-- @push('scripts')
+    <script src="{{ asset('s/jquery-3.2.1.min.js.download') }}"></script>
+    <script src="{{ asset('s/jquery.meanmenu.js.download') }}"></script>
+    <script src="{{ asset('s/theme.js.download') }}"></script>
+
+    <script>
+        $(window).on('scroll', function () {
+            var scrolled = $(window).scrollTop();
+            if (scrolled > 300) $('.go-top').addClass('active');
+            if (scrolled < 300) $('.go-top').removeClass('active');
+        });
+
+        $('.go-top').on('click', function () {
+            $("html, body").animate({
+                scrollTop: "0"
+            }, 1200);
+        });
+    </script>
+@endpush -->

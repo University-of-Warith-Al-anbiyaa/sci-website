@@ -356,7 +356,9 @@
 </div>
 
 <div class="toast-container" id="toastContainer"></div>
-
+<script src="{{ asset('s/jquery-3.2.1.min.js.download') }}"></script>
+	<script src="{{ asset('s/jquery.meanmenu.js.download') }}"></script>
+	<script src="{{ asset('s/theme.js.download') }}"></script>
 <script>
 $(document).ready(function() {
     const searchForm = $('#searchForm');
