@@ -10,303 +10,13 @@
 @extends('layouts.main')
 @section('content')
 
-<style>
-/* Main Container Styles */
-.main-container {
-    margin: 100px auto 40px;
-    width: 90%;
-    max-width: 1200px;
-}
-
-/* Form Section Styles */
-.form-section {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    margin-bottom: 30px;
-    overflow: hidden;
-}
-
-.section-header {
-    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-    color: white;
-    padding: 25px 30px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.section-header i {
-    font-size: 24px;
-}
-
-.section-header h3 {
-    margin: 0;
-    font-size: 1.4rem;
-    font-weight: 600;
-}
-
-.section-content {
-    padding: 30px;
-}
-
-/* Introduction Section */
-.intro-section {
-    text-align: center;
-    margin-bottom: 40px;
-    padding: 20px;
-}
-
-.intro-icon {
-    width: 80px;
-    height: 80px;
-    background: #e8f5fe;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    color: #3498db;
-    font-size: 32px;
-}
-
-.intro-title {
-    font-size: 1.8rem;
-    color: #2c3e50;
-    margin-bottom: 15px;
-}
-
-.intro-text {
-    color: #666;
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-/* Instructions Box */
-.instructions-box {
-    background: #f8f9fa;
-    border: 2px solid #e0e6ed;
-    border-radius: 12px;
-    padding: 25px;
-    margin-bottom: 30px;
-}
-
-.instructions-title {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #2c3e50;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-.instructions-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.instructions-list li {
-    position: relative;
-    padding: 12px 35px 12px 0;
-    border-bottom: 1px dashed #e0e6ed;
-    color: #666;
-}
-
-.instructions-list li:last-child {
-    border-bottom: none;
-}
-
-.instructions-list li:before {
-    content: '✓';
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 25px;
-    height: 25px;
-    background: #e8f5fe;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #3498db;
-    font-size: 14px;
-}
-
-/* Search Box */
-.search-container {
-    background: white;
-    border-radius: 12px;
-    padding: 30px;
-    margin-bottom: 30px;
-}
-
-.search-input-wrapper {
-    position: relative;
-    max-width: 700px;
-    margin: 0 auto 20px;
-}
-
-.search-input {
-    width: 100%;
-    height: 60px;
-    padding: 0 60px 0 20px;
-    border: 2px solid #e0e6ed;
-    border-radius: 30px;
-    font-size: 1.1rem;
-    text-align: right;
-    transition: all 0.3s ease;
-    background: #f8f9fa;
-}
-
-.search-input:focus {
-    background: white;
-    border-color: #3498db;
-    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1);
-}
-
-.search-icon {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #95a5a6;
-    font-size: 20px;
-    pointer-events: none;
-}
-
-.search-button {
-    display: block;
-    width: 200px;
-    margin: 20px auto 0;
-    padding: 12px;
-    border: none;
-    border-radius: 25px;
-    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-    color: white;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.search-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-}
-
-/* Results Section */
-.search-results {
-    margin-top: 30px;
-}
-
-.certificate-card {
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    padding: 20px;
-    margin-bottom: 15px;
-    border: 2px solid #e0e6ed;
-    transition: all 0.3s ease;
-}
-
-.certificate-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.certificate-details {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.certificate-title {
-    font-size: 1.2rem;
-    color: #2c3e50;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.meta-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin: 15px 0;
-}
-
-.meta-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px;
-    background: #f8f9fa;
-    border-radius: 8px;
-}
-
-.meta-icon {
-    width: 35px;
-    height: 35px;
-    background: #e8f5fe;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #3498db;
-}
-
-.meta-text {
-    display: flex;
-    flex-direction: column;
-}
-
-.meta-label {
-    font-size: 0.8rem;
-    color: #666;
-}
-
-.meta-value {
-    font-size: 0.95rem;
-    color: #2c3e50;
-    font-weight: 500;
-}
-
-.action-buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.btn-download {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 20px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
-}
-
-.btn-certificate {
-    background: #3498db;
-    color: white;
-}
-
-.btn-order {
-    background: #2ecc71;
-    color: white;
-}
-</style>
+<link rel="stylesheet" href="{{ asset('s/certificates.css') }}">
 
 <div class="main-container">
     <div class="form-section">
         <div class="section-header">
             <i class="fas fa-award"></i>
-            <h3>نظام البحث عن الشهادات</h3>
+            <h3> {{ session('locale') === 'en' ? 'Certificate Search System' : 'نظام البحث عن الشهادات' }}</h3>
         </div>
 
         <div class="section-content">
@@ -314,21 +24,22 @@
                 <div class="intro-icon">
                     <i class="fas fa-certificate"></i>
                 </div>
-                <h2 class="intro-title">مرحباً بك في نظام شهادات المشاركة</h2>
+                <h2 class="intro-title"> {{ session('locale') === 'en' ? 'Welcome to the Participation Certificates System' : 'مرحباً بك في نظام شهادات المشاركة' }}</h2>
                 <p class="intro-text">
-                    من خلال هذا النظام يمكنك تحميل شهادة المشاركة الخاصة بك بسرعة وسهولة
+                        {{ session('locale') === 'en' ? 'Through this system, you can quickly and easily download your participation certificate' : '
+                    من خلال هذا النظام يمكنك تحميل شهادة المشاركة الخاصة بك بسرعة وسهولة'}}
                 </p>
             </div>
 
             <div class="instructions-box">
                 <div class="instructions-title">
                     <i class="fas fa-info-circle"></i>
-                    تعليمات مهمة
+                   {{ session('locale') === 'en' ? 'Important Instructions' : 'تعليمات مهمة' }}
                 </div>
                 <ul class="instructions-list">
-                    <li>ادخال نفس اسمك الثلاثي الذي استخدم عند التسجيل على النشاط</li>
-                    <li>في حال لم تجد اسم النشاط فهذا يعني لم تصل بيانات ذلك النشاط بعد</li>
-                    <li>تأكد من كتابة الاسم بشكل صحيح وبنفس طريقة كتابته عند التسجيل</li>
+                    <li>{{ session('locale') === 'en' ? 'Enter the same full name used during activity registration' : 'ادخال نفس اسمك الثلاثي الذي استخدم عند التسجيل على النشاط' }}</li>
+                    <li>{{ session('locale') === 'en' ? 'If you do not find the activity name, it means that the data for that activity has not arrived yet' : 'في حال لم تجد اسم النشاط فهذا يعني لم تصل بيانات ذلك النشاط بعد' }}</li>
+                    <li>{{ session('locale') === 'en' ? 'Make sure to write the name correctly and in the same way it was written during registration' : 'تأكد من كتابة الاسم بشكل صحيح وبنفس طريقة كتابته عند التسجيل' }}</li>
                 </ul>
             </div>
 
@@ -339,13 +50,13 @@
                         <input type="text" 
                                class="search-input"
                                name="name" 
-                               placeholder="ادخل اسمك الثلاثي كما هو مسجل في الشهادة..."
+                               placeholder="{{ session('locale') === 'en' ? 'Enter your full name as registered on the certificate...' : 'ادخل اسمك الثلاثي كما هو مسجل في الشهادة...' }}"
                                required>
                         <i class="fas fa-search search-icon"></i>
                     </div>
                     <button type="submit" class="search-button">
                         <i class="fas fa-search"></i>
-                        بحث عن الشهادات
+                        {{ session('locale') === 'en' ? 'Search Certificates' : 'بحث عن الشهادات' }}
                     </button>
                 </form>
             </div>
@@ -383,7 +94,7 @@ $(document).ready(function() {
                 resultsDiv.html(`
                     <div class="text-center py-5">
                         <i class="fas fa-spinner fa-spin fa-2x"></i>
-                        <p class="mt-2">جاري البحث...</p>
+                        <p class="mt-2">{{ session('locale') === 'en' ? 'Searching...' : 'جاري البحث...' }}</p>
                     </div>
                 `);
             },
@@ -402,7 +113,7 @@ $(document).ready(function() {
                                                 <i class="fas fa-user"></i>
                                             </div>
                                             <div class="meta-text">
-                                                <span class="meta-label">اسم المتدرب</span>
+                                                <span class="meta-label">{{ session('locale') === 'en' ? 'Trainee Name' : 'اسم المتدرب' }}</span>
                                                 <span class="meta-value">${cert.name}</span>
                                             </div>
                                         </div>
@@ -412,7 +123,7 @@ $(document).ready(function() {
                                                 <i class="fas fa-calendar"></i>
                                             </div>
                                             <div class="meta-text">
-                                                <span class="meta-label">تاريخ الدورة</span>
+                                                <span class="meta-label">{{ session('locale') === 'en' ? 'Course Date' : 'تاريخ الدورة' }}</span>
                                                 <span class="meta-value">${cert.datestart}</span>
                                             </div>
                                         </div>
@@ -422,8 +133,8 @@ $(document).ready(function() {
                                                 <i class="fas fa-clock"></i>
                                             </div>
                                             <div class="meta-text">
-                                                <span class="meta-label">مدة الدورة</span>
-                                                <span class="meta-value">${cert.days} أيام</span>
+                                                <span class="meta-label">{{ session('locale') === 'en' ? 'Course Duration' : 'مدة الدورة' }}</span>
+                                                <span class="meta-value">${cert.days} {{ session('locale') === 'en' ? 'days' : 'أيام' }}</span>
                                             </div>
                                         </div>
 
@@ -432,7 +143,7 @@ $(document).ready(function() {
                                                 <i class="fas fa-certificate"></i>
                                             </div>
                                             <div class="meta-text">
-                                                <span class="meta-label">نوع الشهادة</span>
+                                                <span class="meta-label">{{ session('locale') === 'en' ? 'Certificate Type' : 'نوع الشهادة' }}</span>
                                                 <span class="meta-value">${cert.type}</span>
                                             </div>
                                         </div>
@@ -442,7 +153,7 @@ $(document).ready(function() {
                                                 <i class="fas fa-calendar-alt"></i>
                                             </div>
                                             <div class="meta-text">
-                                                <span class="meta-label">تاريخ الإنشاء</span>
+                                                <span class="meta-label">{{ session('locale') === 'en' ? 'Creation Date' : 'تاريخ الإنشاء' }}</span>
                                                 <span class="meta-value">${cert.created}</span>
                                             </div>
                                         </div>
@@ -452,13 +163,13 @@ $(document).ready(function() {
                                         <a download="certificate" href="/certificates/download/${cert.eid}" 
                                            class="btn-download btn-certificate">
                                             <i class="fas fa-download"></i>
-                                            تحميل الشهادة
+                                            {{ session('locale') === 'en' ? 'Download Certificate' : 'تحميل الشهادة' }}
                                         </a>
                                         <a href="https://uowa.edu.iq/store/filestorage/${cert.filename}" 
                                            target="_blank"
                                            class="btn-download btn-order">
                                             <i class="fas fa-file-pdf"></i>
-                                            الأمر الإداري 
+                                            {{ session('locale') === 'en' ? 'Administrative Order' : 'الأمر الإداري' }}
                                         </a>
                                     </div>
                                 </div>
@@ -467,25 +178,25 @@ $(document).ready(function() {
                     });
                     html += '</div>';
                     resultsDiv.html(html);
-                    showToast('success', 'تم العثور على نتائج', `تم العثور على ${response.certificates.length} شهادة`);
+                    showToast('success', '{{ session('locale') === 'en' ? 'Results Found' : 'تم العثور على نتائج' }}', `{{ session('locale') === 'en' ? 'Found' : 'تم العثور على' }} ${response.certificates.length} {{ session('locale') === 'en' ? 'certificates' : 'شهادة' }}`);
                 } else {
                     resultsDiv.html(`
                         <div class="alert alert-info">
                             <i class="fas fa-info-circle"></i>
-                            لم يتم العثور على أي شهادات بهذا الاسم
+                            {{ session('locale') === 'en' ? 'No certificates found with this name' : 'لم يتم العثور على أي شهادات بهذا الاسم' }}
                         </div>
                     `);
-                    showToast('error', 'لم يتم العثور على نتائج', 'لا توجد شهادات مسجلة بهذا الاسم');
+                    showToast('error', '{{ session('locale') === 'en' ? 'No Results Found' : 'لم يتم العثور على نتائج' }}', '{{ session('locale') === 'en' ? 'No certificates registered with this name' : 'لا توجد شهادات مسجلة بهذا الاسم' }}');
                 }
             },
             error: function() {
                 resultsDiv.html(`
                     <div class="alert alert-danger">
                         <i class="fas fa-exclamation-circle"></i>
-                        حدث خطأ أثناء البحث
+                        {{ session('locale') === 'en' ? 'An error occurred while searching' : 'حدث خطأ أثناء البحث' }}
                     </div>
                 `);
-                showToast('error', 'خطأ', 'حدث خطأ أثناء معالجة الطلب');
+                showToast('error', '{{ session('locale') === 'en' ? 'Error' : 'خطأ' }}', '{{ session('locale') === 'en' ? 'An error occurred while processing the request' : 'حدث خطأ أثناء معالجة الطلب' }}');
             }
         });
     });
@@ -552,5 +263,4 @@ document.addEventListener('DOMContentLoaded', function() {
     @endif
 });
 </script>
-
 @endsection

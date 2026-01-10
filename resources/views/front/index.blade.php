@@ -292,7 +292,6 @@ if (!empty($news)) {
 		</div>
 	</div>
 </div> -->
-@include('partials.footer')
 @endsection
 
 @push('scripts')

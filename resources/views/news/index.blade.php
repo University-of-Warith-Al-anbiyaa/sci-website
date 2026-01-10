@@ -128,6 +128,10 @@ use Illuminate\Support\Str;
         }
     }
 
+    /* Breadcrumb icon alignment */
+    .breadcrumb-icon { font-size: 16px; line-height: 1; vertical-align: middle; }
+    .border-bottom .ms-2 { display: inline-flex; align-items: center; }
+
     
 </style>
 @extends('layouts.main')
@@ -158,14 +162,12 @@ use Illuminate\Support\Str;
                     <section class="col-md-8 my-5" style="margin-left: 3rem;">
                         <!--  -->
                         <div class="border-bottom px-2 mb-4">
-                            <div class="d-flex align-items-start ">
-                                <div class="ms-2"><a class="text-c-dark" href="/arabic">الرئيسية</a></div>
+                            <div class="d-flex align-items-center ">
+                                <div class="ms-2"><a class="text-c-dark" href="/arabic"> {{ session('locale') === 'en' ? 'Home' : 'الرئيسية' }}</a></div>
                                 <div class="ms-2">
-
-                                    <i class="uowa-chevron-left"></i>
-
+                                    <i class="fas {{ session('locale') === 'en' ? 'fa-angle-right' : 'fa-angle-left' }} breadcrumb-icon"></i>
                                 </div>
-                                <div class="ms-2 text-c-yellow2">أخبار الجامعة</div>
+                                <div class="ms-2 text-c-yellow2">{{ session('locale') === 'en' ? 'University News' : 'أخبار الجامعة' }}</div>
                             </div>
                         </div>
                         <!--  -->
@@ -293,7 +295,7 @@ use Illuminate\Support\Str;
                         <div class="col-12">
                             <div class="aside-news">
                                 <a href="/arabic/ministrynews">
-                                    <h5 class="fbold text-c-gindigoray aside-title">اخبار الوزارة</h5>
+                                    <h5 class="fbold text-c-gindigoray aside-title"> {{ session('locale') === 'en' ? 'Ministry News' : 'اخبار الوزارة' }}</h5>
                                 </a>
                                 @foreach ($news['ministrynews'] as $ministrynews)
                                     <div class="aside-news-card py-2">
@@ -359,7 +361,6 @@ use Illuminate\Support\Str;
         </div>
     </div>
 
-    @include('partials.footer')
 @endsection
 
 <script src="{{ asset('s/jquery-3.2.1.min.js.download') }}"></script>

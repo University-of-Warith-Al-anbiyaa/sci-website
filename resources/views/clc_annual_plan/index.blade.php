@@ -418,7 +418,6 @@
             });
         });
     </script>
-   @include('partials.footer')
 @endsection
 
 @push('scripts')

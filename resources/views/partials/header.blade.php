@@ -294,4 +294,125 @@
 			
 		</div>
 	</div>
+
+	<!-- Mobile floating language toggle (draggable & clickable) -->
+	<style>
+		.mobile-lang-toggle {
+			display: none;
+			position: fixed;
+			bottom: 80px;
+			right: 16px;
+			width: 48px;
+			height: 48px;
+			border-radius: 50%;
+			background: #0c244e; /* same as header */
+			color: #ffffff; /* inner text white */
+			border: 2px solid #ffc451; /* golden frame */
+			box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+			z-index: 99999;
+			align-items: center;
+			justify-content: center;
+			font-weight: 700;
+			font-size: 14px;
+			cursor: grab;
+			user-select: none;
+			-webkit-user-select: none;
+			touch-action: none;
+		}
+
+		.mobile-lang-toggle.dragging { cursor: grabbing; }
+
+		@media (max-width: 990px) {
+			.mobile-lang-toggle { display: flex; }
+		}
+	</style>
+
+	<div id="mobileLangToggle" class="mobile-lang-toggle" data-current-lang="{{ session('locale') }}" title="{{ session('locale') === 'ar' ? 'EN' : 'AR' }}">
+		{{ session()->has('locale') ? (session('locale') === 'ar' ? 'EN' : 'AR') : 'EN' }}
+	</div>
+
 </header>
+
+<script>
+// Mobile floating language toggle: drag + click to switch
+(function(){
+	var el = document.getElementById('mobileLangToggle');
+	if(!el) return;
+
+	var isPointerDown = false;
+	var startX=0, startY=0, elX=0, elY=0;
+	var storageKey = 'mobileLangTogglePos';
+
+	// restore position
+	try{
+		var pos = JSON.parse(localStorage.getItem(storageKey));
+		if(pos && typeof pos.x === 'number' && typeof pos.y === 'number'){
+			el.style.right = 'auto';
+			el.style.left = (pos.x) + 'px';
+			el.style.top = (pos.y) + 'px';
+			el.style.bottom = 'auto';
+			el.style.position = 'fixed';
+		}
+	}catch(e){}
+
+	function pointerDown(e){
+		isPointerDown = true;
+		el.classList.add('dragging');
+		var p = (e.touches && e.touches[0]) || e;
+		startX = p.clientX;
+		startY = p.clientY;
+		var rect = el.getBoundingClientRect();
+		elX = rect.left;
+		elY = rect.top;
+		e.preventDefault();
+	}
+
+	function pointerMove(e){
+		if(!isPointerDown) return;
+		var p = (e.touches && e.touches[0]) || e;
+		var dx = p.clientX - startX;
+		var dy = p.clientY - startY;
+		var newX = elX + dx;
+		var newY = elY + dy;
+		var margin = 8;
+		newX = Math.max(margin, Math.min(window.innerWidth - el.offsetWidth - margin, newX));
+		newY = Math.max(margin, Math.min(window.innerHeight - el.offsetHeight - margin, newY));
+		el.style.left = newX + 'px';
+		el.style.top = newY + 'px';
+		el.style.right = 'auto';
+		el.style.bottom = 'auto';
+	}
+
+	function pointerUp(e){
+		if(!isPointerDown) return;
+		isPointerDown = false;
+		el.classList.remove('dragging');
+		try{
+			var rect = el.getBoundingClientRect();
+			localStorage.setItem(storageKey, JSON.stringify({ x: rect.left, y: rect.top }));
+		}catch(e){}
+	}
+
+	var moved = false;
+	el.addEventListener('pointerdown', function(e){ moved=false; pointerDown(e); });
+	el.addEventListener('pointermove', function(e){ moved=true; pointerMove(e); });
+	el.addEventListener('pointerup', function(e){ pointerUp(e); if(!moved){ toggleLang(); } });
+	el.addEventListener('pointercancel', pointerUp);
+
+	el.addEventListener('touchstart', function(e){ moved=false; pointerDown(e); });
+	el.addEventListener('touchmove', function(e){ moved=true; pointerMove(e); });
+	el.addEventListener('touchend', function(e){ pointerUp(e); if(!moved){ toggleLang(); } });
+
+	function toggleLang(){
+		var current = el.getAttribute('data-current-lang') || document.documentElement.lang || 'ar';
+		var newLang = current === 'ar' ? 'en' : 'ar';
+		var token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+		if(!token){ window.location.reload(); return; }
+		fetch('/switch-language', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': token },
+			body: JSON.stringify({ locale: newLang })
+		}).then(function(res){ return res.json(); }).then(function(data){ if(data && data.success){ location.reload(); } else { location.reload(); } }).catch(function(){ location.reload(); });
+	}
+})();
+</script>

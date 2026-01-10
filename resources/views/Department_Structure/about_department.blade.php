@@ -186,7 +186,6 @@
             {{ app()->getLocale() === 'ar' ? 'لا توجد بيانات متاحة' : 'No data available' }}
         </div>
     @endif
-    @include('partials.footer')
 @endsection
 
 @push('scripts')

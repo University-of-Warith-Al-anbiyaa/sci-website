@@ -133,6 +133,12 @@ ul.nav_scroll li i {
     visibility: hidden;
     border-top: 2px solid  #0c244e;
 }
+
+html[dir="ltr"] .techno_menu ul .sub-menu {
+    left: 0;
+    right: auto;
+    text-align: left;
+}
 .techno_menu ul li:hover>.sub-menu {
      opacity: 1;
      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
@@ -1313,6 +1319,9 @@ html[dir="ltr"] .footer-socail-icon {
 .footer-bottom-content-copy p {
     color: #fff;
     text-align: left;
+}
+html[dir="ltr"] .footer-bottom-content-copy p {
+    text-align: right !important;
 }
 .footer-bottom-content-copy span {
     color: #e29f5b;

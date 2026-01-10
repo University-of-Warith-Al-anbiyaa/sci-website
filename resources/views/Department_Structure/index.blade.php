@@ -107,7 +107,6 @@
             {{ session('locale') === 'en' ? 'No department structure available' : 'لا يوجد هيكل تنظيمي متاح' }}
         </div>
     @endif
-    @include('partials.footer')
 @endsection
 
 @push('scripts')

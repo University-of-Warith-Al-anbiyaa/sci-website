@@ -235,47 +235,46 @@
         <div id="instructions" class="form-section">
             <div class="section-header">
                 <i class="fas fa-info-circle"></i>
-                <h3>شروط وتعليمات استمارة استلال بحث</h3>
+                <h3>  {{ session('locale') === 'en' ? 'Terms and Instructions for Plagiarism Check Form' : 'شروط وتعليمات استمارة استلال بحث' }}  </h3>
             </div>
             <div class="section-content">
                 <p class="intro-text">
-                    إن خدمة فحص الاستلال المقدمة من المركز هي خدمة رسمية تخضع لجميع شروط وتعليمات الوزارة وتوجهات الجامعة في
+                  {{ session('locale') === 'en' ? 'The plagiarism check service provided by the center is an official service subject to all the ministry\'s terms and instructions and the university\'s directions in consolidating the movement of scientific research and controlling publishing procedures. The center adheres to its own working mechanism to ensure integrity, workflow smoothness, and equality among all.' : 'إن خدمة فحص الاستلال المقدمة من المركز هي خدمة رسمية تخضع لجميع شروط وتعليمات الوزارة وتوجهات الجامعة في
                     ترصين حركة البحث العلمي وضبط إجراءات النشر، ويلتزم المركز بآلية عمل خاصة به لضمان نزاهة وانسيابية العمل
-                    والمساواة بين الجميع.
+                    والمساواة بين الجميع.' }}
                 </p>
 
                 <div class="conditions-section">
-                    <h6>فحص الاستلال الالكتروني (Turnitin) للأبحاث والأوراق العلمية ورسائل الماجستير وأطاريح الدكتوراه من
-                        خارج جامعة وارث الأنبياء (علية السلام)</h6>
+                    <h6>  {{ session('locale') === 'en' ? 'Electronic plagiarism check (Turnitin) for research papers, scientific papers, masters theses, and doctoral dissertations from outside the University of Warith Al-Anbiya (peace be upon him)' : ' فحص الاستلال الالكتروني (Turnitin) للأبحاث والأوراق العلمية ورسائل الماجستير وأطاريح الدكتوراه من
+                        خارج جامعة وارث الأنبياء (علية السلام)'}} </h6>
                     <ul class="conditions-list">
-                        <li>يتم ارسال الملف المراد عمل استلال الكتروني له (بصيغة وورد) على ان يكون ملف واحد فقط (غير مجزء)
-                            وبدون مصادر البحث او الرسالة.</li>
-                        <li>في حال وجود صور في الملف المطلوب استلاله يرجى حذفها من قبل الباحث (يتم تسليم ملف الوورد خاليا من
-                            الصور).</li>
-                        <li>اجور الاستلال الالكتروني تدفع لقسم الحسابات وهي (10 الاف دينار)</li>
-                        <li>عند اتمام تقرير الاستلال الالكتروني من قبل المركز (بصيغة pdf) يتم ارساله الى البريد الالكتروني
-                            الخاص بطالب الاستلال.</li>
-                        <li>يتم ارسال تقرير الاستلال (من قبل اللجنة) الى الباحث المعني (خلال مدة لا تتجاوز ٣ ايام عمل).</li>
+                        <li> {{ session('locale') === 'en' ? 'The file to be electronically plagiarized (in Word format) must be sent as a single file (not divided) and without the sources of the research or thesis.' : 'يتم ارسال الملف المراد عمل استلال الكتروني له (بصيغة وورد) على ان يكون ملف واحد فقط (غير مجزء)
+                            وبدون مصادر البحث او الرسالة.' }}</li>
+                        <li> {{ session('locale') === 'en' ? 'If there are images in the file to be plagiarized, please delete them before submitting (the Word file should be free of images).' : 'في حال وجود صور في الملف المطلوب استلاله يرجى حذفها من قبل الباحث (يتم تسليم ملف الوورد خاليا من
+                            الصور).' }}</li>
+                        <li> {{ session('locale') === 'en' ? 'When the electronic plagiarism report is completed by the center (in PDF format), it is sent to the email of the plagiarism requester.' : 'عند اتمام تقرير الاستلال الالكتروني من قبل المركز (بصيغة pdf) يتم ارساله الى البريد الالكتروني
+                            الخاص بطالب الاستلال.' }}</li>
+                        <li> {{ session('locale') === 'en' ? 'The plagiarism report (by the committee) is sent to the concerned researcher (within a period not exceeding 3 working days).' : 'يتم ارسال تقرير الاستلال (من قبل اللجنة) الى الباحث المعني (خلال مدة لا تتجاوز ٣ ايام عمل).' }}</li>
                     </ul>
                 </div>
 
                 <div class="conditions-section">
-                    <h6>فحص الاستلال الالكتروني (Turnitin) للأبحاث والأوراق العلمية ورسائل الماجستير وأطاريح الدكتوراه
-                        للتدريسيين والباحثين في جامعة وارث الأنبياء (عليه السلام)</h6>
+                    <h6> {{ session('locale') === 'en' ? 'Electronic plagiarism check (Turnitin) for research papers, scientific papers, masters theses, and doctoral dissertations for faculty members and researchers at the University of Warith Al-Anbiya (peace be upon him)' : 'فحص الاستلال الالكتروني (Turnitin) للأبحاث والأوراق العلمية ورسائل الماجستير وأطاريح الدكتوراه
+                        للتدريسيين والباحثين في جامعة وارث الأنبياء (عليه السلام)'}} </h6>
                     <ul class="conditions-list">
-                        <li>يتم ارسال الملف المراد عمل استلال الكتروني له (بصيغة وورد) على ان يكون ملف واحد فقط (غير مجزء) و
-                            بدون مصادر البحث او الرسالة.</li>
-                        <li>في حال وجود صور في الملف المطلوب استلاله يرجى حذفها من قبل الباحث (يتم تسليم ملف الوورد خاليا من
-                            الصور).</li>
-                        <li>يكون الاستلال مجاني</li>
-                        <li>عند إتمام تقرير الاستلال الالكتروني من قبل المركز (بصيغة pdf) يتم ارساله الى البريد الالكتروني
-                            الخاص بطالب الاستلال.</li>
-                        <li>يتم ارسال تقرير الاستلال (من قبل اللجنة) الى الباحث المعني (خلال مدة لا تتجاوز ٣ أيام عمل).</li>
+                        <li> {{ session('locale') === 'en' ? 'The file to be electronically plagiarized (in Word format) must be sent as a single file (not divided) and without the sources of the research or thesis.' : 'يتم ارسال الملف المراد عمل استلال الكتروني له (بصيغة وورد) على ان يكون ملف واحد فقط (غير مجزء)
+                            وبدون مصادر البحث او الرسالة.' }}</li>
+                        <li> {{ session('locale') === 'en' ? 'If there are images in the file to be plagiarized, please delete them before submitting (the Word file should be free of images).' : 'في حال وجود صور في الملف المطلوب استلاله يرجى حذفها من قبل الباحث (يتم تسليم ملف الوورد خاليا من
+                            الصور).' }}</li>
+                        <li> {{ session('locale') === 'en' ? 'The plagiarism service is free of charge.' : 'يكون الاستلال مجاني' }}</li>
+                        <li> {{ session('locale') === 'en' ? 'When the electronic plagiarism report is completed by the center (in PDF format), it is sent to the email of the plagiarism requester.' : 'عند إتمام تقرير الاستلال الالكتروني من قبل المركز (بصيغة pdf) يتم ارساله الى البريد الالكتروني
+                            الخاص بطالب الاستلال.' }}</li>
+                        <li> {{ session('locale') === 'en' ? 'The plagiarism report (by the committee) is sent to the concerned researcher (within a period not exceeding 3 working days).' : 'يتم ارسال تقرير الاستلال (من قبل اللجنة) الى الباحث المعني (خلال مدة لا تتجاوز ٣ أيام عمل).' }}</li>
                     </ul>
                 </div>
 
                 <div class="text-center mt-4">
-                    <button class="btn-submit" onclick="showForm()">موافق على التعليمات</button>
+                    <button class="btn-submit" onclick="showForm()">{{ session('locale') === 'en' ? 'Agree to the instructions' : 'موافق على التعليمات' }}</button>
                 </div>
             </div>
         </div>
@@ -284,11 +283,11 @@
         <div id="submitForm" class="form-section" style="display:none">
             <div class="section-header">
                 <i class="fas fa-file-alt"></i>
-                <h3>استمارة طلب فحص الاستلال</h3>
+                <h3>{{ session('locale') === 'en' ? 'Plagiarism Check Request Form' : 'استمارة طلب فحص الاستلال' }}</h3>
             </div>
             <div class="section-content">
                 <button class="btn btn-link mb-3" onclick="showInstructions()">
-                    <i class="fas fa-arrow-right"></i> عرض التعليمات
+                    <i class="fas fa-arrow-right"></i> {{ session('locale') === 'en' ? 'Show Instructions' : 'عرض التعليمات' }}
                 </button>
 
                 <form action="{{ route('plagiarism.store') }}" method="POST" enctype="multipart/form-data">
@@ -297,48 +296,48 @@
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label required">نوع الانتساب</label>
+                            <label class="form-label required">{{ session('locale') === 'en' ? 'Affiliation Type' : 'نوع الانتساب' }}</label>
                             <select name="affiliation" class="form-select" id="affiliationSelect" required>
-                                <option value="">-- اختر نوع الانتساب --</option>
-                                <option value="uow">جامعة وارث الأنبياء</option>
-                                <option value="other">خارج الجامعة</option>
+                                <option value=""> {{ session('locale') === 'en' ? '-- Select Affiliation Type --' : '-- اختر نوع الانتساب --' }}</option>
+                                <option value="uow"> {{ session('locale') === 'en' ? 'University of Warith Al-Anbiyaa' : 'جامعة وارث الأنبياء' }}</option>
+                                <option value="other"> {{ session('locale') === 'en' ? 'Outside the University' : 'خارج الجامعة' }}</option>
                             </select>
                         </div>
 
                         <!-- UOW Code Field -->
                         <div class="form-group" id="codeField" style="display:none;">
-                            <label class="form-label required">الرمز التعريفي</label>
+                            <label class="form-label required">{{ session('locale') === 'en' ? 'Identification Code' : 'الرمز التعريفي' }}</label>
                             <input type="text" name="code" class="form-control" pattern="[0-9]+"
-                                title="الرجاء إدخال أرقام فقط">
+                                title="{{ session('locale') === 'en' ? 'Please enter numbers only' : 'الرجاء إدخال أرقام فقط' }}">
                         </div>
 
                         <!-- External University Selection -->
                         <div class="form-group" id="universityField" style="display:none;">
-                            <label class="form-label required">الجامعة</label>
+                            <label class="form-label required">{{ session('locale') === 'en' ? 'University' : 'الجامعة' }}</label>
                             <select name="selected_university" class="form-select" id="universitySelect">
-                                <option value="">-- اختر الجامعة --</option>
+                                <option value="">{{ session('locale') === 'en' ? '-- Select University --' : '-- اختر الجامعة --' }}</option>
                                 @foreach($form_data['universities'] as $uni)
                                     <option value="{{ $uni['name'] }}">{{ $uni['name'] }}</option>
                                 @endforeach
-                                <option value="other">أخرى</option>
+                                <option value="other">{{ session('locale') === 'en' ? 'Other' : 'أخرى' }}</option>
                             </select>
                         </div>
 
                         <!-- Other University Name Field -->
                         <div class="form-group" id="otherUniField" style="display:none;">
-                            <label class="form-label required">اسم الجامعة</label>
+                            <label class="form-label required">{{ session('locale') === 'en' ? 'University Name' : 'اسم الجامعة' }}</label>
                             <input type="text" name="current_uni" class="form-control">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label required">عنوان البحث</label>
+                            <label class="form-label required">{{ session('locale') === 'en' ? 'Research Title' : 'عنوان البحث' }}</label>
                             <input type="text" name="title" class="form-control" required>
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label required">الكلية</label>
+                            <label class="form-label required">{{ session('locale') === 'en' ? 'College' : 'الكلية' }}</label>
                             <select name="collage" class="form-select" required>
                                 @foreach($form_data['collages'] as $college)
                                     <option value="{{ $college['id'] }}">{{ $college['college'] }}</option>
@@ -349,7 +348,7 @@
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label required">القسم</label>
+                            <label class="form-label required">{{ session('locale') === 'en' ? 'Department' : 'القسم' }}</label>
                             <select name="department" class="form-select" required>
                                 @foreach($form_data['departments'] as $dept)
                                     <option value="{{ $dept['department'] }}">{{ $dept['department'] }}</option>
@@ -358,34 +357,34 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label required">اسم الباحث</label>
+                            <label class="form-label required">{{ session('locale') === 'en' ? 'Researcher Name' : 'اسم الباحث' }}</label>
                             <input type="text" name="name" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label required">البريد الالكتروني</label>
+                            <label class="form-label required">{{ session('locale') === 'en' ? 'Email' : 'البريد الالكتروني' }}</label>
                             <input type="email" name="email" class="form-control" required>
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label required">رقم الهاتف</label>
+                            <label class="form-label required">{{ session('locale') === 'en' ? 'Phone Number' : 'رقم الهاتف' }}</label>
                             <input type="text" name="phone" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label required">ملف البحث (Word أو PDF)</label>
+                            <label class="form-label required">{{ session('locale') === 'en' ? 'Research File (Word or PDF)' : 'ملف البحث (Word أو PDF)' }}</label>
                             <input type="file" name="doc_file" class="form-control" accept=".doc,.docx,.pdf" required>
-                            <small class="text-muted">يمكنك رفع ملف بصيغة DOC أو DOCX أو PDF</small>
+                            <small class="text-muted">{{ session('locale') === 'en' ? 'You can upload a file in DOC, DOCX, or PDF format' : 'يمكنك رفع ملف بصيغة DOC أو DOCX أو PDF' }}</small>
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label required">وصل الدفع (صورة)</label>
+                            <label class="form-label required">{{ session('locale') === 'en' ? 'Payment Receipt (Image)' : 'وصل الدفع (صورة)' }}</label>
                             <input type="file" name="receipt_photo" class="form-control" accept=".jpg,.png" required>
-                            <small class="text-muted">يمكنك رفع صورة بصيغة JPG أو PNG فقط</small>
+                            <small class="text-muted">{{ session('locale') === 'en' ? 'You can upload an image in JPG or PNG format only' : 'يمكنك رفع صورة بصيغة JPG أو PNG فقط' }}</small>
                         </div>
                     </div>
                     <div class="form-group">
@@ -397,7 +396,7 @@
                         </div>
                     </div>
                     <button type="submit" class="btn-submit">
-                        <i class="fas fa-paper-plane"></i> إرسال الطلب
+                        <i class="fas fa-paper-plane"></i> {{ session('locale') === 'en' ? 'Submit Request' : 'إرسال الطلب' }}
                     </button>
                 </form>
             </div>
@@ -457,10 +456,10 @@
 
             // Fields required for external users
             const externalFields = {
-                'name': 'اسم الباحث',
-                'email': 'البريد الالكتروني',
-                'phone': 'رقم الهاتف',
-                'receipt_photo': 'وصل الدفع'
+                'name': '{{ session('locale') === 'en' ? 'Researcher Name' : 'اسم الباحث' }}',
+                'email': '{{ session('locale') === 'en' ? 'Email' : 'البريد الالكتروني' }}',
+                'phone': '{{ session('locale') === 'en' ? 'Phone Number' : 'رقم الهاتف' }}',
+                'receipt_photo': '{{ session('locale') === 'en' ? 'Payment Receipt (Image)' : 'وصل الدفع (صورة)' }}'
             };
 
             // Form validation based on affiliation
@@ -473,7 +472,7 @@
                 for (const field of commonRequired) {
                     if (!$(`[name="${field}"]`).val()) {
                         isValid = false;
-                        errorMessage = `الرجاء إدخال ${$(`[name="${field}"]`).closest('.form-group').find('label').text()}`;
+                        errorMessage = `{{ session('locale') === 'en' ? 'Please enter' : 'الرجاء إدخال' }} ${$(`[name="${field}"]`).closest('.form-group').find('label').text()}`;
                         break;
                     }
                 }
@@ -486,7 +485,7 @@
                     const code = $('input[name="code"]').val();
                     if (!code || !/^\d+$/.test(code)) {
                         isValid = false;
-                        errorMessage = 'الرجاء إدخال رمز تعريفي صحيح';
+                        errorMessage = '{{ session('locale') === 'en' ? 'Please enter a valid identification code' : 'الرجاء إدخال رمز تعريفي صحيح' }}';
                     } else {
                         isValid = true;
                         errorMessage = '';
@@ -497,13 +496,13 @@
 
                     if (!selectedUni) {
                         isValid = false;
-                        errorMessage = 'الرجاء اختيار الجامعة';
+                        errorMessage = '{{ session('locale') === 'en' ? 'Please select a university' : 'الرجاء اختيار الجامعة' }}';
                     } else if (selectedUni === 'other') {
                         // Validate new university name if "other" is selected
                         const newUniName = $('input[name="current_uni"]').val().trim();
                         if (!newUniName) {
                             isValid = false;
-                            errorMessage = 'الرجاء إدخال اسم الجامعة';
+                            errorMessage = '{{ session('locale') === 'en' ? 'Please enter the university name' : 'الرجاء إدخال اسم الجامعة' }}';
                         }
                         else {
                             isValid = true;
@@ -520,7 +519,7 @@
                             const value = $(`[name="${field}"]`).val();
                             if (!value) {
                                 isValid = false;
-                                errorMessage = `الرجاء إدخال ${label}`;
+                                errorMessage = `{{ session('locale') === 'en' ? 'Please enter' : 'الرجاء إدخال' }} ${label}`;
                                 break;
                             } else {
                                 isValid = true;
@@ -533,7 +532,7 @@
                 // reCAPTCHA validation
                 if (document.getElementById('g-recaptcha-response').value === '') {
                     isValid = false;
-                    errorMessage = 'الرجاء التحقق من أنك لست روبوت';
+                    errorMessage = '{{ session('locale') === 'en' ? 'Please verify that you are not a robot' : 'الرجاء التحقق من أنك لست روبوت' }}';
                 }
 
                 if (!isValid) {

@@ -147,7 +147,7 @@
             </div> -->
 
             <!-- Goals Card -->
-            <div class="vision-card">
+            <!-- <div class="vision-card">
                 <div class="vision-header">
                     <h2 class="vision-title">الأهداف الإستراتيجية للمركز</h2>
                 </div>
@@ -179,14 +179,13 @@
                         <strong>نسعى دائما للتحول من الروتين للإنجاز</strong>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     @else
         <div class="alert alert-info text-center mt-5">
             {{ app()->getLocale() === 'ar' ? 'لا توجد بيانات متاحة' : 'No data available' }}
         </div>
     @endif
-    @include('partials.footer')
 @endsection
 
 @push('scripts')
