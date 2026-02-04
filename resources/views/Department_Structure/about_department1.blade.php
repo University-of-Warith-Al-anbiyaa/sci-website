@@ -224,7 +224,7 @@
 
     <!-- Main Content -->
     <div class="main-content">
-        <div class="info-grid">
+        <!-- <div class="info-grid">
             <div class="info-card">
                 <h2>{{ session('locale') === 'ar' ? 'من نحن' : 'Who We Are' }}</h2>
                 <p>{!! $about_content ?? session('locale') === 'ar' ? 'محتوى عن المركز...' : 'About content...' !!}</p>
@@ -235,7 +235,7 @@
                 <p>{{ session('locale') === 'ar' ? 'نسعى لتحقيق التميز في التعليم المستمر وتطوير المهارات المهنية' : 'We strive for excellence in continuing education and professional development' }}
                 </p>
             </div>
-        </div>
+        </div> -->
 
         <div class="main-content">
             <div class="info-grid">

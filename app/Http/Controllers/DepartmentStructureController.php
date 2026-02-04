@@ -154,6 +154,8 @@ class DepartmentStructureController extends Controller
             'created' => $created,
         ];
 
+        // return response()->json($about_department);
+
         return view('Department_Structure.about_department1', compact('about_department'));
     }
 

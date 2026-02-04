@@ -29,6 +29,7 @@ class clc_planController extends Controller
         $page = $request->get('page', 1);
         $clc_annual_plan = $this->clc_annual_plan($page);
 
+        // return response()->json($clc_annual_plan);
         return view('clc_annual_plan.index', compact('clc_annual_plan'));
     }
 

@@ -78,6 +78,10 @@
             background: #f1c40f;
             color: white;
         }
+        .status-ended {
+            background: #95a5a6;
+            color: white;
+        }
 
         .category-badge {
             padding: 4px 8px;
@@ -297,7 +301,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($clc_annual_plan['data'] as $course)
+                    @php
+                        $courses = collect($clc_annual_plan['data'])->sortByDesc(function ($c) {
+                            try {
+                                return \Carbon\Carbon::parse($c['date'])->timestamp;
+                            } catch (\Exception $e) {
+                                return 0;
+                            }
+                        })->values();
+                    @endphp
+
+                    @foreach($courses as $course)
                         <tr data-category="{{ $course['category'] }}">
                             <td style="text-align: right;">{{ $course['title'] }}</td>
                             <td>{{ $course['department'] }}</td>
@@ -313,10 +327,25 @@
                             <td>{{ $course['duration'] }} أيام</td>
                             <td>{{ $course['h_name'] }}</td>
                             <td>
-                                <span
-                                    class="status-badge {{ $course['service'] === 'yes' ? 'status-active' : 'status-pending' }}">
-                                    {{ $course['service'] === 'yes' ? 'متاح' : 'قريباً' }}
-                                </span>
+                                @php
+                                    $start = \Carbon\Carbon::parse($course['date']);
+                                    $duration = intval($course['duration']);
+                                    $duration = $duration > 0 ? $duration : 1;
+                                    $end = (clone $start)->addDays($duration - 1);
+                                    $now = \Carbon\Carbon::today();
+                                    if ($now->betweenIncluded($start, $end)) {
+                                        $statusText = 'متاح';
+                                        $statusClass = 'status-active';
+                                    } elseif ($now->lt($start)) {
+                                        $statusText = 'قريباً';
+                                        $statusClass = 'status-pending';
+                                    } else {
+                                        $statusText = 'انتهت';
+                                        $statusClass = 'status-ended';
+                                    }
+                                @endphp
+
+                                <span class="status-badge {{ $statusClass }}">{{ $statusText }}</span>
                             </td>
                         </tr>
                     @endforeach

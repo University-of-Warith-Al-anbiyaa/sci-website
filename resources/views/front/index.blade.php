@@ -233,7 +233,7 @@ if (!empty($news)) {
 
 						</div>
 						<div class="blog_button">
-							<a href="detail.php?id=<?= urlencode($newsItem['id']) ?>" class="read-more"
+							<a href="{{ route('news.show', $newsItem['id']) }}" class="read-more"
 								onclick='showNewsDetails(<?= json_encode($newsItem, JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_UNICODE) ?>)'>
 								<i class="fas fa-arrow-left"></i> <?php echo session('locale') === 'en' ? 'Read More' : 'اقرأ المزيد'; ?>
 							</a>

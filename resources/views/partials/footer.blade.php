@@ -96,10 +96,10 @@
                 <div class="footer-recent-post">
                     <ul class="menu">
                         <li><a href="https://elearning.uowa.edu.iq/">{{ session('locale') === 'en' ? 'E-Learning' : 'منصة التعليم الالكتروني' }}</a></li>
-                        <li><a href="#">{{ session('locale') === 'en' ? 'Weekly Schedule' : ' الجدول الاسبوعي' }}</a></li>
-                        <li><a href="#">{{ session('locale') === 'en' ? 'Monthly Exams Schedule' : ' جدول الامتحانات الشهري' }}</a></li>
-                        <li><a href="#">{{ session('locale') === 'en' ? 'Final Exams Schedule' : ' جدول الامتحانات النهائي' }}</a></li>
-                        <li><a href="#">{{ session('locale') === 'en' ? 'Student E-Learning Guide' : ' دليل الطالب للتعلم الالكتروني' }}</a></li>
+                        <li><a href="https://uowa.edu.iq/arabic/dars">{{ session('locale') === 'en' ? 'Weekly Schedule' : ' الجدول الاسبوعي' }}</a></li>
+                        <li><a href="https://uowa.edu.iq/arabic/exam/monthly">{{ session('locale') === 'en' ? 'Monthly Exams Schedule' : ' جدول الامتحانات الشهري' }}</a></li>
+                        <li><a href="https://uowa.edu.iq/arabic/exam/final">{{ session('locale') === 'en' ? 'Final Exams Schedule' : ' جدول الامتحانات النهائي' }}</a></li>
+                        <li><a href="https://uowa.edu.iq/arabic/clc/guide">{{ session('locale') === 'en' ? 'Student E-Learning Guide' : ' دليل الطالب للتعلم الالكتروني' }}</a></li>
                     </ul>
                 </div>
             </div>
