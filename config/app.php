@@ -125,30 +125,6 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
-    'providers' => [
-        Illuminate\Auth\AuthServiceProvider::class,
-        Illuminate\Broadcasting\BroadcastServiceProvider::class,
-        Illuminate\Bus\BusServiceProvider::class,
-        Illuminate\Cache\CacheServiceProvider::class,
-        Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
-        Illuminate\Cookie\CookieServiceProvider::class,
-        Illuminate\Database\DatabaseServiceProvider::class,
-        Illuminate\Encryption\EncryptionServiceProvider::class,
-        Illuminate\Filesystem\FilesystemServiceProvider::class,
-        Illuminate\Foundation\Providers\FoundationServiceProvider::class,
-        Illuminate\Session\SessionServiceProvider::class,
-        Illuminate\View\ViewServiceProvider::class,
-        Illuminate\Translation\TranslationServiceProvider::class,
-        
-        App\Providers\AppServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
-    ],
 
-    'aliases' => [
-        // ...existing aliases...
-        'Lang' => Illuminate\Support\Facades\Lang::class,
-        'App' => Illuminate\Support\Facades\App::class,
-        'Translator' => Illuminate\Support\Facades\Lang::class,
-    ],
 
 ];

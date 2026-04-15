@@ -51,7 +51,7 @@ class CertificateController extends Controller
                         'days' => $cert['days'],
                         'datestart' => date('Y-m-d', $cert['datestart']),
                         'created' => date('Y-m-d', $cert['created']),
-                        'orders' => $cert['created'],
+                        'orders' => $cert['filename'],
                     ];
                 })->toArray();
 

@@ -165,7 +165,7 @@ $(document).ready(function() {
                                             <i class="fas fa-download"></i>
                                             {{ session('locale') === 'en' ? 'Download Certificate' : 'تحميل الشهادة' }}
                                         </a>
-                                        <a href="https://uowa.edu.iq/store/filestorage/${cert.filename}" 
+                                        <a href="https://uowa.edu.iq/store/filestorage/${cert.orders}" 
                                            target="_blank"
                                            class="btn-download btn-order">
                                             <i class="fas fa-file-pdf"></i>

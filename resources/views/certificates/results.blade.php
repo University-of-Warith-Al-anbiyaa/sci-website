@@ -61,7 +61,7 @@
                                         class="btn btn-certificate btn-success me-2">
                                         <i class="fas fa-download"></i> تحميل الشهادة
                                     </a>
-                                    <a href="{{ route('certificates.order', $cert['id']) }}"
+                                    <a href="{{ route('certificates.order', $cert['filename']) }}"
                                         class="btn btn-certificate btn-info">
                                         <i class="fas fa-file-pdf"></i> الأمر الإداري
                                     </a>
