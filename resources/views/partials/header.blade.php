@@ -80,6 +80,8 @@
 				</div>
 				<div class="col-lg-10">
 					<nav class="techno_menu text-center">
+						@include('partials.navbar-links', ['listClass' => 'nav_scroll mb-0'])
+						@if (false)
 						<ul class="nav_scroll mb-0">
 							<li><a href="/"> {{session('locale') === 'en' ? 'Home' : 'الرئيسية'}}
 									<!-- <span>
@@ -211,6 +213,7 @@
 									href="{{ route('contact.index') }}">{{ session('locale') === 'en' ? 'Contact Us' : 'اتصل بنا' }}</a>
 							</li>
 						</ul>
+						@endif
 					</nav>
 				</div>
 			</div>
@@ -219,6 +222,8 @@
 	<div class="mobile-menu-area d-sm-block d-md-block d-lg-none">
 		<div class="mobile-menu">
 			<nav class="techno_menu" style="display: block;">
+				@include('partials.navbar-links', ['listClass' => 'nav_scroll'])
+				@if (false)
 				<ul class="nav_scroll">
 					<li><a href="/">{{session('locale') === 'en' ? 'Home' : 'الرئيسية'}} <span><i
 									class=""></i></span></a>
@@ -289,6 +294,7 @@
 					</li>
 					<li><a href="{{ route('contact.index') }}">{{ session('locale') === 'en' ? 'Contact Us' : 'اتصل بنا' }} </a></li>
 				</ul>
+				@endif
 			</nav>
 			<!-- Mobile language toggle button -->
 			
