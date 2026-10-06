@@ -78,12 +78,10 @@
 				{{ session('locale') === 'en' ? 'list' : 'اساسية' }}</h4>
                     <div class="menu-quick-link-content">
                         <ul class="menu">
-                            <li><a href="#">{{ session('locale') === 'en' ? 'Home' : 'الرئيسية' }}</a></li>
-                            <li><a href="https://uowa.edu.iq/arabic/universitynews">{{ session('locale') === 'en' ? 'University News' : 'اخبار الجامعة' }}</a></li>
-							<li><a href="{{ route('news.index') }}">{{ session('locale') === 'en' ? 'Center News' : 'اخبار المركز' }}</a></li>
-                            <li><a href="https://uowa.edu.iq/arabic/gallery/">{{ session('locale') === 'en' ? 'Photo Gallery' : 'معرض الصور' }}</a></li>
-
-                            <li><a href="https://uowa.edu.iq/arabic/moder">{{ session('locale') === 'en' ? 'Login' : 'تسجيل الدخول' }}</a></li>
+                            <li><a href="#">{{ session('locale') === 'en' ? 'About Scientific Affairs' : 'عن الشؤون العلمية' }}</a></li>
+                            <li><a href="#">{{ session('locale') === 'en' ? 'Digital Repository' : 'المستودع الرقمي' }}</a></li>
+							<li><a href="{{ route('news.index') }}">{{ session('locale') === 'en' ? 'Patents' : 'براءات الاختراع' }}</a></li>
+                            <li><a href="#">{{ session('locale') === 'en' ? 'Warith Scientific Platform' : 'منصة وارث العلمية' }}</a></li>
                             <!-- <li><a href="#">{{ session('locale') === 'en' ? 'Continuous Education' : 'التعليم المستمر' }}</a></li> -->
                         </ul>
                     </div>
@@ -95,11 +93,10 @@
                 </div>
                 <div class="footer-recent-post">
                     <ul class="menu">
-                        <li><a href="https://elearning.uowa.edu.iq/">{{ session('locale') === 'en' ? 'E-Learning' : 'منصة التعليم الالكتروني' }}</a></li>
-                        <li><a href="https://uowa.edu.iq/arabic/dars">{{ session('locale') === 'en' ? 'Weekly Schedule' : ' الجدول الاسبوعي' }}</a></li>
-                        <li><a href="https://uowa.edu.iq/arabic/exam/monthly">{{ session('locale') === 'en' ? 'Monthly Exams Schedule' : ' جدول الامتحانات الشهري' }}</a></li>
-                        <li><a href="https://uowa.edu.iq/arabic/exam/final">{{ session('locale') === 'en' ? 'Final Exams Schedule' : ' جدول الامتحانات النهائي' }}</a></li>
-                        <li><a href="https://uowa.edu.iq/arabic/clc/guide">{{ session('locale') === 'en' ? 'Student E-Learning Guide' : ' دليل الطالب للتعلم الالكتروني' }}</a></li>
+                        <li><a href="#">{{ session('locale') === 'en' ? 'Research Units' : 'الوحدات البحثية' }}</a></li>
+                        <li><a href="#">{{ session('locale') === 'en' ? 'Scientific Journals' : 'المجلات العلمية' }}</a></li>
+                        <li><a href="#">{{ session('locale') === 'en' ? 'Conferences & Collaboration' : 'المؤتمرات والتعاون' }}</a></li>
+                        <li><a href="#">{{ session('locale') === 'en' ? 'Scientific Promotions' : 'الترقيات العلمية' }}</a></li>
                     </ul>
                 </div>
             </div>
@@ -141,7 +138,7 @@
 								</p>
 							</div>
 						</div>
-						</div>		
+						</div>
 					</div>
 			</div>
 			<div class="row footer-bottom">
@@ -170,6 +167,5 @@
 
     <!-- Footer Area End -->
 
-    
+
     <!-- All JS is here
-     
