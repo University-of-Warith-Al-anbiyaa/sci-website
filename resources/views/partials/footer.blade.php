@@ -79,7 +79,7 @@
                     <div class="menu-quick-link-content">
                         <ul class="menu">
                             <li><a href="#">{{ session('locale') === 'en' ? 'About Scientific Affairs' : 'عن الشؤون العلمية' }}</a></li>
-                            <li><a href="#">{{ session('locale') === 'en' ? 'Digital Repository' : 'المستودع الرقمي' }}</a></li>
+                            <li><a href="https://www.google.com">{{ session('locale') === 'en' ? 'Digital Repository' : 'المستودع الرقمي' }}</a></li>
 							<li><a href="{{ route('news.index') }}">{{ session('locale') === 'en' ? 'Patents' : 'براءات الاختراع' }}</a></li>
                             <li><a href="#">{{ session('locale') === 'en' ? 'Warith Scientific Platform' : 'منصة وارث العلمية' }}</a></li>
                             <!-- <li><a href="#">{{ session('locale') === 'en' ? 'Continuous Education' : 'التعليم المستمر' }}</a></li> -->
