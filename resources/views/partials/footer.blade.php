@@ -52,7 +52,7 @@
 							</div>
 						<div class="company-info-desc">
 							<p>
-								{{ session('locale') === 'en' ? 'Higher education, scientific research, technological development, continuing education, e-learning, and university education' : 'والتعليم العالي والبحث العلمي والتطوير التكنولوجي والتعليم المستمر والتعليم الالكتروني والتعليم الجامعي' }}
+								{{ session('locale') === 'en' ? 'The Scientific Affairs website is the unified gateway for everything related to scientific research, postgraduate studies, and promotions' : 'موقع الشؤون العلمية هو البوابة الموحدة لكل ما يخص البحث العلمي والدراسات العليا والترقيات' }}
 							</p>
 						</div>
 						<div class="company_icon">
@@ -79,7 +79,7 @@
                     <div class="menu-quick-link-content">
                         <ul class="menu">
                             <li><a href="#">{{ session('locale') === 'en' ? 'About Scientific Affairs' : 'عن الشؤون العلمية' }}</a></li>
-                            <li><a href="https://www.google.com">{{ session('locale') === 'en' ? 'Digital Repository' : 'المستودع الرقمي' }}</a></li>
+                            <li><a href="#">{{ session('locale') === 'en' ? 'Digital Repository' : 'المستودع الرقمي' }}</a></li>
 							<li><a href="{{ route('news.index') }}">{{ session('locale') === 'en' ? 'Patents' : 'براءات الاختراع' }}</a></li>
                             <li><a href="#">{{ session('locale') === 'en' ? 'Warith Scientific Platform' : 'منصة وارث العلمية' }}</a></li>
                             <!-- <li><a href="#">{{ session('locale') === 'en' ? 'Continuous Education' : 'التعليم المستمر' }}</a></li> -->
@@ -156,7 +156,7 @@
 					<div class="footer-bottom-content">
 						<div class="footer-bottom-content-copy">
 							<p class="fp80 m-0">
-							<a href="https://uowa.edu.iq/"><span> {{ session('locale') === 'en' ? 'University of Warith Al-Anbiya' : 'جامعة وارث الانبياء (ع)' }} </span></a>  - <a href="/" class="text-white">{{ session('locale') === 'en' ? 'Continuing Education Center' : 'مركز التعليم المستمر' }} </a>
+							<a href="https://uowa.edu.iq/"><span> {{ session('locale') === 'en' ? 'University of Warith Al-Anbiya' : 'جامعة وارث الانبياء (ع)' }} </span></a>  - <a href="/" class="text-white">{{ session('locale') === 'en' ? 'Scientific Affairs Website' : ' موقع الشؤون العلمية ' }} </a>
 							</p>
 						</div>
 					</div>
