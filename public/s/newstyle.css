@@ -11,7 +11,7 @@
     background-position: center;
     background-size: cover;
     margin: 0;
-    
+
 }
 .meanmenu-reveal{transition: all ease 0.2s;}
 .logo_img img{
@@ -22,7 +22,7 @@
     transform: rotate(180deg);
 }
 .slider-button:hover .slider-link-hover{
-    stroke: #fcfcfc 
+    stroke: #fcfcfc
 }
 .bg-dean{background-color:#1b182d}
 .main-text-dean{
@@ -115,7 +115,7 @@ ul.nav_scroll li i {
     position: relative;
     color: #fff;
     /* font-size: 16px; */
-    
+
 }
 
 .techno_menu ul .sub-menu {
@@ -177,7 +177,7 @@ html[dir="ltr"] .techno_menu ul .sub-menu {
 a.meanmenu-reveal {
     display: none
   }
-  
+
   .mean-container .mean-bar {
     background: #0C244E;
     min-height: 60px;
@@ -186,7 +186,7 @@ a.meanmenu-reveal {
     width: 100%;
     z-index: 999999;
   }
-  
+
   .mean-container .meanmenu-reveal {
     padding: 15px;
     top: 0;
@@ -198,22 +198,22 @@ a.meanmenu-reveal {
     line-height: 22px;
     font-size: 1px;
     display: block;
-    float: left; 
+    float: left;
   }
-  
+
   .mean-container .mean-nav {
     float: left;
     width: 100%;
     background: #0c1923
   }
-  
+
   .mean-container .mean-nav ul {
     padding: 0;
     margin: 0;
     width: 100%;
     list-style-type: none
   }
-  
+
   .mean-container .mean-nav ul li {
     background: #f8f8f8 none repeat scroll 0 0;
     float: right;
@@ -221,7 +221,7 @@ a.meanmenu-reveal {
     width: 100%;
     border-top: 1px solid#ddd;
   }
-  
+
   .mean-container .mean-nav ul li a {
     background: #f8f8f8 none repeat scroll 0 0;
     color: #666666;
@@ -234,11 +234,11 @@ a.meanmenu-reveal {
     width: 90%;
     font-family: fbold;
   }
-  
+
   .mobile-menu-area {
     background: #262626;
   }
-  
+
   .mean-container .mean-nav ul li li a {
     border-top: 1px solid rgba(255, 255, 255, 0.25);
     opacity: 0.75;
@@ -248,32 +248,32 @@ a.meanmenu-reveal {
     width: 80%;
     color: #444;
   }
-  
+
   .mean-container .mean-nav ul li.mean-last a {
     border-bottom: 0;
     margin-bottom: 0
   }
-  
+
   .mean-container .mean-nav ul li li li a {
     width: 70%;
     padding: 1em 15%
   }
-  
+
   .mean-container .mean-nav ul li li li li a {
     width: 60%;
     padding: 1em 20%
   }
-  
+
   .mean-container .mean-nav ul li li li li li a {
     width: 50%;
     padding: 1em 25%
   }
-  
+
   .mean-container .mean-nav ul li a:hover {
     background: #f8f8f8 none repeat scroll 0 0;
     color: #F47E1E;
   }
-  
+
   .mean-container .mean-nav ul li a.mean-expand {
     width: 26px;
     height: 15px;
@@ -288,11 +288,11 @@ a.meanmenu-reveal {
     border: 0 !important;
     background: #F8F8F8;
   }
-  
+
   .mean-container .mean-nav ul li a.mean-expand:hover {
     background: #f8f8f8;
   }
-  
+
   .mean-container .mean-push {
     float: left;
     width: 100%;
@@ -300,24 +300,24 @@ a.meanmenu-reveal {
     margin: 0;
     clear: both
   }
-  
+
   .mean-nav .wrapper {
     width: 100%;
     padding: 0;
     margin: 0
   }
-  
+
   .mean-container .mean-bar,
   .mean-container .mean-bar * {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box
   }
-  
+
   .mean-remove {
     display: none !important
   }
-  
+
   /* .mean-container .mean-bar::after {
     color: #ffffff;
     content: "MENU";
@@ -326,19 +326,19 @@ a.meanmenu-reveal {
     position: absolute;
     top: 12px;
   } */
-  
+
 /* .mean-container .mean-bar::after {
     display: none;
   } */
-  
+
   .mean-container .mean-nav ul li a:hover {
     color: #0762f8;
     border-radius: 0;
-  } 
+  }
   .mobile-menu-area {
     background: #fff none repeat scroll 0 0;
   }
-  
+
   .mean-container .mean-nav ul li a {
     background: #fff;
     color: #444;
@@ -350,11 +350,11 @@ a.meanmenu-reveal {
   .mean-container .mean-nav ul li a.mean-expand:hover {
     background: none;
   }
-  
+
   .mean-container .mean-nav ul li {
     background: #444;
   }
-  
+
   .mean-container .mean-nav ul li li a {
     color: #151948;
     opacity: .90;
@@ -368,7 +368,7 @@ a.meanmenu-reveal {
   }
   .mean-container .mean-bar::before {
     color: #fff;
-    content: "مركز التعليم المستمر";
+    content: "موقع الشؤون العلمية";
     font-size: 1.2rem;
     right: 70px;
     position: absolute;
@@ -404,8 +404,8 @@ a.meanmenu-reveal {
     font-size: 22px;
     color: #fff;
     letter-spacing: 1px;
-    
-    
+
+
     animation: 0.8s 0.8s fadeInUp both;
     border-top: 1px solid #e29f5b;
     display: inline-block;
@@ -423,7 +423,7 @@ a.meanmenu-reveal {
     margin: 10px 0 14px;
     font-size: 16px;
     animation: 1s 2s fadeInUp both;
-    
+
 }
 .slider-button a {
     background: #0c244e;
@@ -434,7 +434,7 @@ a.meanmenu-reveal {
     border: 1px solid #0c244e;
     margin-top: 24px;
     transition: .5s;
-    
+
     z-index: 2;
     animation: 1s 2s fadeInUp both;
     position: relative;
@@ -530,10 +530,10 @@ a.slider-button3:hover i {
 }
 .slider-socail-icon span {
     font-size: 18px;
-    
+
     color: #fff;
     writing-mode: vertical-rl;
-    
+
     margin-top: 60px;
 }
 
@@ -712,7 +712,7 @@ span.follow-us:before {
     color: #0C244E;
     font-size: 20px;
     margin-bottom: 4px;
-    
+
     position: relative;
     z-index: 1;
     display: inline-block;
@@ -803,7 +803,7 @@ p.text-color {
       -ms-transition: all 0.9s ease-out 0s;
       -o-transition: all 0.9s ease-out 0s;
       transition: all 0.9s ease-out 0s;
-      border-radius: 10px; 
+      border-radius: 10px;
   }
   .scroll-area .go-top i {
         position: absolute;
@@ -821,12 +821,12 @@ p.text-color {
         -moz-transition: all 0.5s ease-out 0s;
         -ms-transition: all 0.5s ease-out 0s;
         -o-transition: all 0.5s ease-out 0s;
-        transition: all 0.5s ease-out 0s; 
+        transition: all 0.5s ease-out 0s;
     }
   .scroll-area .go-top i:last-child {
           opacity: 0;
           visibility: hidden;
-          top: 60%; 
+          top: 60%;
       }
   .scroll-area .go-top::before {
       content: '';
@@ -849,11 +849,11 @@ p.text-color {
       border-radius: 100%;
   }
   .scroll-area .go-top:focus, .scroll-area .go-top:hover {
-        color: #fff; 
+        color: #fff;
     }
   .scroll-area .go-top:focus::before, .scroll-area .go-top:hover::before {
           opacity: 1;
-          visibility: visible; 
+          visibility: visible;
   }
   .scroll-area .go-top:focus i:first-child, .scroll-area .go-top:hover i:first-child {
           opacity: 0;
@@ -863,7 +863,7 @@ p.text-color {
   .scroll-area .go-top:focus i:last-child, .scroll-area .go-top:hover i:last-child {
           opacity: 1;
           visibility: visible;
-          top: 50%; 
+          top: 50%;
   }
   .scroll-area .go-top.active {
       top: 95%;
@@ -879,7 +879,7 @@ p.text-color {
       border-radius:100%;
   }
   .top-wrap {
-    position: relative; 
+    position: relative;
   }
   .top-wrap .go-top-button {
       display: inline-block;
@@ -919,7 +919,7 @@ p.text-color {
   }
   .top-wrap .go-top-button:hover {
         background-color: #222;
-        color: #fff; 
+        color: #fff;
     }
   @keyframes ripple {
     0%, 35% {
@@ -1015,7 +1015,7 @@ p.text-color {
     color:#18326d;
 }
 .blog_page_title h4 a:hover{
-   color:#18326d; 
+   color:#18326d;
 }
 /* .blog_button a {
     display: inline-block;
@@ -1134,7 +1134,7 @@ p.text-color {
     .blog_button a {
         animation: gradientMove 3s linear infinite;
     }
-    
+
     .blog_button a:hover {
         animation: gradientMove 1.5s linear infinite;
     }
@@ -1331,7 +1331,7 @@ html[dir="ltr"] .footer-bottom-content-copy p {
     padding: 20px 0 0;
 }
 /* responsive */
-    
+
 @media (min-width: 1300px) and (max-width: 1499px) {
     .dreamit-slider-thumb-1 img {
         width: 100%;
@@ -1376,7 +1376,7 @@ html[dir="ltr"] .footer-bottom-content-copy p {
     .slider-socail-icon {
         left: 5px;
     }
-    
+
     .dreamit-slider-thumb-1 {
         /* right: -148px; */
         top: -126px;
@@ -1394,9 +1394,9 @@ html[dir="ltr"] .footer-bottom-content-copy p {
     .footer-socail-info2 {
         overflow: hidden;
     }
-    
+
     }
-    
+
     @media (min-width: 768px) and (max-width: 991px) {
     .comment-dean{
         padding: 25px 20px 25px !important;
@@ -1445,7 +1445,7 @@ html[dir="ltr"] .footer-bottom-content-copy p {
         margin-top: 5px;
     }
     }
-   
+
     @media only screen and (min-width: 600px) and (max-width: 767px) {
         .comment-dean{
             padding: 25px 20px 25px !important;
@@ -1526,7 +1526,7 @@ html[dir="ltr"] .footer-bottom-content-copy p {
     }
     .techno_nav_manu {
         display: none;
-    } 
+    }
     .slider-content h1 {
         font-size: 2rem;
         line-height: 2.5rem;
@@ -1566,4 +1566,3 @@ html[dir="ltr"] .footer-bottom-content-copy p {
         margin-top: 20px;
     }
     }
-    

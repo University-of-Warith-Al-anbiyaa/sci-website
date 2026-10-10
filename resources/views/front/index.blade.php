@@ -12,33 +12,26 @@
 		<div class="row">
 			<div class="col-lg-6 col-md-6 col-sm-12 padding-left">
 				<div class="dreamit-section-title text-right">
-					<h5>{{ session('locale') === 'en' ? 'Student Services' : 'خدمات الطالب' }}</h5>
-					<h2 class="py-3">{{ session('locale') === 'en' ? 'E-Services' : 'خدمات الكترونية' }}</h2>
-					<h2>{{ session('locale') === 'en' ? 'In addition to' : 'اضافة الى' }}
-						<span>{{ session('locale') === 'en' ? 'Courses for Students' : 'دورات للطلاب' }}</span>
-					</h2>
+					<h5>{{ session('locale') === 'en' ? 'Scientific Research' : 'البحث العلمي' }}</h5>
+					<h2 class="py-3">{{ session('locale') === 'en' ? 'Scientific Research Sections' : 'أقسام البحث العلمي' }}</h2>
 				</div>
 			</div>
 
-			<!-- Annual Plan -->
+			<!-- Research Units -->
 			<div class="col-lg-3 col-md-6 col-sm-12 padding-left">
 				<div class="techno-sinlge-service-box">
 					<div class="techno-service-box-inner">
-						<a href="{{ route('clc_annual_plan.index') }}" style="color: black;">
+						<a href="#" style="color: black;">
 						<div class="techno-service-content">
 							<div class="techno-service-icon">
 								<i class="service-icon">
-									<img src="./store/plan.svg" alt="">
+									<img src="{{ asset('store/research.svg') }}" alt="">
 								</i>
 							</div>
 							<div class="techno-service-title">
-								<h3 class="fp100">{{ session('locale') === 'en' ? 'Annual Plan' : 'الخطة السنوية' }}
-								</h3>
+								<h3 class="fp100">{{ session('locale') === 'en' ? 'Research Units' : 'الوحدات البحثية' }}</h3>
 								<p class="fp70">
-									{{ session('locale') === 'en' ?
-	'All training courses planned within the annual plan for colleges and university presidency departments for the current academic year.'
-	:
-	'جميع الدورات التدريبية المقرر إنجازها ضمن الخطة السنوية للكليات وأقسام رئاسة الجامعة للعام الدراسي الحالي.' }}
+									{{ session('locale') === 'en' ? 'Explore the university research centers and units.' : 'تعرف على المراكز والوحدات البحثية في الجامعة.' }}
 								</p>
 							</div>
 						</div>
@@ -47,26 +40,71 @@
 				</div>
 			</div>
 
-			<!-- Training Programs -->
+			<!-- Statistics and Rankings -->
 			<div class="col-lg-3 col-md-6 col-sm-12 padding-left">
 				<div class="techno-sinlge-service-box-1">
 					<div class="techno-service-box-inner">
-						<a href="{{ route('program') }}" style="color: black;">
+						<a href="#" style="color: black;">
 						<div class="techno-service-content">
 							<div class="techno-service-icon">
 								<i class="service-icon">
-									<img src="./store/training.svg" alt="">
+									<img src="{{ asset('store/calendar.svg') }}" alt="">
 								</i>
 							</div>
 							<div class="techno-service-title">
 								<h3 class="fp100">
-									{{ session('locale') === 'en' ? 'Training Programs' : 'البرامج التدريبية للمركز' }}
+									{{ session('locale') === 'en' ? 'Statistics & Rankings' : 'الإحصاءات والتصنيفات' }}
 								</h3>
 								<p class="fp70">
-									{{ session('locale') === 'en' ?
-	'A set of training and development programs that can be provided by the Continuing Education Center within a variety of specializations.'
-	:
-	'مجموعة من البرامج والدورات التدريبية والتطويرية والتي بالإمكان تقديمها من قبل مركز التعليم المستمر ضمن مجموعة من الاختصاصات المتنوعة.' }}
+									{{ session('locale') === 'en' ? 'View research statistics and university rankings.' : 'اطلع على إحصاءات البحث العلمي وتصنيفات الجامعة.' }}
+								</p>
+							</div>
+						</div>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Scientific Services and Platforms -->
+			<div class="col-lg-3 col-md-6 col-sm-12 padding-left">
+				<div class="techno-sinlge-service-box">
+					<div class="techno-service-box-inner">
+						<a href="#" style="color: black;">
+						<div class="techno-service-content">
+							<div class="techno-service-icon">
+								<i class="service-icon">
+									<img src="{{ asset('store/e-learning.svg') }}" alt="">
+								</i>
+							</div>
+							<div class="techno-service-title">
+								<h3 class="fp100">{{ session('locale') === 'en' ? 'Scientific Services & Platforms' : 'الخدمات والمنصات العلمية' }}</h3>
+								<p class="fp70">
+									{{ session('locale') === 'en' ? 'Access scientific services and research platforms.' : 'الوصول إلى الخدمات العلمية والمنصات البحثية.' }}
+								</p>
+							</div>
+						</div>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Instructions and Guides -->
+			<div class="col-lg-3 col-md-6 col-sm-12 padding-left">
+				<div class="techno-sinlge-service-box-1">
+					<div class="techno-service-box-inner">
+						<a href="#" style="color: black;">
+						<div class="techno-service-content">
+							<div class="techno-service-icon">
+								<i class="service-icon">
+									<img src="{{ asset('store/plan.svg') }}" alt="">
+								</i>
+							</div>
+							<div class="techno-service-title">
+								<h3 class="fp100">
+									{{ session('locale') === 'en' ? 'Instructions & Guides' : 'التعليمات والأدلة' }}
+								</h3>
+								<p class="fp70">
+									{{ session('locale') === 'en' ? 'Find research instructions, requirements, and guides.' : 'اطلع على تعليمات البحث العلمي ومتطلباته وأدلته.' }}
 								</p>
 							</div>
 						</div>
@@ -83,100 +121,19 @@
 						<div class="techno-service-content">
 							<div class="techno-service-icon">
 								<i class="service-icon">
-									<img src="./store/research.svg" alt="">
-								</i>
-							</div>
-							<div class="techno-service-title">
-								<h3 class="fp100">{{ session('locale') === 'en' ? 'Plagiarism Check' : 'الاستلال' }}
-								</h3>
-								<p class="fp70">
-									{{ session('locale') === 'en' ?
-	'Research and academic papers plagiarism check service through Turnitin.'
-	:
-	'خدمة فحص استلال البحوث والأوراق العلمية والرسائل والأطاريح من خلال برنامج Turnitin.' }}
-								</p>
-							</div>
-						</div>
-						</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Electronic Schedule -->
-			<div class="col-lg-3 col-md-6 col-sm-12 padding-left">
-				<div class="techno-sinlge-service-box">
-					<div class="techno-service-box-inner">
-						<a href="https://uowa.edu.iq/arabic/dars" style="color: black;">
-						<div class="techno-service-content">
-							<div class="techno-service-icon">
-								<i class="service-icon">
-									<img src="./store/calendar.svg" alt="">
+									<img src="{{ asset('store/research.svg') }}" alt="">
 								</i>
 							</div>
 							<div class="techno-service-title">
 								<h3 class="fp100">
-									{{ session('locale') === 'en' ? 'Electronic Schedule' : 'الجدول الالكتروني' }}
+									{{ session('locale') === 'en' ? 'Plagiarism Check' : 'الاستلال' }}
 								</h3>
 								<p class="fp70">
-									{{ session('locale') === 'en' ?
-	'Includes weekly class schedules for all university colleges.'
-	:
-	'يتضمن جدول الدروس الأسبوعية لجميع كليات الجامعة.' }}
+									{{ session('locale') === 'en' ? 'Research and academic papers plagiarism check service through Turnitin.' : 'خدمة فحص استلال البحوث والأوراق العلمية والرسائل والأطاريح من خلال برنامج Turnitin.' }}
 								</p>
 							</div>
 						</div>
 						</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- E-Learning Platform -->
-			<div class="col-lg-3 col-md-6 col-sm-12 padding-left">
-				<div class="techno-sinlge-service-box-1">
-					<div class="techno-service-box-inner">
-						<a href="https://elearning.uowa.edu.iq/" style="color: black;">
-						<div class="techno-service-content">
-							<div class="techno-service-icon">
-								<i class="service-icon">
-									<img src="./store/e-learning.svg" alt="">
-								</i>
-							</div>
-							<div class="techno-service-title">
-								<h3 class="fp100">
-									{{ session('locale') === 'en' ? 'E-Learning Platform' : 'منصة التعليم الالكتروني' }}
-								</h3>
-								<p class="fp70">
-									{{ session('locale') === 'en' ?
-	'An online platform that supports and enhances the efficiency of e-learning at the university.'
-	:
-	'منصة إلكترونية تدعم وتسهم في تطوير وتسهيل كفاءة التعليم الإلكتروني في الجامعة.' }}
-								</p>
-							</div>
-						</div>
-						</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Course Archive -->
-			<div class="col-lg-3 col-md-6 col-sm-12 padding-left">
-				<div class="techno-sinlge-service-box2">
-					<div class="techno-service-box-inner">
-						<div class="service-button">
-							<a href="{{ route('archive') }}">
-								{{ session('locale') === 'en' ? 'Course Archive' : 'ارشيف الدورات' }}
-								<i>
-									<svg style="transform: rotate(180deg);" width="800px" height="800px"
-										class="mx-1 s-20" viewBox="0 0 24 24" fill="none"
-										xmlns="http://www.w3.org/2000/svg">
-										<g id="SVGRepo_iconCarrier">
-											<path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#000000"
-												stroke-linecap="round" stroke-linejoin="round"></path>
-										</g>
-									</svg>
-								</i>
-							</a>
-						</div>
 					</div>
 				</div>
 			</div>

@@ -157,19 +157,23 @@
                 <img src="{{ !empty($item['photo']) ? 'https://uowa.edu.iq/store/filestorage/file_' . e($item['photo']) : asset('store/img15.jpg') }}" alt="Admin" class="admin-image">
                 <div class="admin-info">
                     <div class="admin-name">{{ $item['arttitle'] ?? 'كلمة رئيس القسم' }}</div>
-                    <div class="admin-position">{{ $item['ctitle'] ?? 'مدير مركز التعليم المستمر' }}</div>
+                    <div class="admin-position">{{ str_replace(['مركز التعليم المستمر', 'Continuing Education Center'], ['الشؤون العلمية', 'Scientific Affairs'], $item['ctitle'] ?? (app()->getLocale() === 'ar' ? 'مدير الشؤون العلمية' : 'Scientific Affairs Director')) }}</div>
                 </div>
             </div>
 
             <div class="message-content">
                 <div class="message-header">
                     <h1 class="message-title">{{ app()->getLocale() === 'ar' ? 'كلمة المسؤول' : "Administrator's Message" }}</h1>
-                    <div class="message-subtitle">{{ app()->getLocale() === 'ar' ? 'مركز التعليم المستمر' : 'Continuing Education Center' }}</div>
+                    <div class="message-subtitle">{{ app()->getLocale() === 'ar' ? 'موقع الشؤون العلمية' : 'Scientific Affairs Website' }}</div>
                 </div>
 
                 <div class="message-body">
                     <i class="fas fa-quote-right quote-icon"></i>
-                    {!! $item['content'] ?? '<p>يحتل مركز التعليم المستمر في جامعة وارث الانبياء مكانة مهمة ضمن المراكز و الاقسام الرئيسية في الجامعة وهو حلقة الوصل بين الجامعة والمجتمع؛ وقد ادرج المركز من ضمن أهداف الجامعة وخطتها الاستراتيجية عندما انشأت الجامعة هيكلها التنظيمي، لما يقدمه هذا المركز من خدمات لشريحة عريضة من المجتمع في مجالات التدريب والتطويروالتعليم والتعلم لرفع كفاءة الفرد والمجتمع ومواكبة متطلبات العصر ومواجهة التحديات وكذلك توظيف الامكانيات والقدرات والخبرات المتميزة لأعضاء هيئة التدريس وموظفي الجامعة لتحقيق الاهداف.<br />أنشأ مركز التعليم المستمر في جامعة وارث الانبياء لخدمة المجتمع ومن مبدأ "التعليم والتعلم مدى الحياة " ويسعى المركز من خلال البرامج التي يقدمها لتطوير وتنمية المهارات والخبرات وتوفير البيئة المناسبة والمشجعة في المجالات النظرية والتطبيقية وفي اتجاهين مهمين هما: الاتجاه الأول يهتم بمجال التدريب، وذلك من خلال البرامج التدريبية المتنوعة التي يطرحها المركز في جميع التخصصات بالتعاون مع عدة جهات سواءا كانت داخل الجامعة او خارجها..<br />أما الاتجاه الثاني فهو في مجال التطوير الذي يهدف إلى تطوير الجانب المهني سواء للعاملين في المؤسسات أو العاطلين عن العمل، لتحسين فرص حصولهم على عمل وتقديم الاستشارات وتنفيذ المشروعات التي تسهم في تنمية المجتمع العراقي.<br /> <br />م.د. حيدر محمد علي الغانمي<br />مدير مركز التعليم المستمر</p>' !!}
+                    {!! str_replace(
+                        ['مركز التعليم المستمر', 'Continuing Education Center'],
+                        ['موقع الشؤون العلمية', 'Scientific Affairs Website'],
+                        $item['content'] ?? '<p>يحتل موقع الشؤون العلمية في جامعة وارث الانبياء مكانة مهمة ضمن المراكز والاقسام الرئيسية في الجامعة، وهو البوابة الموحدة لكل ما يخص البحث العلمي والدراسات العليا والترقيات والنشر والتصنيف.</p>'
+                    ) !!}
                 </div>
             </div>
         </div>
@@ -198,7 +202,7 @@
 	<script src="{{ asset('s/jquery-3.2.1.min.js.download') }}"></script>
 	<script src="{{ asset('s/jquery.meanmenu.js.download') }}"></script>
 	<script src="{{ asset('s/theme.js.download') }}"></script>
-	
+
 	<script>
 		$(window).on('scroll', function () {
 			var scrolled = $(window).scrollTop();

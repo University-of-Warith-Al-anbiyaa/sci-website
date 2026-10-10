@@ -184,7 +184,7 @@
         <div class="hero-pattern"></div>
         <div class="hero-content">
             <h1 class="hero-title">
-                {{ $about_content->arttitle ?? session('locale') === 'ar' ? 'مركز التعليم المستمر' : 'Continuing Education Center' }}
+                {{ str_replace(['مركز التعليم المستمر', 'Continuing Education Center'], ['موقع الشؤون العلمية', 'Scientific Affairs Website'], $about_content->arttitle ?? (session('locale') === 'ar' ? 'موقع الشؤون العلمية' : 'Scientific Affairs Website')) }}
             </h1>
             <p class="hero-subtitle">
                 {{ session('locale') === 'ar' ? 'نحو مستقبل تعليمي أفضل' : 'Towards a Better Educational Future' }}
@@ -240,8 +240,8 @@
         <div class="main-content">
             <div class="info-grid">
                 <div class="info-card">
-                    <h2>{{ $about_department['arttitle'] }}</h2>
-                    <p>{!! $about_department['content']  !!}</p>
+                    <h2>{{ str_replace(['مركز التعليم المستمر', 'Continuing Education Center'], ['موقع الشؤون العلمية', 'Scientific Affairs Website'], $about_department['arttitle']) }}</h2>
+                    <p>{!! str_replace(['مركز التعليم المستمر', 'Continuing Education Center'], ['موقع الشؤون العلمية', 'Scientific Affairs Website'], $about_department['content']) !!}</p>
                 </div>
             </div>
         </div>
@@ -264,7 +264,7 @@
         <div class="info-grid" style="margin-top: 40px;">
             <div class="info-card" style="grid-column: 1 / -1;">
                 <h2>{{ session('locale') === 'ar' ? 'الخطة الاستراتيجية' : 'Strategic Plan' }}</h2>
-                <p>{{ session('locale') === 'ar' ? 'اطلع على الخطة الاستراتيجية لمركز التعليم المستمر' : 'View the Strategic Plan for the Continuing Education Center' }}
+                <p>{{ session('locale') === 'ar' ? 'اطلع على الخطة الاستراتيجية لموقع الشؤون العلمية' : 'View the Strategic Plan for the Scientific Affairs Website' }}
                 </p>
                 <div style="text-align: center; margin-top: 20px;">
                     <a href="{{ asset('pdf/الخطة الاستراتيجية.pdf') }}" target="_blank" class="btn btn-yellow"
