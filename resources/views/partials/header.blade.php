@@ -54,7 +54,7 @@
 				<div class="col-lg-2">
 					<div class="logo-container d-flex align-items-center justify-content-between">
 						<a class="logo_img" href="/" title="techno" style="--bs-gutter-x: 4.5rem;">
-							<img src="{{ asset('store/logo.svg') }}" alt="">
+							<img src="{{ asset('store/warith-logo.png') }}" alt="شعار جامعة وارث الأنبياء">
 						</a>
 						<button type="button" class="color-w lang-s d-none d-lg-block"
 							data-current-lang="{{ session('locale') }}" id="langToggle"

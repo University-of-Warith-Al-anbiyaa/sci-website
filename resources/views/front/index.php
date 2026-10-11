@@ -81,7 +81,7 @@ $dir = $_SESSION['dir'];
                     <div class="col-lg-2">
                         <div class="logo text-center">
                             <a class="logo_img" href="#" title="techno">
-                                <img src="store/logo.svg" alt="">
+                                <img src="store/warith-logo.png" alt="شعار جامعة وارث الأنبياء">
                             </a>
                         </div>
                     </div>
@@ -651,7 +651,7 @@ $dir = $_SESSION['dir'];
                     <div class="widget-widgets-company-info white">
                         <div class="techno-logo d-flex justify-content-center">
                             <a class="logo_img" href="#/index.html" title="techno">
-                                <img src="./store/logo-footer.svg" alt="" style="width: 200px;">
+                                <img src="./store/warith-logo.png" alt="شعار جامعة وارث الأنبياء" style="width: 200px;">
                             </a>
                         </div>
                         <div class="company-info-desc">

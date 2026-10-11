@@ -47,7 +47,7 @@
 					<div class="widget-widgets-company-info white text-center text-sm-left">
 						<div class="techno-logo d-flex justify-content-center">
 								<a class="logo_img" href="{{ url('/') }}" title="techno">
-									<img class="footer-logo" src="{{ asset('store/logo-footer.svg') }}" alt="logo">
+									<img class="footer-logo" src="{{ asset('store/warith-logo.png') }}" alt="شعار جامعة وارث الأنبياء">
 								</a>
 							</div>
 						<div class="company-info-desc">
